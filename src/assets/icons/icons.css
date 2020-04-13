@@ -1,0 +1,33 @@
+.icon {
+    position: absolute;
+    height: fit-content;
+    width: 30px;
+    filter: grayscale(100%);
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+.gh {
+    right: 200px;
+}
+
+.fb {
+    right: 50px;
+}
+
+.li {
+    right: 150px;
+}
+
+.tw {
+    right: 100px;
+}
+
+.ig {
+    right: 0px;
+}
+
+.icon:hover {
+    filter: none;
+    cursor: pointer;
+}
