@@ -101,13 +101,19 @@ export default function ProfilePage() {
 
     const toggleHeightForAlert = () => setAdjustForAlert(!adujustForAlert);
 
+    const setColoredShadowPosition = () => {
+        if (bkptSm && adujustForAlert) return { top: '132px', left: '20px' }
+        if (adujustForAlert) return { top: '158px' };
+        if (bkptSm) return { top: '85px', left: '20px' };
+    }
+
     return (
         <Fragment>
             <MenuAppBar toggleHeightForAlert={toggleHeightForAlert} />
                 <div className={classes.root}>
                     <Paper style={bkptSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
                         <div className={classes.headerSection} style={bkptMd ? { flexWrap: 'wrap' } : undefined}>
-                        {!bkptSm && <img className={classes.coloredShadow} style={adujustForAlert ? { top: '158px' } : undefined} src={profile} />}
+                        <img className={classes.coloredShadow} style={setColoredShadowPosition()} src={profile} />
                             <img className={classes.profileImg} src={profile} />
                             <div>
                                 <Typography 
