@@ -20,8 +20,9 @@ const useStyles = makeStyles(() => ({
     maxWidth: 250,
   },
   cardMedia: {
-    height: 140,
-    verticalAlign: 'middle'
+    height: 180,
+    verticalAlign: 'middle',
+    borderBottom: '1px solid #c5c5c5'
   },
   title: {
     whiteSpace: 'nowrap',
@@ -29,8 +30,10 @@ const useStyles = makeStyles(() => ({
     textOverflow: 'ellipsis'
   },
   cardContent: {
-    minHeight: '99px',
-    maxHeight: '99px'
+    padding: '5px 10px 5px 10px',
+    minHeight: '78px',
+    maxHeight: '78px',
+    overflow: 'hidden'
   }
 }));
 
@@ -46,7 +49,8 @@ export default function CustomCard(props) {
                 image={img}
                 title={title}
             />
-            <CardContent className={classes.cardContent}>
+        </CardActionArea>
+        <CardContent className={classes.cardContent}>
               <Typography 
                 className={classes.title} 
                 gutterBottom 
@@ -59,9 +63,8 @@ export default function CustomCard(props) {
               <Typography variant="body2" color="textSecondary" component="p" title={desc}>
                   {desc}
               </Typography>
-            </CardContent>
-        </CardActionArea>
-        <CardActions style={{ justifyContent: 'flex-end' }}>
+          </CardContent>
+        <CardActions style={{ backgroundColor: '#f6f6f6', boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 1px, rgba(0, 0, 0, 0.23) 0px 1px 1px inset', justifyContent: 'flex-end' }}>
             <IconButton aria-label="share" color="primary">
                 <ShareIcon />
             </IconButton>
