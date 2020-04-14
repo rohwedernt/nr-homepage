@@ -40,33 +40,34 @@ import placeholder from '../../assets/img/placeholder.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
     margin: '60px auto',
-    '& .MuiTab-root': {
-        backgroundColor: '#fff',
-        margin: '25px',
-        color: 'black',
-        borderRadius: '5px',
-        height: '90px',
-      },
-      '& .Mui-selected': {
-        backgroundColor: '#3f51b5',
-        color: '#fff',
-        boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
-      },
+    flexGrow: 1,
+    width: '100%',
+    // '& .MuiTab-root': {
+    //     backgroundColor: '#fff',
+    //     margin: '25px',
+    //     color: 'black',
+    //     borderRadius: '5px',
+    //     height: '90px',
+    //   },
+    //   '& .Mui-selected': {
+    //     backgroundColor: '#3f51b5',
+    //     color: '#fff',
+    //     boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
+    //   },
       '& .MuiTabs-flexContainer': {
           justifyContent: 'center'
       },
-      '& .MuiTab-wrapper': {
-          fontSize: '11px',
-          fontWeight: 'bold',
-      },
-      '& .MuiTab-fullWidth': {
-          flexGrow: 0
-      },
-      '& .MuiTab-labelIcon': {
-        minWidth: '95px',
-      }
+    //   '& .MuiTab-wrapper': {
+    //       fontSize: '11px',
+    //       fontWeight: 'bold',
+    //   },
+    //   '& .MuiTab-fullWidth': {
+    //       //flexGrow: 0
+    //   },
+    //   '& .MuiTab-labelIcon': {
+    //     minWidth: '95px',
+    //   }
   },
   gridContainer: {
     justifyContent: 'center'
@@ -106,6 +107,41 @@ const workData = [
     desc: `Connect your domain to a third-party web host`,
     img: googleDomains,
     url: 'https://support.google.com/domains/answer/6353515?hl=en'
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
   }
 ];
 
@@ -244,7 +280,7 @@ const astronomyData = [
   }
 ];
 
-export default function SectionTabs() {
+export default function SectionTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -260,18 +296,19 @@ export default function SectionTabs() {
   return (
     <div className={classes.root}>
       <AppBar position="static" color={'transparent'} elevation={0}>
-        <Tabs className={classes.tab}
+        <Tabs
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
           variant="fullWidth"
+          //scrollButtons="auto"
         >
-            <Tab className={classes.tab} icon={<CodeIcon />} label="Work" />
-            <Tab className={classes.tab} icon={<MusicIcon />} label="Music" />
-            <Tab className={classes.tab} icon={<FlightIcon />} label="Travel" />
-            <Tab className={classes.tab} icon={<LocalDrink />} label="Craft Beer" />
-            <Tab className={classes.tab} icon={<PublicIcon />} label="Astronomy" />
+            <Tab style={props.style} icon={<CodeIcon />} label={props.style ? '': 'Work'} />
+            <Tab style={props.style} icon={<MusicIcon />} label={props.style ? '': 'Music'} />
+            <Tab style={props.style} icon={<FlightIcon />} label={props.style ? '': 'Travel'} />
+            <Tab style={props.style} icon={<LocalDrink />} label={props.style ? '': 'Beer'} />
+            <Tab style={props.style} icon={<PublicIcon />} label={props.style ? '': 'Astronomy'} />
 
         </Tabs>
       </AppBar>

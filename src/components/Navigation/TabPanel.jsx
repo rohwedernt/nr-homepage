@@ -12,12 +12,11 @@ export default function TabPanel(props) {
         component="div"
         role="tabpanel"
         hidden={value !== index}
-        id={`full-width-tabpanel-${index}`}
-        aria-labelledby={`full-width-tab-${index}`}
+        id={`tabpanel-${index}`}
+        aria-labelledby={`scrollable-auto-tab-${index}`}
         {...other}
       >
         {value === index && <Box p={3}>{children}</Box>}
       </Typography>
     );
   }
-  
