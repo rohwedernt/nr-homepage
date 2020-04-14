@@ -19,7 +19,10 @@ import CustomDialog from "../Dialogs/CustomDialog";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+	flexGrow: 1,
+	'& .MuiIconButton-root:hover': {
+		backgroundColor: 'rgba(0,0,0,0.2)'
+	}
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -27,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  hamburger: {
+	  borderRadius: '8px',
+  }
 }));
 
 export default function MenuAppBar(props) {
@@ -65,9 +71,11 @@ export default function MenuAppBar(props) {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleMenu}
-              color="inherit"
+			  color="inherit"
+			  className={classes.hamburger}
             >
-              <MenuIcon />
+				<Typography style={{ marginRight: '10px' }} variant='subtitle1'>More Stuff</Typography>
+				<MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"

@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
+  alert: {
+      borderRadius: '0px'
+  }
 }));
 
 export default function SuccessAlert(props) {
@@ -27,6 +30,8 @@ export default function SuccessAlert(props) {
         <div className={classes.root}>
             <Collapse in={openAlert}>
             <Alert
+                className={classes.alert}
+                variant="filled" 
                 action={
                     <IconButton
                         aria-label="close"
