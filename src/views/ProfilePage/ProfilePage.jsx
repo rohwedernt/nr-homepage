@@ -89,6 +89,8 @@ export default function ProfilePage() {
 
     const bkptLg = useMediaQuery('(max-width:1135px)');
     const bkptMd = useMediaQuery('(max-width:990px)');
+    const bkptSm = useMediaQuery('(max-width:550px)');
+
 
 
     useEffect(() => {
@@ -103,9 +105,9 @@ export default function ProfilePage() {
         <Fragment>
             <MenuAppBar toggleHeightForAlert={toggleHeightForAlert} />
                 <div className={classes.root}>
-                    <Paper style={{ padding: '30px', borderRadius: '6px' }} elevation={16}>
+                    <Paper style={bkptSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
                         <div className={classes.headerSection} style={bkptMd ? { flexWrap: 'wrap' } : undefined}>
-                            <img className={classes.coloredShadow} style={adujustForAlert ? { top: '158px' } : undefined} src={profile} />
+                        {!bkptSm && <img className={classes.coloredShadow} style={adujustForAlert ? { top: '158px' } : undefined} src={profile} />}
                             <img className={classes.profileImg} src={profile} />
                             <div>
                                 <Typography 
@@ -129,7 +131,7 @@ export default function ProfilePage() {
                                 </Typography>
                             </div>
                         </div>
-                        <SectionTabs style={bkptMd ? { minWidth: '50px' } : undefined}/>
+                        <SectionTabs style={bkptMd ? { minWidth: '40px' } : undefined}/>
                     </Paper>
                 </div>
         </Fragment>
