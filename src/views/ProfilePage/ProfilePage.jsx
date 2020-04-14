@@ -99,7 +99,7 @@ export default function ProfilePage() {
                             <div>
                                 <Typography className={classes.pageHeader} variant="h4">Nate Rohweder</Typography>
                                 <Typography className={classes.pageSubheader} variant="h6">Software Engineer</Typography>
-                                <Typography className={classes.pageParagraph} variant="p" component="div">
+                                <Typography className={classes.pageParagraph} variant="body1" component="div">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
                                     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
                                     laboris nisi ut aliquip ex ea commodo consequat.

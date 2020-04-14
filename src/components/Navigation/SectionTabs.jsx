@@ -6,6 +6,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Grid from '@material-ui/core/Grid';
 
 // @material-ui/icons
 import CodeIcon from '@material-ui/icons/Code';
@@ -14,12 +15,24 @@ import RssIcon from '@material-ui/icons/RssFeed';
 
 // custom components
 import TabPanel from './TabPanel';
-import CustomCard from '../Surface/CustomCard'
+import CustomCard from '../Surface/CustomCard';
+
+// assets
+import umphreys from '../../assets/img/ump.jpg';
+import snarky from '../../assets/img/snarky.jpg';
+import ttb from '../../assets/img/ttb.jpg';
+import route53 from '../../assets/img/aws-route-53.gif';
+import swipeableViews from '../../assets/img/react-swipeable.png';
+import pose from '../../assets/img/pose.jpg';
+import docker from '../../assets/img/docker.jpeg';
+import googleDomains from '../../assets/img/google-domains.jpg'
+import sturgill from '../../assets/img/sturgill.jpg'
+import billy from '../../assets/img/billy.jpg'
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '80%',
+    width: '100%',
     margin: '60px auto',
     '& .MuiTab-root': {
         backgroundColor: '#fff',
@@ -46,15 +59,90 @@ const useStyles = makeStyles((theme) => ({
       '& .MuiTab-labelIcon': {
         minWidth: '90px',
       }
+  },
+  gridContainer: {
+    justifyContent: 'center'
+  },
+  gridItem: {
+    margin: '15px'
   }
 }));
 
+const workData = [
+  {
+    title: `AWS Route 53 DNS setup`,
+    desc: `If you want to migrate DNS service to Amazon Route 53 for a domain that isn't getting any traffic`,
+    img: route53,
+    url: 'https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/migrate-dns-domain-inactive.html#migrate-dns-get-zone-file-domain-inactive'
+  },
+  {
+    title: `React Swipeable Views`,
+    desc: `A React component for swipeable views.`,
+    img: swipeableViews,
+    url: 'https://react-swipeable-views.com/getting-started/installation/'
+  },
+  {
+    title: `Animations with Pose`,
+    desc: `A truly simple animation library for React, React Native, and Vue`,
+    img: pose,
+    url: 'https://popmotion.io/pose/'
+  },
+  {
+    title: `Getting started with Docker`,
+    desc: `Debug your app, not your environment`,
+    img: docker,
+    url: 'https://www.docker.com/get-started'
+  },
+  {
+    title: `Google Domain Setup`,
+    desc: `Connect your domain to a third-party web host`,
+    img: googleDomains,
+    url: 'https://support.google.com/domains/answer/6353515?hl=en'
+  }
+];
+
+const musicData = [
+  {
+    title: `Umphrey's Mcgee`,
+    desc: `This is a description about the card that is a band that shreds the gnar`,
+    img: umphreys,
+    url: 'https://allthings.umphreys.com/'
+  },
+  {
+    title: `Snarky Puppy`,
+    desc: `This is a description about the card that is a band that melts faces`,
+    img: snarky,
+    url: 'https://snarkypuppy.com/'
+  },
+  {
+    title: `Tedeschi Trucks Band`,
+    desc: `This is a description about the card that is a band that is epic af`,
+    img: ttb,
+    url: 'https://www.tedeschitrucksband.com/'
+  },
+  {
+    title: `Sturgill Simpson`,
+    desc: `Another band description here`,
+    img: sturgill,
+    url: 'https://www.sturgillsimpson.com/'
+  },
+  {
+    title: `Billy Strings`,
+    desc: `Billy Strings is an American guitarist and bluegrass musician.`,
+    img: billy,
+    url: 'https://billystrings.com/'
+  }
+];
+
+const blogData = [
+];
+
 export default function SectionTabs() {
   const classes = useStyles();
-  const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
+    (window.pageYOffset < 425) && window.scrollTo(0, 425);
     setValue(newValue);
   };
 
@@ -78,18 +166,56 @@ export default function SectionTabs() {
         </Tabs>
       </AppBar>
       <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        axis={'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        <TabPanel value={value} index={0} dir={theme.direction}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <TabPanel value={value} index={0}>
+          <Grid container className={classes.gridContainer}>
+            {workData.map((datum, idx) => (
+              <Grid item className={classes.gridItem}>
+                <CustomCard 
+                  title={datum.title}
+                  desc={datum.desc}
+                  img={datum.img}
+                  url={datum.url}
+                  shareUrl={datum.shareUrl}
+                />
+              </Grid>
+            ))}
+          </Grid>
         </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          <CustomCard />
+        <TabPanel value={value} index={1}>
+         <Grid container className={classes.gridContainer}>
+          <Grid container className={classes.gridContainer}>
+              {musicData.map((datum, idx) => (
+                <Grid item className={classes.gridItem}>
+                  <CustomCard 
+                    title={datum.title}
+                    desc={datum.desc}
+                    img={datum.img}
+                    url={datum.url}
+                    shareUrl={datum.shareUrl}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
         </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <TabPanel value={value} index={2}>
+          <Grid container className={classes.gridContainer}>
+            {blogData.map((datum, idx) => (
+                <Grid item className={classes.gridItem}>
+                  <CustomCard 
+                    title={datum.title}
+                    desc={datum.desc}
+                    img={datum.img}
+                    url={datum.url}
+                    shareUrl={datum.shareUrl}
+                  />
+                </Grid>
+              ))}
+          </Grid>
         </TabPanel>
       </SwipeableViews>
     </div>

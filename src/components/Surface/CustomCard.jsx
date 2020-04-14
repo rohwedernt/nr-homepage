@@ -13,37 +13,51 @@ import IconButton from '@material-ui/core/IconButton';
 // @material-ui/icons
 import ShareIcon from '@material-ui/icons/Share';
 
-// assets
-import testImgForCard from '../../assets/img/ump.jpg'
-
 
 const useStyles = makeStyles(() => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 250,
   },
   cardMedia: {
     height: 140,
+    verticalAlign: 'middle'
+  },
+  title: {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
+  },
+  cardContent: {
+    minHeight: '99px',
+    maxHeight: '99px'
   }
 }));
 
-export default function CustomCard() {
+export default function CustomCard(props) {
   const classes = useStyles();
+  const { title, desc, img, url, sharUrl } = props;
 
   return (
     <Card className={classes.root} elevation={3}>
-        <CardActionArea>
+        <CardActionArea onClick={() => { window.open(url, '_blank') }}>
             <CardMedia
                 className={classes.cardMedia}
-                image={testImgForCard}
-                title="Contemplative Reptile"
+                image={img}
+                title={title}
             />
-            <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-                Umphrey's Mcgee
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-                Shredding it all the time round the clock non stop 24 7
-            </Typography>
+            <CardContent className={classes.cardContent}>
+              <Typography 
+                className={classes.title} 
+                gutterBottom 
+                variant="h6" 
+                component="h2"
+                title={title}
+                >
+                  {title}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p" title={desc}>
+                  {desc}
+              </Typography>
             </CardContent>
         </CardActionArea>
         <CardActions style={{ justifyContent: 'flex-end' }}>
