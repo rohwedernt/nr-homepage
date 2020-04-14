@@ -35,6 +35,7 @@ import odellIpa from '../../assets/img/odell-ipa.jpeg';
 import nasaExoplanet from '../../assets/img/nasa-exoplanet.jpg';
 import rmnp from '../../assets/img/rmnp.jpeg';
 import spaceX from '../../assets/img/space-x-next-starship.jpeg';
+import placeholder from '../../assets/img/placeholder.png';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -152,6 +153,26 @@ const travelData = [
     desc: `Description here`,
     img: rmnp,
   },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  }
 ];
 
 const beerData = [
@@ -161,6 +182,31 @@ const beerData = [
     img: odellIpa,
     url: 'https://www.beeradvocate.com/beer/profile/267/35626/'
   },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  }
 ];
 
 const astronomyData = [
@@ -176,6 +222,26 @@ const astronomyData = [
     img: spaceX,
     url: 'https://www.teslarati.com/spacex-next-starship-prototype-sn4-first-tests/'
   },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  }
 ];
 
 export default function SectionTabs() {
