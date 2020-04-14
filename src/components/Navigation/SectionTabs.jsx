@@ -10,8 +10,10 @@ import Grid from '@material-ui/core/Grid';
 
 // @material-ui/icons
 import CodeIcon from '@material-ui/icons/Code';
-import RadioIcon from '@material-ui/icons/Radio';
-import RssIcon from '@material-ui/icons/RssFeed';
+import MusicIcon from '@material-ui/icons/Audiotrack';
+import FlightIcon from '@material-ui/icons/Flight';
+import LocalDrink from '@material-ui/icons/LocalDrink';
+import PublicIcon from '@material-ui/icons/Public';
 
 // custom components
 import TabPanel from './TabPanel';
@@ -28,6 +30,11 @@ import docker from '../../assets/img/docker.jpeg';
 import googleDomains from '../../assets/img/google-domains.jpg'
 import sturgill from '../../assets/img/sturgill.jpg'
 import billy from '../../assets/img/billy.jpg'
+import breck from '../../assets/img/breck.jpeg';
+import odellIpa from '../../assets/img/odell-ipa.jpeg';
+import nasaExoplanet from '../../assets/img/nasa-exoplanet.jpg';
+import rmnp from '../../assets/img/rmnp.jpeg';
+import spaceX from '../../assets/img/space-x-next-starship.jpeg';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -57,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
           flexGrow: 0
       },
       '& .MuiTab-labelIcon': {
-        minWidth: '90px',
+        minWidth: '95px',
       }
   },
   gridContainer: {
@@ -134,7 +141,41 @@ const musicData = [
   }
 ];
 
-const blogData = [
+const travelData = [
+  {
+    title: `Breckenridge, CO 2/6-8/20`,
+    desc: `Description here`,
+    img: breck,
+  },
+  {
+    title: `Rocky Mountain National Park, CO 10/5/19`,
+    desc: `Description here`,
+    img: rmnp,
+  },
+];
+
+const beerData = [
+  {
+    title: `Odell IPA`,
+    desc: `Pale and Vienna malts along with 9 different US hop varieties`,
+    img: odellIpa,
+    url: 'https://www.beeradvocate.com/beer/profile/267/35626/'
+  },
+];
+
+const astronomyData = [
+  {
+    title: `NASA to Photo Surface of Exoplanet`,
+    desc: `Our galaxy is potentially full of habitable planets.`,
+    img: nasaExoplanet,
+    url: 'https://www.wired.com/story/nasa-wants-to-photograph-the-surface-of-an-exoplanet/'
+  },
+  {
+    title: `SpaceX Prototype`,
+    desc: `SpaceX’s next Starship prototype is already closing in on its first tests`,
+    img: spaceX,
+    url: 'https://www.teslarati.com/spacex-next-starship-prototype-sn4-first-tests/'
+  },
 ];
 
 export default function SectionTabs() {
@@ -161,8 +202,11 @@ export default function SectionTabs() {
           variant="fullWidth"
         >
             <Tab className={classes.tab} icon={<CodeIcon />} label="Work" />
-            <Tab className={classes.tab} icon={<RadioIcon />} label="Music" />
-            <Tab className={classes.tab} icon={<RssIcon />} label="Blog" />
+            <Tab className={classes.tab} icon={<MusicIcon />} label="Music" />
+            <Tab className={classes.tab} icon={<FlightIcon />} label="Travel" />
+            <Tab className={classes.tab} icon={<LocalDrink />} label="Craft Beer" />
+            <Tab className={classes.tab} icon={<PublicIcon />} label="Astronomy" />
+
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -173,7 +217,7 @@ export default function SectionTabs() {
         <TabPanel value={value} index={0}>
           <Grid container className={classes.gridContainer}>
             {workData.map((datum, idx) => (
-              <Grid item className={classes.gridItem}>
+              <Grid key={`${datum.title}-${idx}`} item className={classes.gridItem}>
                 <CustomCard 
                   title={datum.title}
                   desc={datum.desc}
@@ -189,7 +233,7 @@ export default function SectionTabs() {
          <Grid container className={classes.gridContainer}>
           <Grid container className={classes.gridContainer}>
               {musicData.map((datum, idx) => (
-                <Grid item className={classes.gridItem}>
+                <Grid key={`${datum.title}-${idx}`} item className={classes.gridItem}>
                   <CustomCard 
                     title={datum.title}
                     desc={datum.desc}
@@ -204,8 +248,38 @@ export default function SectionTabs() {
         </TabPanel>
         <TabPanel value={value} index={2}>
           <Grid container className={classes.gridContainer}>
-            {blogData.map((datum, idx) => (
-                <Grid item className={classes.gridItem}>
+            {travelData.map((datum, idx) => (
+                <Grid key={`${datum.title}-${idx}`} item className={classes.gridItem}>
+                  <CustomCard 
+                    title={datum.title}
+                    desc={datum.desc}
+                    img={datum.img}
+                    url={datum.url}
+                    shareUrl={datum.shareUrl}
+                  />
+                </Grid>
+              ))}
+          </Grid>
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+         <Grid container className={classes.gridContainer}>
+            {beerData.map((datum, idx) => (
+                <Grid key={`${datum.title}-${idx}`} item className={classes.gridItem}>
+                  <CustomCard 
+                    title={datum.title}
+                    desc={datum.desc}
+                    img={datum.img}
+                    url={datum.url}
+                    shareUrl={datum.shareUrl}
+                  />
+                </Grid>
+              ))}
+          </Grid>
+        </TabPanel>
+        <TabPanel value={value} index={4}>
+          <Grid container className={classes.gridContainer}>
+            {astronomyData.map((datum, idx) => (
+                <Grid key={`${datum.title}-${idx}`} item className={classes.gridItem}>
                   <CustomCard 
                     title={datum.title}
                     desc={datum.desc}
