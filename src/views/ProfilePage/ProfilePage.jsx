@@ -86,7 +86,7 @@ export default function ProfilePage() {
     const [adujustForAlert, setAdjustForAlert] = useState(false);
     const bkptLg = useMediaQuery('(max-width:1100px)');
     const bkptMd = useMediaQuery('(max-width:990px)');
-    const bkptSm = useMediaQuery('(max-width:550px)');
+    const breakpointSm = useMediaQuery('(max-width:550px)');
 
     useEffect(() => {
         setTimeout(toggle, 0);
@@ -101,16 +101,16 @@ export default function ProfilePage() {
     //const getHeaderStyles = () => bkptLg ? { borderBottom: '4px inset #3f51b5' } : {};
 
     const setColoredShadowPosition = () => {
-        if (bkptSm && adujustForAlert) return { top: '132px', left: '20px' }
+        if (breakpointSm && adujustForAlert) return { top: '132px', left: '20px' }
         if (adujustForAlert) return { top: '158px' };
-        if (bkptSm) return { top: '85px', left: '20px' };
+        if (breakpointSm) return { top: '85px', left: '20px' };
     }
 
     return (
         <Fragment>
             <MenuAppBar bkptMd={bkptMd} toggleHeightForAlert={toggleHeightForAlert} />
                 <div className={classes.root}>
-                    <Paper style={bkptSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
+                    <Paper style={breakpointSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
                         <div className={classes.headerSection} style={bkptMd ? { flexWrap: 'wrap' } : undefined}>
                         <img className={classes.coloredShadow} style={setColoredShadowPosition()} src={profile} />
                             <img className={classes.profileImg} src={profile} />
@@ -136,7 +136,7 @@ export default function ProfilePage() {
                                 </Typography>
                             </div>
                         </div>
-                        <SectionTabs bkptSm={bkptSm} style={bkptMd ? { minWidth: '40px' } : undefined}/>
+                        <SectionTabs breakpointSm={breakpointSm} style={bkptMd ? { minWidth: '40px' } : undefined}/>
                     </Paper>
                 </div>
         </Fragment>

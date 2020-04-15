@@ -39,11 +39,11 @@ const useStyles = makeStyles(() => ({
 
 export default function CustomCard(props) {
   const classes = useStyles();
-  const { title, desc, img, url, sharUrl } = props;
+  const { title, desc, img, onClick, url, shareUrl } = props;
 
   return (
     <Card className={classes.root} elevation={3}>
-        <CardActionArea onClick={() => { window.open(url, '_blank') }}>
+        <CardActionArea onClick={onClick}>
             <CardMedia
                 className={classes.cardMedia}
                 image={img}

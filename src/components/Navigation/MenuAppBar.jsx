@@ -95,12 +95,7 @@ export default function MenuAppBar(props) {
               <MenuItem onClick={handleCloseMenu}>Retrospective Tool</MenuItem>
               <MenuItem onClick={handleCloseMenu}>Dashboard Example</MenuItem>
               <MenuItem onClick={handleCloseMenu}>Jagged Paper Design</MenuItem>
-              <MenuItem onClick={handleCloseMenu}>
-                NateRohwederDotCom v2
-              </MenuItem>
-              <MenuItem onClick={handleCloseMenu}>
-                NateRohwederDotCom v1
-              </MenuItem>
+              <MenuItem onClick={handleCloseMenu}>NateRohwederDotCom v1</MenuItem>
               <Divider />
               <MenuItem onClick={handleClickOpen}>Contact</MenuItem>
               <MenuItem onClick={handleCloseMenu}>Settings</MenuItem>
