@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 export default function MenuAppBar(props) {
     const classes = useStyles();
     const {open, handleClose, setOpenAlert, toggleHeightForAlert } = props;
+    const getDialogStyles = () => props.bkptMd ? { minWidth: '300px' } : {};
 
     return (
         <Dialog 
@@ -28,7 +29,7 @@ export default function MenuAppBar(props) {
             maxWidth='md'
         >
             <DialogTitle id="form-dialog-title">Contact</DialogTitle>
-            <DialogContent className={classes.dialogContent}>
+            <DialogContent className={classes.dialogContent} style={getDialogStyles()}>
                 <TextField
                     id="outlined-multiline-static"
                     label="Email me"

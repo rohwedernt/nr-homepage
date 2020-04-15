@@ -3,6 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 // custom components
 import SectionTabs from '../../components/Navigation/SectionTabs';
@@ -27,14 +28,15 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   pageHeader: {
+    width: 'fit-content',
     marginLeft: theme.spacing(3),
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(1.5),
     marginTop: theme.spacing(1)
   },
   pageSubheader: {
     textTransform: 'uppercase',
     fontSize: '0.85em',
-    fontWeight: 500,
+    fontWeight: 600,
     marginLeft: theme.spacing(3.4),
     marginBottom: theme.spacing(1),
     color: '#6c757d'
@@ -48,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
   profileImg: {
       maxWidth: '350px',
+      maxHeight: '275px',
       borderRadius: '6px',
       marginLeft: '16px',
       marginTop: '-60px',
@@ -60,18 +63,20 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '350px',
     transform: 'scale(0.94)',
     filter: 'blur(12px)',
-    height: '275px',
+    maxHeight: '275px',
     position: 'absolute',
     top: '110px',
     left: '110px'
   },
   animator: {
+      // needs to wrap at 1135
+    //borderTop: '2px solid grey',
     display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    height: 'fit-content',
-    flex: '1 1 auto',
+    //alignItems: 'center',
+    //flexDirection: 'row',
+    //justifyContent: 'flex-end',
+    //height: 'fit-content',
+    //flex: '1 1 auto',
   }
 }));
 
@@ -79,6 +84,9 @@ export default function ProfilePage() {
     const classes = useStyles();
     const [isOpen, setIsOpen] = useState(false);
     const [adujustForAlert, setAdjustForAlert] = useState(false);
+    const bkptLg = useMediaQuery('(max-width:1100px)');
+    const bkptMd = useMediaQuery('(max-width:990px)');
+    const bkptSm = useMediaQuery('(max-width:550px)');
 
     useEffect(() => {
         setTimeout(toggle, 0);
@@ -88,32 +96,47 @@ export default function ProfilePage() {
 
     const toggleHeightForAlert = () => setAdjustForAlert(!adujustForAlert);
 
+    const getIconStyles = right => bkptLg ? {} : { position: 'absolute', top: '-50px', right: right };
+
+    //const getHeaderStyles = () => bkptLg ? { borderBottom: '4px inset #3f51b5' } : {};
+
+    const setColoredShadowPosition = () => {
+        if (bkptSm && adujustForAlert) return { top: '132px', left: '20px' }
+        if (adujustForAlert) return { top: '158px' };
+        if (bkptSm) return { top: '85px', left: '20px' };
+    }
+
     return (
         <Fragment>
-            <MenuAppBar toggleHeightForAlert={toggleHeightForAlert} />
+            <MenuAppBar bkptMd={bkptMd} toggleHeightForAlert={toggleHeightForAlert} />
                 <div className={classes.root}>
-                    <Paper style={{ padding: '30px', borderRadius: '6px' }} elevation={16}>
-                        <div className={classes.headerSection}>
-                            <img className={classes.coloredShadow} style={adujustForAlert ? { top: '158px' } : undefined} src={profile} />
+                    <Paper style={bkptSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
+                        <div className={classes.headerSection} style={bkptMd ? { flexWrap: 'wrap' } : undefined}>
+                        <img className={classes.coloredShadow} style={setColoredShadowPosition()} src={profile} />
                             <img className={classes.profileImg} src={profile} />
                             <div>
-                                <Typography className={classes.pageHeader} variant="h4">Nate Rohweder</Typography>
+                                <Typography 
+                                    className={classes.pageHeader} 
+                                    variant="h4"
+                                >
+                                    Nate Rohweder
+                                </Typography>
+                                <SocialIconAnimator className={classes.animator} pose={isOpen ? 'open' : 'closed'}>
+                                    <Github style={getIconStyles('205px')} target='https://github.com/rohwedernt' />
+                                    <LinkedIn style={getIconStyles('155px')} target='https://www.linkedin.com/in/nate-rohweder-8b1026121/' />
+                                    <Twitter style={getIconStyles('105px')} target='https://twitter.com/nrohweder1' />
+                                    <Facebook style={getIconStyles('55px')} target='https://www.facebook.com/rohwedernt' />
+                                    <Instagram style={getIconStyles('5px')} target='https://www.instagram.com/naterohweder/' />
+                                </SocialIconAnimator>
                                 <Typography className={classes.pageSubheader} variant="h6">Software Engineer</Typography>
-                                <Typography className={classes.pageParagraph} variant="p" component="div">
+                                <Typography className={classes.pageParagraph} variant="body1" component="div">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
                                     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
                                     laboris nisi ut aliquip ex ea commodo consequat.
                                 </Typography>
                             </div>
-                            <SocialIconAnimator className={classes.animator} pose={isOpen ? 'open' : 'closed'}>
-                                <Github target='https://github.com/rohwedernt'/>
-                                <LinkedIn target='https://www.linkedin.com/in/nate-rohweder-8b1026121/' />
-                                <Twitter target='https://twitter.com/nrohweder1' />
-                                <Facebook target='https://www.facebook.com/rohwedernt' />
-                                <Instagram target='https://www.instagram.com/naterohweder/' />
-                            </SocialIconAnimator>
                         </div>
-                        <SectionTabs />
+                        <SectionTabs bkptSm={bkptSm} style={bkptMd ? { minWidth: '40px' } : undefined}/>
                     </Paper>
                 </div>
         </Fragment>

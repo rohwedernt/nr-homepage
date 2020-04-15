@@ -2,14 +2,14 @@ import posed from 'react-pose';
 
 export const SocialIconAnimator = posed.div({
     open: {
-      x: '0%',
+      y: '0%',
       delayChildren: 0,
-      staggerChildren: 450,
+      staggerChildren: 300,
       transition: {
-          x: { type: 'tween', stiffness: 100, damping: 1000 },
-          default: { duration: 1000 }
+          y: { type: 'spring', stiffness: 500, damping: 5 },
+          default: { duration: 300 }
         }
     },
-    closed: { x: '-10%', delay: 300 }
+    closed: { y: '-10%', delay: 300 }
   });
   

@@ -6,55 +6,293 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Grid from '@material-ui/core/Grid';
 
 // @material-ui/icons
 import CodeIcon from '@material-ui/icons/Code';
-import RadioIcon from '@material-ui/icons/Radio';
-import RssIcon from '@material-ui/icons/RssFeed';
+import MusicIcon from '@material-ui/icons/Audiotrack';
+import FlightIcon from '@material-ui/icons/Flight';
+import LocalDrink from '@material-ui/icons/LocalDrink';
+import PublicIcon from '@material-ui/icons/Public';
 
 // custom components
 import TabPanel from './TabPanel';
-import CustomCard from '../Surface/CustomCard'
+import CustomCard from '../Surface/CustomCard';
+
+// assets
+import umphreys from '../../assets/img/ump.jpg';
+import snarky from '../../assets/img/snarky.jpg';
+import ttb from '../../assets/img/ttb.jpg';
+import route53 from '../../assets/img/aws-route-53.png';
+import swipeableViews from '../../assets/img/react-swipeable.png';
+import pose from '../../assets/img/pose.jpg';
+import docker from '../../assets/img/docker.jpeg';
+import googleDomains from '../../assets/img/google-domains.png'
+import sturgill from '../../assets/img/sturgill.jpg'
+import billy from '../../assets/img/billy.jpg'
+import breck from '../../assets/img/breck.jpeg';
+import odellIpa from '../../assets/img/odell-ipa.jpeg';
+import nasaExoplanet from '../../assets/img/nasa-exoplanet.jpg';
+import rmnp from '../../assets/img/rmnp.jpeg';
+import spaceX from '../../assets/img/space-x-next-starship.jpeg';
+import placeholder from '../../assets/img/placeholder.png';
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '80%',
     margin: '60px auto',
-    '& .MuiTab-root': {
-        backgroundColor: '#fff',
-        margin: '25px',
-        color: 'black',
-        borderRadius: '5px',
-        height: '90px',
-      },
-      '& .Mui-selected': {
-        backgroundColor: '#3f51b5',
-        color: '#fff',
-        boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
-      },
+    flexGrow: 1,
+    width: '100%',
+    '& .MuiTab-root:hover': {
+        color: '#3f51b5'
+    },
+    // '& .MuiTab-root': {
+    //     backgroundColor: '#fff',
+    //     margin: '25px',
+    //     color: 'black',
+    //     borderRadius: '5px',
+    //     height: '90px',
+    //   },
+    //   '& .Mui-selected': {
+    //     backgroundColor: '#3f51b5',
+    //     color: '#fff',
+    //     boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
+    //   },
       '& .MuiTabs-flexContainer': {
           justifyContent: 'center'
       },
-      '& .MuiTab-wrapper': {
-          fontSize: '11px',
-          fontWeight: 'bold',
-      },
-      '& .MuiTab-fullWidth': {
-          flexGrow: 0
-      },
-      '& .MuiTab-labelIcon': {
-        minWidth: '90px',
-      }
+    //   '& .MuiTab-wrapper': {
+    //       fontSize: '11px',
+    //       fontWeight: 'bold',
+    //   },
+    //   '& .MuiTab-fullWidth': {
+    //       //flexGrow: 0
+    //   },
+    //   '& .MuiTab-labelIcon': {
+    //     minWidth: '95px',
+    //   }
+  },
+  gridContainer: {
+    justifyContent: 'center'
+  },
+  gridItem: {
+    margin: '15px'
   }
 }));
 
-export default function SectionTabs() {
+const workData = [
+  {
+    title: `AWS Route 53 DNS setup`,
+    desc: `If you want to migrate DNS service to Amazon Route 53 for a domain that isn't getting any traffic`,
+    img: route53,
+    url: 'https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/migrate-dns-domain-inactive.html#migrate-dns-get-zone-file-domain-inactive'
+  },
+  {
+    title: `React Swipeable Views`,
+    desc: `A React component for swipeable views.`,
+    img: swipeableViews,
+    url: 'https://react-swipeable-views.com/getting-started/installation/'
+  },
+  {
+    title: `Animations with Pose`,
+    desc: `A truly simple animation library for React, React Native, and Vue`,
+    img: pose,
+    url: 'https://popmotion.io/pose/'
+  },
+  {
+    title: `Getting started with Docker`,
+    desc: `Debug your app, not your environment`,
+    img: docker,
+    url: 'https://www.docker.com/get-started'
+  },
+  {
+    title: `Google Domain setup`,
+    desc: `Connect your domain to a third-party web host`,
+    img: googleDomains,
+    url: 'https://support.google.com/domains/answer/6353515?hl=en'
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  }
+];
+
+const musicData = [
+  {
+    title: `Umphrey's Mcgee`,
+    desc: `This is a description about the card that is a band that shreds the gnar`,
+    img: umphreys,
+    url: 'https://allthings.umphreys.com/'
+  },
+  {
+    title: `Snarky Puppy`,
+    desc: `This is a description about the card that is a band that melts faces`,
+    img: snarky,
+    url: 'https://snarkypuppy.com/'
+  },
+  {
+    title: `Tedeschi Trucks Band`,
+    desc: `This is a description about the card that is a band that is epic af`,
+    img: ttb,
+    url: 'https://www.tedeschitrucksband.com/'
+  },
+  {
+    title: `Sturgill Simpson`,
+    desc: `Another band description here`,
+    img: sturgill,
+    url: 'https://www.sturgillsimpson.com/'
+  },
+  {
+    title: `Billy Strings`,
+    desc: `Billy Strings is an American guitarist and bluegrass musician.`,
+    img: billy,
+    url: 'https://billystrings.com/'
+  }
+];
+
+const travelData = [
+  {
+    title: `Breckenridge, CO 2/6-8/20`,
+    desc: `Description here`,
+    img: breck,
+  },
+  {
+    title: `Rocky Mountain National Park, CO 10/5/19`,
+    desc: `Description here`,
+    img: rmnp,
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  }
+];
+
+const beerData = [
+  {
+    title: `Odell IPA`,
+    desc: `Pale and Vienna malts along with 9 different US hop varieties`,
+    img: odellIpa,
+    url: 'https://www.beeradvocate.com/beer/profile/267/35626/'
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  }
+];
+
+const astronomyData = [
+  {
+    title: `NASA to photo surface of exoplanet`,
+    desc: `Our galaxy is potentially full of habitable planets.`,
+    img: nasaExoplanet,
+    url: 'https://www.wired.com/story/nasa-wants-to-photograph-the-surface-of-an-exoplanet/'
+  },
+  {
+    title: `SpaceX Prototype`,
+    desc: `SpaceX’s next Starship prototype is already closing in on its first tests`,
+    img: spaceX,
+    url: 'https://www.teslarati.com/spacex-next-starship-prototype-sn4-first-tests/'
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  },
+  {
+    title: `Test Title`,
+    desc: `Description here`,
+    img: placeholder
+  }
+];
+
+export default function SectionTabs(props) {
   const classes = useStyles();
-  const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
+  const scrollToContent = () => {
+    props.bkptSm ? (window.pageYOffset < 685) && window.scrollTo(0, 685) : (window.pageYOffset < 425) && window.scrollTo(0, 425);
+  }
+
   const handleChange = (event, newValue) => {
+    scrollToContent();
     setValue(newValue);
   };
 
@@ -65,31 +303,102 @@ export default function SectionTabs() {
   return (
     <div className={classes.root}>
       <AppBar position="static" color={'transparent'} elevation={0}>
-        <Tabs className={classes.tab}
+        <Tabs
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
           variant="fullWidth"
         >
-            <Tab className={classes.tab} icon={<CodeIcon />} label="Work" />
-            <Tab className={classes.tab} icon={<RadioIcon />} label="Music" />
-            <Tab className={classes.tab} icon={<RssIcon />} label="Blog" />
+            <Tab style={props.style} icon={<CodeIcon />} label={props.style ? '': 'Work'} />
+            <Tab style={props.style} icon={<MusicIcon />} label={props.style ? '': 'Music'} />
+            <Tab style={props.style} icon={<FlightIcon />} label={props.style ? '': 'Travel'} />
+            <Tab style={props.style} icon={<LocalDrink />} label={props.style ? '': 'Beer'} />
+            <Tab style={props.style} icon={<PublicIcon />} label={props.style ? '': 'Astronomy'} />
+
         </Tabs>
       </AppBar>
       <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        axis={'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        <TabPanel value={value} index={0} dir={theme.direction}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <TabPanel value={value} index={0}>
+          <Grid container className={classes.gridContainer}>
+            {workData.map((datum, idx) => (
+              <Grid key={`${datum.title}-${idx}`} item className={classes.gridItem}>
+                <CustomCard 
+                  title={datum.title}
+                  desc={datum.desc}
+                  img={datum.img}
+                  url={datum.url}
+                  shareUrl={datum.shareUrl}
+                />
+              </Grid>
+            ))}
+          </Grid>
         </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          <CustomCard />
+        <TabPanel value={value} index={1}>
+         <Grid container className={classes.gridContainer}>
+          <Grid container className={classes.gridContainer}>
+              {musicData.map((datum, idx) => (
+                <Grid key={`${datum.title}-${idx}`} item className={classes.gridItem}>
+                  <CustomCard 
+                    title={datum.title}
+                    desc={datum.desc}
+                    img={datum.img}
+                    url={datum.url}
+                    shareUrl={datum.shareUrl}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
         </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <TabPanel value={value} index={2}>
+          <Grid container className={classes.gridContainer}>
+            {travelData.map((datum, idx) => (
+                <Grid key={`${datum.title}-${idx}`} item className={classes.gridItem}>
+                  <CustomCard 
+                    title={datum.title}
+                    desc={datum.desc}
+                    img={datum.img}
+                    url={datum.url}
+                    shareUrl={datum.shareUrl}
+                  />
+                </Grid>
+              ))}
+          </Grid>
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+         <Grid container className={classes.gridContainer}>
+            {beerData.map((datum, idx) => (
+                <Grid key={`${datum.title}-${idx}`} item className={classes.gridItem}>
+                  <CustomCard 
+                    title={datum.title}
+                    desc={datum.desc}
+                    img={datum.img}
+                    url={datum.url}
+                    shareUrl={datum.shareUrl}
+                  />
+                </Grid>
+              ))}
+          </Grid>
+        </TabPanel>
+        <TabPanel value={value} index={4}>
+          <Grid container className={classes.gridContainer}>
+            {astronomyData.map((datum, idx) => (
+                <Grid key={`${datum.title}-${idx}`} item className={classes.gridItem}>
+                  <CustomCard 
+                    title={datum.title}
+                    desc={datum.desc}
+                    img={datum.img}
+                    url={datum.url}
+                    shareUrl={datum.shareUrl}
+                  />
+                </Grid>
+              ))}
+          </Grid>
         </TabPanel>
       </SwipeableViews>
     </div>

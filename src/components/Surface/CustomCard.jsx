@@ -13,40 +13,57 @@ import IconButton from '@material-ui/core/IconButton';
 // @material-ui/icons
 import ShareIcon from '@material-ui/icons/Share';
 
-// assets
-import testImgForCard from '../../assets/img/ump.jpg'
-
 
 const useStyles = makeStyles(() => ({
   root: {
-    maxWidth: 345,
+    minWidth: 250,
+    maxWidth: 250,
   },
   cardMedia: {
-    height: 140,
+    height: 180,
+    verticalAlign: 'middle',
+    borderBottom: '1px solid #c5c5c5'
+  },
+  title: {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
+  },
+  cardContent: {
+    padding: '5px 10px 5px 10px',
+    minHeight: '85px',
+    maxHeight: '85px',
+    overflow: 'hidden'
   }
 }));
 
-export default function CustomCard() {
+export default function CustomCard(props) {
   const classes = useStyles();
+  const { title, desc, img, url, sharUrl } = props;
 
   return (
     <Card className={classes.root} elevation={3}>
-        <CardActionArea>
+        <CardActionArea onClick={() => { window.open(url, '_blank') }}>
             <CardMedia
                 className={classes.cardMedia}
-                image={testImgForCard}
-                title="Contemplative Reptile"
+                image={img}
+                title={title}
             />
-            <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-                Umphrey's Mcgee
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-                Shredding it all the time round the clock non stop 24 7
-            </Typography>
-            </CardContent>
         </CardActionArea>
-        <CardActions style={{ justifyContent: 'flex-end' }}>
+        <CardContent className={classes.cardContent}>
+              <Typography 
+                className={classes.title} 
+                variant="subtitle1" 
+                component="h2"
+                title={title}
+                >
+                  {title}
+              </Typography>
+              <Typography variant="caption" color="textSecondary" component="p" title={desc}>
+                  {desc}
+              </Typography>
+          </CardContent>
+        <CardActions style={{ backgroundColor: '#f6f6f6', boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 1px, rgba(0, 0, 0, 0.23) 0px 1px 1px inset', justifyContent: 'flex-end' }}>
             <IconButton aria-label="share" color="primary">
                 <ShareIcon />
             </IconButton>
