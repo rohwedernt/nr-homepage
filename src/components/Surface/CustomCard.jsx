@@ -31,8 +31,8 @@ const useStyles = makeStyles(() => ({
   },
   cardContent: {
     padding: '5px 10px 5px 10px',
-    minHeight: '78px',
-    maxHeight: '78px',
+    minHeight: '85px',
+    maxHeight: '85px',
     overflow: 'hidden'
   }
 }));
@@ -53,14 +53,13 @@ export default function CustomCard(props) {
         <CardContent className={classes.cardContent}>
               <Typography 
                 className={classes.title} 
-                gutterBottom 
-                variant="h6" 
+                variant="subtitle1" 
                 component="h2"
                 title={title}
                 >
                   {title}
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p" title={desc}>
+              <Typography variant="caption" color="textSecondary" component="p" title={desc}>
                   {desc}
               </Typography>
           </CardContent>

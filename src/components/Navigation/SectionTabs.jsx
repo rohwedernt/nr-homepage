@@ -23,11 +23,11 @@ import CustomCard from '../Surface/CustomCard';
 import umphreys from '../../assets/img/ump.jpg';
 import snarky from '../../assets/img/snarky.jpg';
 import ttb from '../../assets/img/ttb.jpg';
-import route53 from '../../assets/img/aws-route-53.gif';
+import route53 from '../../assets/img/aws-route-53.png';
 import swipeableViews from '../../assets/img/react-swipeable.png';
 import pose from '../../assets/img/pose.jpg';
 import docker from '../../assets/img/docker.jpeg';
-import googleDomains from '../../assets/img/google-domains.jpg'
+import googleDomains from '../../assets/img/google-domains.png'
 import sturgill from '../../assets/img/sturgill.jpg'
 import billy from '../../assets/img/billy.jpg'
 import breck from '../../assets/img/breck.jpeg';
@@ -43,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
     margin: '60px auto',
     flexGrow: 1,
     width: '100%',
+    '& .MuiTab-root:hover': {
+        color: '#3f51b5'
+    },
     // '& .MuiTab-root': {
     //     backgroundColor: '#fff',
     //     margin: '25px',
@@ -103,7 +106,7 @@ const workData = [
     url: 'https://www.docker.com/get-started'
   },
   {
-    title: `Google Domain Setup`,
+    title: `Google Domain setup`,
     desc: `Connect your domain to a third-party web host`,
     img: googleDomains,
     url: 'https://support.google.com/domains/answer/6353515?hl=en'
@@ -247,7 +250,7 @@ const beerData = [
 
 const astronomyData = [
   {
-    title: `NASA to Photo Surface of Exoplanet`,
+    title: `NASA to photo surface of exoplanet`,
     desc: `Our galaxy is potentially full of habitable planets.`,
     img: nasaExoplanet,
     url: 'https://www.wired.com/story/nasa-wants-to-photograph-the-surface-of-an-exoplanet/'
@@ -284,8 +287,12 @@ export default function SectionTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
+  const scrollToContent = () => {
+    props.bkptSm ? (window.pageYOffset < 685) && window.scrollTo(0, 685) : (window.pageYOffset < 425) && window.scrollTo(0, 425);
+  }
+
   const handleChange = (event, newValue) => {
-    (window.pageYOffset < 425) && window.scrollTo(0, 425);
+    scrollToContent();
     setValue(newValue);
   };
 
@@ -302,7 +309,6 @@ export default function SectionTabs(props) {
           indicatorColor="primary"
           textColor="primary"
           variant="fullWidth"
-          //scrollButtons="auto"
         >
             <Tab style={props.style} icon={<CodeIcon />} label={props.style ? '': 'Work'} />
             <Tab style={props.style} icon={<MusicIcon />} label={props.style ? '': 'Music'} />

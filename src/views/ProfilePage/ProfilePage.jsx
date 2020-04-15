@@ -28,9 +28,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   pageHeader: {
-    borderBottom: '2px solid grey',
     width: 'fit-content',
-    paddingBottom: '5px',
     marginLeft: theme.spacing(3),
     marginBottom: theme.spacing(1.5),
     marginTop: theme.spacing(1)
@@ -86,12 +84,9 @@ export default function ProfilePage() {
     const classes = useStyles();
     const [isOpen, setIsOpen] = useState(false);
     const [adujustForAlert, setAdjustForAlert] = useState(false);
-
-    const bkptLg = useMediaQuery('(max-width:1135px)');
+    const bkptLg = useMediaQuery('(max-width:1100px)');
     const bkptMd = useMediaQuery('(max-width:990px)');
     const bkptSm = useMediaQuery('(max-width:550px)');
-
-
 
     useEffect(() => {
         setTimeout(toggle, 0);
@@ -101,6 +96,10 @@ export default function ProfilePage() {
 
     const toggleHeightForAlert = () => setAdjustForAlert(!adujustForAlert);
 
+    const getIconStyles = right => bkptLg ? {} : { position: 'absolute', top: '-50px', right: right };
+
+    //const getHeaderStyles = () => bkptLg ? { borderBottom: '4px inset #3f51b5' } : {};
+
     const setColoredShadowPosition = () => {
         if (bkptSm && adujustForAlert) return { top: '132px', left: '20px' }
         if (adujustForAlert) return { top: '158px' };
@@ -109,7 +108,7 @@ export default function ProfilePage() {
 
     return (
         <Fragment>
-            <MenuAppBar toggleHeightForAlert={toggleHeightForAlert} />
+            <MenuAppBar bkptMd={bkptMd} toggleHeightForAlert={toggleHeightForAlert} />
                 <div className={classes.root}>
                     <Paper style={bkptSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
                         <div className={classes.headerSection} style={bkptMd ? { flexWrap: 'wrap' } : undefined}>
@@ -123,11 +122,11 @@ export default function ProfilePage() {
                                     Nate Rohweder
                                 </Typography>
                                 <SocialIconAnimator className={classes.animator} pose={isOpen ? 'open' : 'closed'}>
-                                    <Github target='https://github.com/rohwedernt' />
-                                    <LinkedIn target='https://www.linkedin.com/in/nate-rohweder-8b1026121/' />
-                                    <Twitter target='https://twitter.com/nrohweder1' />
-                                    <Facebook target='https://www.facebook.com/rohwedernt' />
-                                    <Instagram target='https://www.instagram.com/naterohweder/' />
+                                    <Github style={getIconStyles('205px')} target='https://github.com/rohwedernt' />
+                                    <LinkedIn style={getIconStyles('155px')} target='https://www.linkedin.com/in/nate-rohweder-8b1026121/' />
+                                    <Twitter style={getIconStyles('105px')} target='https://twitter.com/nrohweder1' />
+                                    <Facebook style={getIconStyles('55px')} target='https://www.facebook.com/rohwedernt' />
+                                    <Instagram style={getIconStyles('5px')} target='https://www.instagram.com/naterohweder/' />
                                 </SocialIconAnimator>
                                 <Typography className={classes.pageSubheader} variant="h6">Software Engineer</Typography>
                                 <Typography className={classes.pageParagraph} variant="body1" component="div">
@@ -137,7 +136,7 @@ export default function ProfilePage() {
                                 </Typography>
                             </div>
                         </div>
-                        <SectionTabs style={bkptMd ? { minWidth: '40px' } : undefined}/>
+                        <SectionTabs bkptSm={bkptSm} style={bkptMd ? { minWidth: '40px' } : undefined}/>
                     </Paper>
                 </div>
         </Fragment>

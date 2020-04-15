@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MenuAppBar(props) {
-  const { toggleHeightForAlert } = props;
+  const { toggleHeightForAlert, bkptMd } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [openDialog, setOpenDialog] = React.useState(false);
@@ -71,8 +71,8 @@ export default function MenuAppBar(props) {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleMenu}
-			  color="inherit"
-			  className={classes.hamburger}
+			        color="inherit"
+			        className={classes.hamburger}
             >
 				<Typography style={{ marginRight: '10px' }} variant='subtitle1'>More Stuff</Typography>
 				<MenuIcon />
@@ -119,6 +119,7 @@ export default function MenuAppBar(props) {
         handleClose={handleCloseDialog}
         setOpenAlert={setOpenAlert}
         toggleHeightForAlert={toggleHeightForAlert}
+        bkptMd={bkptMd}
       />
     </div>
   );
