@@ -31,18 +31,18 @@ export default function SuccessAlert(props) {
             <Collapse in={openAlert}>
             <Alert
                 className={classes.alert}
-                variant="filled" 
+                variant='filled' 
                 action={
                     <IconButton
-                        aria-label="close"
-                        color="inherit"
-                        size="small"
+                        aria-label='close'
+                        color='inherit'
+                        size='small'
                         onClick={() => {
                             setOpenAlert(false);
                             toggleHeightForAlert();
                         }}
                     >
-                        <CloseIcon fontSize="inherit" />
+                        <CloseIcon fontSize='inherit' />
                     </IconButton>
                 }
             >

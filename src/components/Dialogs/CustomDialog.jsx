@@ -2,7 +2,6 @@ import React from 'react';
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -10,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     dialogContent: {
         minWidth: '600px'
     }
@@ -18,40 +17,32 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MenuAppBar(props) {
     const classes = useStyles();
-    const {open, handleClose, setOpenAlert, toggleHeightForAlert } = props;
-    const getDialogStyles = () => props.bkptMd ? { minWidth: '300px' } : {};
+    const { dialogTitle, confirmText, confirmFunc, content, breakpointMd, open, handleClose } = props;
+    const getDialogStyles = () => breakpointMd ? { minWidth: '300px' } : {};
 
     return (
         <Dialog 
             open={open} 
             onClose={handleClose} 
-            aria-labelledby="form-dialog-title"
+            aria-labelledby='form-dialog-title'
             maxWidth='md'
         >
-            <DialogTitle id="form-dialog-title">Contact</DialogTitle>
+            <DialogTitle id='form-dialog-title'>{dialogTitle}</DialogTitle>
             <DialogContent className={classes.dialogContent} style={getDialogStyles()}>
-                <TextField
-                    id="outlined-multiline-static"
-                    label="Email me"
-                    multiline
-                    rows={8}
-                    variant="outlined"
-                    fullWidth
-                />
+                {content()}
             </DialogContent>
             <DialogActions>
-                <Button onClick={handleClose} color="primary">
+                <Button onClick={handleClose} color='primary'>
                     Cancel
                 </Button>
                 <Button 
                     onClick={() => {
                         handleClose();
-                        setOpenAlert(true);
-                        toggleHeightForAlert();
+                        confirmFunc();
                     }} 
-                    color="primary"
+                    color='primary'
                 >
-                    Send
+                    {confirmText}
                 </Button>
             </DialogActions>
         </Dialog>

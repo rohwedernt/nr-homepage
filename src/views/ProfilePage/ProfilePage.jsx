@@ -80,13 +80,13 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ProfilePage() {
+export default function ProfilePage(props) {
     const classes = useStyles();
     const [isOpen, setIsOpen] = useState(false);
     const [adujustForAlert, setAdjustForAlert] = useState(false);
-    const bkptLg = useMediaQuery('(max-width:1100px)');
-    const bkptMd = useMediaQuery('(max-width:990px)');
-    const bkptSm = useMediaQuery('(max-width:550px)');
+    const breakpointLg = useMediaQuery('(max-width:1100px)');
+    const breakpointMd = useMediaQuery('(max-width:990px)');
+    const breakpointSm = useMediaQuery('(max-width:550px)');
 
     useEffect(() => {
         setTimeout(toggle, 0);
@@ -96,28 +96,30 @@ export default function ProfilePage() {
 
     const toggleHeightForAlert = () => setAdjustForAlert(!adujustForAlert);
 
-    const getIconStyles = right => bkptLg ? {} : { position: 'absolute', top: '-50px', right: right };
-
-    //const getHeaderStyles = () => bkptLg ? { borderBottom: '4px inset #3f51b5' } : {};
+    const getIconStyles = right => breakpointLg ? {} : { position: 'absolute', top: '-50px', right: right };
 
     const setColoredShadowPosition = () => {
-        if (bkptSm && adujustForAlert) return { top: '132px', left: '20px' }
+        if (breakpointSm && adujustForAlert) return { top: '132px', left: '20px' }
         if (adujustForAlert) return { top: '158px' };
-        if (bkptSm) return { top: '85px', left: '20px' };
+        if (breakpointSm) return { top: '85px', left: '20px' };
     }
 
     return (
         <Fragment>
-            <MenuAppBar bkptMd={bkptMd} toggleHeightForAlert={toggleHeightForAlert} />
+            <MenuAppBar 
+              breakpointMd={breakpointMd} 
+              toggleHeightForAlert={toggleHeightForAlert}
+              setPrimaryColor={props.setPrimaryColor}
+            />
                 <div className={classes.root}>
-                    <Paper style={bkptSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
-                        <div className={classes.headerSection} style={bkptMd ? { flexWrap: 'wrap' } : undefined}>
+                    <Paper style={breakpointSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
+                        <div className={classes.headerSection} style={breakpointMd ? { flexWrap: 'wrap' } : undefined}>
                         <img className={classes.coloredShadow} style={setColoredShadowPosition()} src={profile} />
                             <img className={classes.profileImg} src={profile} />
                             <div>
                                 <Typography 
                                     className={classes.pageHeader} 
-                                    variant="h4"
+                                    variant='h4'
                                 >
                                     Nate Rohweder
                                 </Typography>
@@ -128,15 +130,15 @@ export default function ProfilePage() {
                                     <Facebook style={getIconStyles('55px')} target='https://www.facebook.com/rohwedernt' />
                                     <Instagram style={getIconStyles('5px')} target='https://www.instagram.com/naterohweder/' />
                                 </SocialIconAnimator>
-                                <Typography className={classes.pageSubheader} variant="h6">Software Engineer</Typography>
-                                <Typography className={classes.pageParagraph} variant="body1" component="div">
+                                <Typography className={classes.pageSubheader} variant='h6'>Software Engineer</Typography>
+                                <Typography className={classes.pageParagraph} variant='body1' component='div'>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
                                     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
                                     laboris nisi ut aliquip ex ea commodo consequat.
                                 </Typography>
                             </div>
                         </div>
-                        <SectionTabs bkptSm={bkptSm} style={bkptMd ? { minWidth: '40px' } : undefined}/>
+                        <SectionTabs breakpointSm={breakpointSm} style={breakpointMd ? { minWidth: '40px' } : undefined}/>
                     </Paper>
                 </div>
         </Fragment>
