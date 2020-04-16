@@ -15,7 +15,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 // cust components
 import SuccessAlert from "../Alerts/SuccessAlert";
-import CustomDialog from "../Dialogs/CustomDialog";
+import EmailDialog from "../Dialogs/EmailDialog";
+import SettingsDialog from "../Dialogs/SettingsDialog";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,20 +38,30 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MenuAppBar(props) {
-  const { toggleHeightForAlert, bkptMd } = props;
+  const { toggleHeightForAlert, breakpointMd } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [openDialog, setOpenDialog] = React.useState(false);
+  const [openContactDialog, setOpenContactDialog] = React.useState(false);
+  const [openSettingsDialog, setOpenSettingsDialog] = React.useState(false);
   const [openAlert, setOpenAlert] = React.useState(false);
   const openMenu = Boolean(anchorEl);
 
-  const handleClickOpen = () => {
+  const handleOpenContactDialog = () => {
     handleCloseMenu();
-    setOpenDialog(true);
+    setOpenContactDialog(true);
   };
 
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
+  const handleCloseContactDialog = () => {
+    setOpenContactDialog(false);
+  };
+
+  const handleOpenSettingsDialog = () => {
+    handleCloseMenu();
+    setOpenSettingsDialog(true);
+  };
+
+  const handleCloseSettingsDialog = () => {
+    setOpenSettingsDialog(false);
   };
 
   const handleMenu = (event) => {
@@ -97,24 +109,31 @@ export default function MenuAppBar(props) {
               <MenuItem onClick={handleCloseMenu}>Jagged Paper Design</MenuItem>
               <MenuItem onClick={handleCloseMenu}>NateRohwederDotCom v1</MenuItem>
               <Divider />
-              <MenuItem onClick={handleClickOpen}>Contact</MenuItem>
-              <MenuItem onClick={handleCloseMenu}>Settings</MenuItem>
+              <MenuItem onClick={handleOpenContactDialog}>Contact</MenuItem>
+              <MenuItem onClick={handleOpenSettingsDialog}>Settings</MenuItem>
             </Menu>
           </div>
         </Toolbar>
       </AppBar>
       <SuccessAlert
-        msg="Email Sent!"
+        msg='Success!'
         openAlert={openAlert}
         setOpenAlert={setOpenAlert}
         toggleHeightForAlert={props.toggleHeightForAlert}
       />
-      <CustomDialog
-        open={openDialog}
-        handleClose={handleCloseDialog}
+      <EmailDialog
+        open={openContactDialog}
+        handleClose={handleCloseContactDialog}
         setOpenAlert={setOpenAlert}
         toggleHeightForAlert={toggleHeightForAlert}
-        bkptMd={bkptMd}
+        breakpointMd={breakpointMd}
+      />
+      <SettingsDialog
+        open={openSettingsDialog}
+        handleClose={handleCloseSettingsDialog}
+        setOpenAlert={setOpenAlert}
+        toggleHeightForAlert={toggleHeightForAlert}
+        breakpointMd={breakpointMd}
       />
     </div>
   );

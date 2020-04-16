@@ -84,8 +84,8 @@ export default function ProfilePage() {
     const classes = useStyles();
     const [isOpen, setIsOpen] = useState(false);
     const [adujustForAlert, setAdjustForAlert] = useState(false);
-    const bkptLg = useMediaQuery('(max-width:1100px)');
-    const bkptMd = useMediaQuery('(max-width:990px)');
+    const breakpointLg = useMediaQuery('(max-width:1100px)');
+    const breakpointMd = useMediaQuery('(max-width:990px)');
     const breakpointSm = useMediaQuery('(max-width:550px)');
 
     useEffect(() => {
@@ -96,9 +96,9 @@ export default function ProfilePage() {
 
     const toggleHeightForAlert = () => setAdjustForAlert(!adujustForAlert);
 
-    const getIconStyles = right => bkptLg ? {} : { position: 'absolute', top: '-50px', right: right };
+    const getIconStyles = right => breakpointLg ? {} : { position: 'absolute', top: '-50px', right: right };
 
-    //const getHeaderStyles = () => bkptLg ? { borderBottom: '4px inset #3f51b5' } : {};
+    //const getHeaderStyles = () => breakpointLg ? { borderBottom: '4px inset #3f51b5' } : {};
 
     const setColoredShadowPosition = () => {
         if (breakpointSm && adujustForAlert) return { top: '132px', left: '20px' }
@@ -108,10 +108,10 @@ export default function ProfilePage() {
 
     return (
         <Fragment>
-            <MenuAppBar bkptMd={bkptMd} toggleHeightForAlert={toggleHeightForAlert} />
+            <MenuAppBar breakpointMd={breakpointMd} toggleHeightForAlert={toggleHeightForAlert} />
                 <div className={classes.root}>
                     <Paper style={breakpointSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
-                        <div className={classes.headerSection} style={bkptMd ? { flexWrap: 'wrap' } : undefined}>
+                        <div className={classes.headerSection} style={breakpointMd ? { flexWrap: 'wrap' } : undefined}>
                         <img className={classes.coloredShadow} style={setColoredShadowPosition()} src={profile} />
                             <img className={classes.profileImg} src={profile} />
                             <div>
@@ -136,7 +136,7 @@ export default function ProfilePage() {
                                 </Typography>
                             </div>
                         </div>
-                        <SectionTabs breakpointSm={breakpointSm} style={bkptMd ? { minWidth: '40px' } : undefined}/>
+                        <SectionTabs breakpointSm={breakpointSm} style={breakpointMd ? { minWidth: '40px' } : undefined}/>
                     </Paper>
                 </div>
         </Fragment>

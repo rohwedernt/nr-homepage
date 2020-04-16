@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 
 // custom components
 import TabPanel from './TabPanel';
+import MediaCard from '../Surface/MediaCard';
 import CustomCard from '../Surface/CustomCard';
 import CustomDialogFullScreen from '../Dialogs/CustomDialogFullScreen';
 
@@ -92,48 +93,26 @@ export default function SectionTabs(props) {
     setValue(index);
   };
 
-  const getActionFuncForCardType = (type, url, imgs, label) => {
-    let actionFunc;
-    let imgArr = [];
-    imgArr = imgs && [...imgs];
-
-    switch(type) {
-      case CardTypes.url:
-        actionFunc = () => {window.open(url, '_blank')};
-        break;
-      case CardTypes.imgGallery:
-        actionFunc = () => handleClickOpenFullDialog(imgArr, label);
-        break;
-      case CardTypes.audioVideo:
-        actionFunc = () => {};
-        break;
-      default:
-        actionFunc = () => {};
-    }
-
-    return actionFunc;
-  }
-
-  const renderSections = () => (
-    sections.map((section, idx) => (
-      <TabPanel key={`s-${idx}`} value={value} index={idx}>
-        <Grid container className={classes.gridContainer}>
-          {section.data.map((item, idx) => (
-            <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
-              <CustomCard 
-                title={item.title}
-                desc={item.desc}
-                img={item.img}
-                url={item.url}
-                shareUrl={item.shareUrl}
-                onClick={getActionFuncForCardType(item.type, item.url, item.imgs, item.title)}
-              />
-            </Grid>
-          ))}
-        </Grid>
-      </TabPanel>
-    ))
-  );
+  // const renderSections = () => (
+  //   sections.map((section, idx) => (
+  //     <TabPanel key={`s-${idx}`} value={value} index={idx}>
+  //       <Grid container className={classes.gridContainer}>
+  //         {section.data.map((item, idx) => (
+  //           <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
+  //             <MediaCard 
+  //               title={item.title}
+  //               desc={item.desc}
+  //               //img={item.img}
+  //               url={item.url}
+  //               //shareUrl={item.shareUrl}
+  //               //onClick={getActionFuncForCardType(item.type, item.url, item.imgs, item.title)}
+  //             />
+  //           </Grid>
+  //         ))}
+  //       </Grid>
+  //     </TabPanel>
+  //   ))
+  // );
 
   return (
     <Fragment>
@@ -146,11 +125,83 @@ export default function SectionTabs(props) {
             textColor="primary"
             variant="fullWidth"
           >
-            {sections.map(section => <Tab style={props.style} icon={section.icon} label={props.style ? '': section.label} />)}
+            {sections.map((section, idx) => <Tab key={idx} style={props.style} icon={section.icon} label={props.style ? '': section.label} />)}
           </Tabs>
         </AppBar>
         <SwipeableViews axis={'x'} index={value} onChangeIndex={handleChangeIndex} >
-          {renderSections()}
+          <TabPanel value={value} index={0}>
+            <Grid container className={classes.gridContainer}>
+              {workSection.data.map((item, idx) => (
+                <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
+                  <CustomCard 
+                    title={item.title}
+                    desc={item.desc}
+                    img={item.img}
+                    url={item.url}
+                    shareUrl={item.shareUrl}
+                    onClick={() => window.open(item.url, '_blank')}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <Grid container className={classes.gridContainer}>
+              {musicSection.data.map((item, idx) => (
+                <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
+                  <MediaCard 
+                    title={item.title}
+                    desc={item.desc}
+                    url={item.url}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <Grid container className={classes.gridContainer}>
+              {travelSection.data.map((item, idx) => (
+                <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
+                  <CustomCard 
+                    title={item.title}
+                    desc={item.desc}
+                    img={item.img}
+                    onClick={() => handleClickOpenFullDialog(item.imgs, travelSection.label)}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </TabPanel>
+          <TabPanel value={value} index={3}>
+            <Grid container className={classes.gridContainer}>
+              {foodAndDrinkSection.data.map((item, idx) => (
+                <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
+                  <CustomCard 
+                    title={item.title}
+                    desc={item.desc}
+                    img={item.img}
+                    // onClick={} this should open the image larger with a bit more text for a review
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </TabPanel>
+          <TabPanel value={value} index={4}>
+            <Grid container className={classes.gridContainer}>
+              {astronomySection.data.map((item, idx) => (
+                <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
+                  <CustomCard 
+                    title={item.title}
+                    desc={item.desc}
+                    img={item.img}
+                    url={item.url}
+                    shareUrl={item.shareUrl}
+                    onClick={() => window.open(item.url, '_blank')}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </TabPanel>
         </SwipeableViews>
       </div>
       <CustomDialogFullScreen 

@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-export default function RecipeReviewCard(props) {
+export default function ImageCard(props) {
   const classes = useStyles();
 
   return (
