@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ProfilePage() {
+export default function ProfilePage(props) {
     const classes = useStyles();
     const [isOpen, setIsOpen] = useState(false);
     const [adujustForAlert, setAdjustForAlert] = useState(false);
@@ -98,8 +98,6 @@ export default function ProfilePage() {
 
     const getIconStyles = right => breakpointLg ? {} : { position: 'absolute', top: '-50px', right: right };
 
-    //const getHeaderStyles = () => breakpointLg ? { borderBottom: '4px inset #3f51b5' } : {};
-
     const setColoredShadowPosition = () => {
         if (breakpointSm && adujustForAlert) return { top: '132px', left: '20px' }
         if (adujustForAlert) return { top: '158px' };
@@ -108,7 +106,11 @@ export default function ProfilePage() {
 
     return (
         <Fragment>
-            <MenuAppBar breakpointMd={breakpointMd} toggleHeightForAlert={toggleHeightForAlert} />
+            <MenuAppBar 
+              breakpointMd={breakpointMd} 
+              toggleHeightForAlert={toggleHeightForAlert}
+              setPrimaryColor={props.setPrimaryColor}
+            />
                 <div className={classes.root}>
                     <Paper style={breakpointSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
                         <div className={classes.headerSection} style={breakpointMd ? { flexWrap: 'wrap' } : undefined}>

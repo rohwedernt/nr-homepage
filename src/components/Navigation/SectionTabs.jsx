@@ -18,7 +18,6 @@ import CustomDialogFullScreen from '../Dialogs/CustomDialogFullScreen';
 import { scrollTo } from '../../utilities/scrollTo';
 
 // data
-import { CardTypes } from '../../data/cardTypes';
 import { workSection } from '../../data/work';
 import { musicSection } from '../../data/music';
 import { travelSection } from '../../data/travel';
@@ -26,13 +25,13 @@ import { foodAndDrinkSection } from '../../data/foodAndDrink';
 import { astronomySection } from '../../data/astronomy';
 
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: '60px auto',
     flexGrow: 1,
     width: '100%',
     '& .MuiTab-root:hover': {
-        color: '#3f51b5'
+        color: theme.palette.primary.main
     },
     '& .MuiTabs-flexContainer': {
       justifyContent: 'center'
@@ -45,7 +44,7 @@ const useStyles = makeStyles(() => ({
     //     height: '90px',
     //   },
     //   '& .Mui-selected': {
-    //     backgroundColor: '#3f51b5',
+    //     backgroundColor: theme.palette.primary.main,
     //     color: '#fff',
     //     boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
     //   },

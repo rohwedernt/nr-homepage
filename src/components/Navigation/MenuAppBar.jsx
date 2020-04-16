@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MenuAppBar(props) {
-  const { toggleHeightForAlert, breakpointMd } = props;
+  const { toggleHeightForAlert, breakpointMd, setPrimaryColor } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [openContactDialog, setOpenContactDialog] = React.useState(false);
@@ -133,6 +133,7 @@ export default function MenuAppBar(props) {
         handleClose={handleCloseSettingsDialog}
         setOpenAlert={setOpenAlert}
         toggleHeightForAlert={toggleHeightForAlert}
+        setPrimaryColor={setPrimaryColor}
         breakpointMd={breakpointMd}
       />
     </div>

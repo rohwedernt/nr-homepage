@@ -33,7 +33,7 @@ export default function CustomDialogFullScreen(props) {
   const { open, handleClose, data } = props;
 
   const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
+    return <Slide direction='up' ref={ref} {...props} />;
   });
 
   return (
@@ -41,10 +41,10 @@ export default function CustomDialogFullScreen(props) {
       <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
         <AppBar className={classes.appBar}>
           <Toolbar>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant='h6' className={classes.title}>
               {data.label}
             </Typography>
-            <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+            <IconButton edge='start' color='inherit' onClick={handleClose} aria-label='close'>
               <CloseIcon />
             </IconButton>
           </Toolbar>
