@@ -24,15 +24,15 @@ export default function MenuAppBar(props) {
         <Dialog 
             open={open} 
             onClose={handleClose} 
-            aria-labelledby="form-dialog-title"
+            aria-labelledby='form-dialog-title'
             maxWidth='md'
         >
-            <DialogTitle id="form-dialog-title">{dialogTitle}</DialogTitle>
+            <DialogTitle id='form-dialog-title'>{dialogTitle}</DialogTitle>
             <DialogContent className={classes.dialogContent} style={getDialogStyles()}>
                 {content()}
             </DialogContent>
             <DialogActions>
-                <Button onClick={handleClose} color="primary">
+                <Button onClick={handleClose} color='primary'>
                     Cancel
                 </Button>
                 <Button 
@@ -40,7 +40,7 @@ export default function MenuAppBar(props) {
                         handleClose();
                         confirmFunc();
                     }} 
-                    color="primary"
+                    color='primary'
                 >
                     {confirmText}
                 </Button>

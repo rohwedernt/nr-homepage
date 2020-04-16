@@ -117,13 +117,13 @@ export default function SectionTabs(props) {
   return (
     <Fragment>
       <div className={classes.root}>
-        <AppBar position="static" color={'transparent'} elevation={0}>
+        <AppBar position='static' color={'transparent'} elevation={0}>
           <Tabs
             value={value}
             onChange={handleChange}
-            indicatorColor="primary"
-            textColor="primary"
-            variant="fullWidth"
+            indicatorColor='primary'
+            textColor='primary'
+            variant='fullWidth'
           >
             {sections.map((section, idx) => <Tab key={idx} style={props.style} icon={section.icon} label={props.style ? '': section.label} />)}
           </Tabs>

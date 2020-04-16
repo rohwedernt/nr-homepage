@@ -1,22 +1,22 @@
-import React from "react";
+import React from 'react';
 
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import { Divider } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import { Divider } from '@material-ui/core';
 
 // @material-ui/icons
-import MenuIcon from "@material-ui/icons/Menu";
+import MenuIcon from '@material-ui/icons/Menu';
 
 // cust components
-import SuccessAlert from "../Alerts/SuccessAlert";
-import EmailDialog from "../Dialogs/EmailDialog";
-import SettingsDialog from "../Dialogs/SettingsDialog";
+import SuccessAlert from '../Alerts/SuccessAlert';
+import EmailDialog from '../Dialogs/EmailDialog';
+import SettingsDialog from '../Dialogs/SettingsDialog';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -74,32 +74,32 @@ export default function MenuAppBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position='static'>
         <Toolbar>
-          <Typography variant="h6" className={classes.title}></Typography>
+          <Typography variant='h6' className={classes.title}></Typography>
           <div>
             <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
+              aria-label='account of current user'
+              aria-controls='menu-appbar'
+              aria-haspopup='true'
               onClick={handleMenu}
-			        color="inherit"
+			        color='inherit'
 			        className={classes.hamburger}
             >
 				<Typography style={{ marginRight: '10px' }} variant='subtitle1'>More Stuff</Typography>
 				<MenuIcon />
             </IconButton>
             <Menu
-              id="menu-appbar"
+              id='menu-appbar'
               anchorEl={anchorEl}
               anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
+                vertical: 'top',
+                horizontal: 'right',
               }}
               keepMounted
               transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
+                vertical: 'top',
+                horizontal: 'right',
               }}
               open={openMenu}
               onClose={handleCloseMenu}

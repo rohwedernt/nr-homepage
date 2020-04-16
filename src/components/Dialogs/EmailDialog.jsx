@@ -19,11 +19,11 @@ export default function MenuAppBar(props) {
             }}
             content={() => (
                 <TextField
-                    id="outlined-multiline-static"
-                    label="Email me"
+                    id='outlined-multiline-static'
+                    label='Email me'
                     multiline
                     rows={8}
-                    variant="outlined"
+                    variant='outlined'
                     fullWidth
                 />
             )}

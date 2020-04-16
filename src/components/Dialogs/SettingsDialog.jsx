@@ -21,7 +21,7 @@ export default function MenuAppBar(props) {
             }}
             content={() => (
                 <Fragment>
-                    <FormControlLabel disabled control={<Switch />} label="Dark Mode" />
+                    <FormControlLabel disabled control={<Switch />} label='Dark Mode' />
                     <Typography variant='body1' component='span'>(Upcoming)</Typography>
                 </Fragment>
             )}

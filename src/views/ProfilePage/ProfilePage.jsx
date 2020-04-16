@@ -117,7 +117,7 @@ export default function ProfilePage() {
                             <div>
                                 <Typography 
                                     className={classes.pageHeader} 
-                                    variant="h4"
+                                    variant='h4'
                                 >
                                     Nate Rohweder
                                 </Typography>
@@ -128,8 +128,8 @@ export default function ProfilePage() {
                                     <Facebook style={getIconStyles('55px')} target='https://www.facebook.com/rohwedernt' />
                                     <Instagram style={getIconStyles('5px')} target='https://www.instagram.com/naterohweder/' />
                                 </SocialIconAnimator>
-                                <Typography className={classes.pageSubheader} variant="h6">Software Engineer</Typography>
-                                <Typography className={classes.pageParagraph} variant="body1" component="div">
+                                <Typography className={classes.pageSubheader} variant='h6'>Software Engineer</Typography>
+                                <Typography className={classes.pageParagraph} variant='body1' component='div'>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
                                     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
                                     laboris nisi ut aliquip ex ea commodo consequat.
