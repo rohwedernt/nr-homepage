@@ -17,9 +17,6 @@ import TravelTabPanel from './TabPanels/TravelTabPanel';
 import FoodAndDrinkTabPanel from './TabPanels/FoodAndDrinkTabPanel';
 import AstronomyTabPanel from './TabPanels/AstronomyTabPanel';
 
-// utilities
-import { scrollTo } from '../../utilities/scrollTo';
-
 // data
 import { workSection } from '../../data/work';
 import { musicSection } from '../../data/music';
@@ -39,34 +36,6 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiTabs-flexContainer': {
       justifyContent: 'center'
     },
-    // '& .MuiTab-root': {
-    //     backgroundColor: '#fff',
-    //     margin: '25px',
-    //     color: 'black',
-    //     borderRadius: '5px',
-    //     height: '90px',
-    //   },
-    //   '& .Mui-selected': {
-    //     backgroundColor: theme.palette.primary.main,
-    //     color: '#fff',
-    //     boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
-    //   },
-    //   '& .MuiTab-wrapper': {
-    //       fontSize: '11px',
-    //       fontWeight: 'bold',
-    //   },
-    //   '& .MuiTab-fullWidth': {
-    //       //flexGrow: 0
-    //   },
-    //   '& .MuiTab-labelIcon': {
-    //     minWidth: '95px',
-    //   }
-  },
-  gridContainer: {
-    justifyContent: 'center'
-  },
-  gridItem: {
-    margin: '15px'
   }
 }));
 
@@ -88,20 +57,12 @@ export default function ProfileSectionTabs(props) {
   };
 
   const handleChange = (event, newValue) => {
-    scrollTo(props.breakpointSm);
     setValue(newValue);
   };
 
   const handleChangeIndex = (index) => {
     setValue(index);
   };
-
-
-// pull each section out into its own component
-// capture the 'what items to show' in state (see stack overflow)
-// custom switch is no longer custom so fix that
-// check for other 'generic' comps that are taking specific props
-
 
   return (
     <Fragment>

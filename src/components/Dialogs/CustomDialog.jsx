@@ -27,7 +27,7 @@ export default function CustomDialog(props) {
             aria-labelledby='form-dialog-title'
             maxWidth='md'
         >
-            <DialogTitle id='form-dialog-title'>{dialogTitle}</DialogTitle>
+            {dialogTitle && <DialogTitle style={{ paddingBottom: '0px' }} id='form-dialog-title'>{dialogTitle}</DialogTitle>}
             <DialogContent className={classes.dialogContent} style={getDialogStyles()}>
                 {content()}
             </DialogContent>

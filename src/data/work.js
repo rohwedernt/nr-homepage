@@ -12,7 +12,6 @@ import swipeableViews from '../assets/img/react-swipeable.png';
 import pose from '../assets/img/pose.jpg';
 import docker from '../assets/img/docker.jpeg';
 import googleDomains from '../assets/img/google-domains.png';
-import placeholder from '../assets/img/placeholder.png';
 
 
 export const workSection = {
@@ -53,41 +52,6 @@ export const workSection = {
 		  desc: `Connect your domain to a third-party web host`,
 		  img: googleDomains,
 		  url: 'https://support.google.com/domains/answer/6353515?hl=en'
-		},
-		{
-		  title: `Test Title`,
-		  desc: `Description here`,
-		  img: placeholder
-		},
-		{
-		  title: `Test Title`,
-		  desc: `Description here`,
-		  img: placeholder
-		},
-		{
-		  title: `Test Title`,
-		  desc: `Description here`,
-		  img: placeholder
-		},
-		{
-		  title: `Test Title`,
-		  desc: `Description here`,
-		  img: placeholder
-		},
-		{
-		  title: `Test Title`,
-		  desc: `Description here`,
-		  img: placeholder
-		},
-		{
-		  title: `Test Title`,
-		  desc: `Description here`,
-		  img: placeholder
-		},
-		{
-		  title: `Test Title`,
-		  desc: `Description here`,
-		  img: placeholder
 		}
 	]
 }

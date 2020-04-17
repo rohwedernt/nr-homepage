@@ -9,6 +9,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 // custom components
 import TabPanel from '../../../components/Navigation/TabPanel';
 import MediaCard from '../../../components/Surface/MediaCard';
+import NoContentCard from '../../../components/Surface/NoContentCard';
 import CustomSwitch from '../../../components/Input/CustomSwitch';
 
 // data
@@ -29,6 +30,9 @@ export default function ProfileSectionTabs(props) {
     const [myStuff, setMyStuff] = useState(false);
     const { value, idx } = props;
 
+    const myItems = musicSection.data.filter(i => i.myStuff !== undefined);
+    const items = myStuff ? myItems : musicSection.data;
+
     return (
         <TabPanel value={value} index={idx}>
             <AppBar style={{ backgroundColor: '#fff' }} elevation={0} position="static">
@@ -37,7 +41,7 @@ export default function ProfileSectionTabs(props) {
                 </Toolbar>
             </AppBar>
             <Grid container className={classes.gridContainer}>
-                {musicSection.data.map((item, idx) => (
+                {items.length > 0 ? items.map((item, idx) => (
                     <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
                     <MediaCard 
                         title={item.title}
@@ -45,7 +49,7 @@ export default function ProfileSectionTabs(props) {
                         url={item.url}
                     />
                     </Grid>
-                ))}
+                )) : <NoContentCard />}
             </Grid>
         </TabPanel>
     );

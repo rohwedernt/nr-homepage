@@ -156,11 +156,6 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=PVBoDx_1dTc'
     },
     {
-      title: `First Circle`,
-      desc: `Pat Metheny Group | More Travels | 1991`,
-      url: 'https://www.youtube.com/watch?v=PVBoDx_1dTc'
-    },
-    {
       title: `Subway To Venus`,
       desc: `RHCP | David Sanborn Night Music | 1989`,
       url: 'https://www.youtube.com/watch?v=ClivCUC9R_4'
