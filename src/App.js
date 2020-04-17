@@ -6,6 +6,11 @@ import './App.css'
 
 
 let defaultTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#1f2833'
+    }
+  },
   typography: {
     'fontFamily': `'Montserrat', sans-serif`,
    }

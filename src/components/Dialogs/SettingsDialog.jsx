@@ -6,9 +6,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import Box from '@material-ui/core/Box';
 
-// @material-ui/core colors
-import indigo from '@material-ui/core/colors/indigo';
-
 // custom components
 import CustomDialog from './CustomDialog';
 import { Typography, Divider } from '@material-ui/core';

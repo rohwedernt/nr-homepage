@@ -18,11 +18,15 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-export default function SwitchLabels() {
+export default function SwitchLabels(props) {
     const classes = useStyles();
+    const { on, setOn } = props;
     const [checked, setChecked] = useState(false)
 
-  const handleChange = () => setChecked(!checked);
+  const handleChange = () => {
+      setChecked(!checked);
+      setOn(!on);
+    }
 
   return (
     <FormGroup row>

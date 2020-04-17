@@ -6,7 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 // custom components
-import SectionTabs from '../../components/Navigation/SectionTabs';
+import ProfileSectionTabs from './ProfileSectionTabs';
 import MenuAppBar from '../../components/Navigation/MenuAppBar';
 import { SocialIconAnimator } from '../../components/Animators/SocialIconAnimator';
 
@@ -131,7 +131,7 @@ export default function ProfilePage(props) {
                                 </Typography>
                             </div>
                         </div>
-                        <SectionTabs breakpointSm={breakpointSm} style={breakpointMd ? { minWidth: '40px' } : undefined}/>
+                        <ProfileSectionTabs breakpointSm={breakpointSm} style={breakpointMd ? { minWidth: '40px' } : undefined}/>
                     </Paper>
                 </div>
         </Fragment>
