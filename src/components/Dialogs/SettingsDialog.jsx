@@ -27,7 +27,7 @@ export default function SettingsDialog(props) {
             }}
             content={() => (
                 <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
-                    <Box style={{textAlign: 'center' }}>
+                    <Box style={{textAlign: 'center', marginRight: '15px' }}>
                         <Typography gutterBottom variant='subtitle1' component='div'>Set Theme Color</Typography>
                         <TwitterPicker 
                             triangle='hide'

@@ -28,12 +28,17 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'space-between'
+  },
+  comingSoon: {
+    marginLeft: theme.spacing(5),
+    paddingTop: theme.spacing(2),
+
   }
 }));
 
 export default function CustomDialogFullScreen(props) {
   const classes = useStyles();
-  const { open, handleClose, title, description, content } = props;
+  const { open, handleClose, title, description, content, comingSoon } = props;
 
   const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction='up' ref={ref} {...props} />;
@@ -57,6 +62,7 @@ export default function CustomDialogFullScreen(props) {
             </div>
           </Toolbar>
         </AppBar>
+          {comingSoon && <Typography className={classes.comingSoon} variant='h6'>Coming Soon...</Typography>}
           {content()}
       </Dialog>
     </div>
