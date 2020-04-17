@@ -15,9 +15,9 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-export default function MenuAppBar(props) {
+export default function CustomDialog(props) {
     const classes = useStyles();
-    const { dialogTitle, confirmText, confirmFunc, content, breakpointMd, open, handleClose } = props;
+    const { dialogTitle, confirmText, confirmFunc, content, breakpointMd, open, handleClose, removeClose } = props;
     const getDialogStyles = () => breakpointMd ? { minWidth: '300px' } : {};
 
     return (
@@ -32,9 +32,11 @@ export default function MenuAppBar(props) {
                 {content()}
             </DialogContent>
             <DialogActions>
-                <Button onClick={handleClose} color='primary'>
-                    Cancel
-                </Button>
+                {!removeClose && (
+                    <Button onClick={handleClose} color='primary'>
+                        Cancel
+                    </Button>
+                )}
                 <Button 
                     onClick={() => {
                         handleClose();

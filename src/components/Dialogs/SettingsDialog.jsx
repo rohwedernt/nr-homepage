@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { TwitterPicker } from 'react-color'
 
 // @material-ui/core components
@@ -13,9 +13,9 @@ import indigo from '@material-ui/core/colors/indigo';
 import CustomDialog from './CustomDialog';
 import { Typography, Divider } from '@material-ui/core';
 
-export default function MenuAppBar(props) {
-    const [ background, setBackground ] = useState(indigo);
-    const { setOpenAlert, toggleHeightForAlert, setPrimaryColor, ...rest } = props;
+export default function SettingsDialog(props) {
+    const [ background, setBackground ] = useState('#3f51b5');
+    const { setOpenAlert, setPrimaryColor, ...rest } = props;
 
     const handleChangeComplete = (color) => { setBackground(color.hex); };
 
@@ -27,23 +27,22 @@ export default function MenuAppBar(props) {
                 console.log('confirm func ran')
                 setPrimaryColor(background);
                 setOpenAlert(true);
-                toggleHeightForAlert();
             }}
             content={() => (
                 <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
-                    <Box>
-                        <Typography variant='subtitle1' component='div'>Set Primary Color</Typography>
+                    <Box style={{textAlign: 'center' }}>
+                        <Typography gutterBottom variant='subtitle1' component='div'>Set Theme Color</Typography>
                         <TwitterPicker 
                             triangle='hide'
-                            colors={['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722']}
+                            colors={['#3f51b5', '#aa2e25', '#a31545', '#6d1b7b', '#482880', '#1769aa','#0276aa', '#008394', '#00695f', '#357a38', '#618833', '#b26a00', '#b23c17', '#05386b', '#5d5c61', '#501b1d', '#1f2833']}
                             color={background} 
                             onChangeComplete={handleChangeComplete} 
                         />
                     </Box>
                     <Divider />
-                    <Box>
-                        <FormControlLabel disabled control={<Switch />} label='Dark Mode' />
-                        <Typography variant='body1' component='span'>(Upcoming)</Typography>
+                    <Box style={{textAlign: 'center' }}>
+                        <Typography gutterBottom variant='body1' component='div'>(Coming Soon)</Typography>
+                        <FormControlLabel disabled control={<Switch />} label='Dark Mode' style={{ marginRight: '0px' }} />
                     </Box>
                 </ div>
             )}

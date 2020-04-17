@@ -49,8 +49,7 @@ export default function CustomCard(props) {
                 image={img}
                 title={title}
             />
-        </CardActionArea>
-        <CardContent className={classes.cardContent}>
+            <CardContent className={classes.cardContent}>
               <Typography 
                 className={classes.title} 
                 variant='subtitle1'
@@ -63,11 +62,7 @@ export default function CustomCard(props) {
                   {desc}
               </Typography>
           </CardContent>
-        <CardActions style={{ backgroundColor: '#f6f6f6', boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 1px, rgba(0, 0, 0, 0.23) 0px 1px 1px inset', justifyContent: 'flex-end' }}>
-            <IconButton aria-label='share' color='primary'>
-                <ShareIcon />
-            </IconButton>
-        </CardActions>
+        </CardActionArea>
     </Card>
   );
 }

@@ -6,8 +6,8 @@ import TextField from '@material-ui/core/TextField';
 // custom components
 import CustomDialog from './CustomDialog';
 
-export default function MenuAppBar(props) {
-    const { setOpenAlert, toggleHeightForAlert, ...rest } = props;
+export default function EmailDialog(props) {
+    const { setOpenAlert, ...rest } = props;
 
     return (
         <CustomDialog
@@ -15,7 +15,6 @@ export default function MenuAppBar(props) {
             confirmText='Send'
             confirmFunc={() => {
                 setOpenAlert(true);
-                toggleHeightForAlert();
             }}
             content={() => (
                 <TextField

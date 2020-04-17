@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,8 +15,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 // cust components
 import SuccessAlert from '../Alerts/SuccessAlert';
+import TextDialog from '../Dialogs/TextDialog';
 import EmailDialog from '../Dialogs/EmailDialog';
 import SettingsDialog from '../Dialogs/SettingsDialog';
+import FullAppDialog from '../Dialogs/FullAppDialog';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,13 +40,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MenuAppBar(props) {
-  const { toggleHeightForAlert, breakpointMd, setPrimaryColor } = props;
+  const { breakpointMd, setPrimaryColor } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [openContactDialog, setOpenContactDialog] = React.useState(false);
   const [openSettingsDialog, setOpenSettingsDialog] = React.useState(false);
+  const [openFullDialog, setOpenFullDialog] = useState(false);
+  const [openAboutDialog, setOpenAboutDialog] = useState(false);
   const [openAlert, setOpenAlert] = React.useState(false);
+
   const openMenu = Boolean(anchorEl);
+
+  const handleClickOpenAboutDialog = () => {
+    handleCloseMenu();
+    setOpenAboutDialog(true);
+  };
+
+  const handleCloseAboutDialog = () => {
+    setOpenAboutDialog(false);
+  };
+
+  const handleClickOpenFullDialog = () => {
+    handleCloseMenu();
+    setOpenFullDialog(true);
+  };
+
+  const handleCloseFullDialog = () => {
+    setOpenFullDialog(false);
+  };
 
   const handleOpenContactDialog = () => {
     handleCloseMenu();
@@ -104,8 +127,10 @@ export default function MenuAppBar(props) {
               open={openMenu}
               onClose={handleCloseMenu}
             >
-              <MenuItem onClick={handleCloseMenu}>Retrospective Tool</MenuItem>
-              <MenuItem onClick={handleCloseMenu}>Dashboard Example</MenuItem>
+              <MenuItem onClick={handleClickOpenAboutDialog}>About This Site</MenuItem>
+              <Divider />
+              <MenuItem onClick={handleClickOpenFullDialog}>Scrum Retro Tool</MenuItem>
+              <MenuItem onClick={handleCloseMenu}>Dashboard POC</MenuItem>
               <MenuItem onClick={handleCloseMenu}>Jagged Paper Design</MenuItem>
               <MenuItem onClick={handleCloseMenu}>NateRohwederDotCom v1</MenuItem>
               <Divider />
@@ -115,26 +140,34 @@ export default function MenuAppBar(props) {
           </div>
         </Toolbar>
       </AppBar>
+      <TextDialog
+        open={openAboutDialog}
+        handleClose={handleCloseAboutDialog}
+        text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      />
       <SuccessAlert
         msg='Success!'
-        openAlert={openAlert}
+        open={openAlert}
         setOpenAlert={setOpenAlert}
-        toggleHeightForAlert={props.toggleHeightForAlert}
       />
       <EmailDialog
         open={openContactDialog}
         handleClose={handleCloseContactDialog}
         setOpenAlert={setOpenAlert}
-        toggleHeightForAlert={toggleHeightForAlert}
         breakpointMd={breakpointMd}
       />
       <SettingsDialog
         open={openSettingsDialog}
         handleClose={handleCloseSettingsDialog}
         setOpenAlert={setOpenAlert}
-        toggleHeightForAlert={toggleHeightForAlert}
         setPrimaryColor={setPrimaryColor}
         breakpointMd={breakpointMd}
+      />
+      <FullAppDialog 
+        open={openFullDialog}
+        handleClose={handleCloseFullDialog}
+        title='Retrospective Tool'
+        description='This is a from-scratch tool used for managing custom retrospective formats for scrum teams.'
       />
     </div>
   );

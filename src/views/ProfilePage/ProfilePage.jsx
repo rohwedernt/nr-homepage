@@ -83,7 +83,6 @@ const useStyles = makeStyles((theme) => ({
 export default function ProfilePage(props) {
     const classes = useStyles();
     const [isOpen, setIsOpen] = useState(false);
-    const [adujustForAlert, setAdjustForAlert] = useState(false);
     const breakpointLg = useMediaQuery('(max-width:1100px)');
     const breakpointMd = useMediaQuery('(max-width:990px)');
     const breakpointSm = useMediaQuery('(max-width:550px)');
@@ -94,21 +93,14 @@ export default function ProfilePage(props) {
 
     const toggle = () => setIsOpen(!isOpen);
 
-    const toggleHeightForAlert = () => setAdjustForAlert(!adujustForAlert);
-
     const getIconStyles = right => breakpointLg ? {} : { position: 'absolute', top: '-50px', right: right };
 
-    const setColoredShadowPosition = () => {
-        if (breakpointSm && adujustForAlert) return { top: '132px', left: '20px' }
-        if (adujustForAlert) return { top: '158px' };
-        if (breakpointSm) return { top: '85px', left: '20px' };
-    }
+    const setColoredShadowPosition = () => breakpointSm ? { top: '85px', left: '20px' } : undefined;
 
     return (
         <Fragment>
             <MenuAppBar 
               breakpointMd={breakpointMd} 
-              toggleHeightForAlert={toggleHeightForAlert}
               setPrimaryColor={props.setPrimaryColor}
             />
                 <div className={classes.root}>
@@ -130,11 +122,12 @@ export default function ProfilePage(props) {
                                     <Facebook style={getIconStyles('55px')} target='https://www.facebook.com/rohwedernt' />
                                     <Instagram style={getIconStyles('5px')} target='https://www.instagram.com/naterohweder/' />
                                 </SocialIconAnimator>
-                                <Typography className={classes.pageSubheader} variant='h6'>Software Engineer</Typography>
+                                <Typography className={classes.pageSubheader} variant='h6'>Software Engineer  |  Denver, CO</Typography>
                                 <Typography className={classes.pageParagraph} variant='body1' component='div'>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                                    laboris nisi ut aliquip ex ea commodo consequat.
+                                  Equal parts software experiment laboratory, agglomeration of web resources from over the years,
+                                  showcase of personal dev projects, blog for my travels, eats, drinks, dogs, and other 
+                                  miscellaneous interests. Visit the menu in the upper right hand corner for a more in depth technical 
+                                  overview of the site itself.
                                 </Typography>
                             </div>
                         </div>
