@@ -7,8 +7,10 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 // custom components
 import ProfileSectionTabs from './ProfileSectionTabs';
-import MenuAppBar from '../../components/Navigation/MenuAppBar';
 import { SocialIconAnimator } from '../../components/Animators/SocialIconAnimator';
+
+// layouts
+import MenuAppBar from './MenuAppBar';
 
 // assets
 import profile from '../../assets/img/profile-full.jpg';
@@ -69,14 +71,7 @@ const useStyles = makeStyles((theme) => ({
     left: '110px'
   },
   animator: {
-      // needs to wrap at 1135
-    //borderTop: '2px solid grey',
     display: 'flex',
-    //alignItems: 'center',
-    //flexDirection: 'row',
-    //justifyContent: 'flex-end',
-    //height: 'fit-content',
-    //flex: '1 1 auto',
   }
 }));
 
@@ -128,7 +123,7 @@ export default function ProfilePage(props) {
                                   Equal parts software experiment laboratory, agglomeration of web resources from over the years,
                                   showcase of personal dev projects, blog for my travels, eats, drinks, dogs, and other 
                                   miscellaneous interests. Visit the menu in the upper right hand corner for a more in depth technical 
-                                  overview of the site itself.
+                                  overview of the site.
                                 </Typography>
                             </div>
                         </div>

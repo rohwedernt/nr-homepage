@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
 
 export default function CustomDialog(props) {
     const classes = useStyles();
-    const { dialogTitle, confirmText, confirmFunc, content, breakpointMd, breakpointSm, open, handleClose, removeClose } = props;
+    const { title, confirmText, confirmFunc, content, breakpointMd, breakpointSm, open, handleClose, cancel } = props;
     const getDialogStyles = () => {
         if (breakpointSm) return { minWidth: '250px' };
         else if (breakpointMd) return { minWidth: '300px' };
@@ -30,13 +30,14 @@ export default function CustomDialog(props) {
             onClose={handleClose} 
             aria-labelledby='form-dialog-title'
             maxWidth='md'
+            scroll={'paper'}
         >
-            {dialogTitle && <DialogTitle style={{ paddingBottom: '0px' }} id='form-dialog-title'>{dialogTitle}</DialogTitle>}
+            {title && <DialogTitle style={{ paddingBottom: '0px' }} id='form-dialog-title'>{title}</DialogTitle>}
             <DialogContent className={classes.dialogContent} style={getDialogStyles()}>
                 {content()}
             </DialogContent>
             <DialogActions>
-                {!removeClose && (
+                {cancel && (
                     <Button onClick={handleClose} color='primary'>
                         Cancel
                     </Button>
@@ -44,11 +45,11 @@ export default function CustomDialog(props) {
                 <Button 
                     onClick={() => {
                         handleClose();
-                        confirmFunc();
+                        confirmFunc && confirmFunc();
                     }} 
                     color='primary'
                 >
-                    {confirmText}
+                    {confirmText ? confirmText : 'Close'}
                 </Button>
             </DialogActions>
         </Dialog>
