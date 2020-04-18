@@ -10,11 +10,12 @@ import sysDesign from '../assets/img/sysDesign.png';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      '& .MuiTypography-gutterBottom': {
-          marginBottom: theme.spacing(2)
-      }
+        minWidth: '250px',
+        '& .MuiTypography-gutterBottom': {
+            marginBottom: theme.spacing(2)
+        }
     }
-  }));
+}));
 
 export function AboutThisSite() {
     const classes = useStyles();

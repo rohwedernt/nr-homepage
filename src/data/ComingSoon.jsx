@@ -6,7 +6,10 @@ import { Typography } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
-  }));
+    root: {
+        minWidth: '250px'
+    }
+}));
 
 export function ComingSoon() {
     const classes = useStyles();

@@ -20,8 +20,8 @@ import EmailDialog from '../Dialogs/EmailDialog';
 import SettingsDialog from '../Dialogs/SettingsDialog';
 import FullAppDialog from '../Dialogs/FullAppDialog';
 
-import { AboutThisSite } from '../../data/AboutThisSite.js';
-import { ComingSoon } from '../../data/ComingSoon.js';
+import { AboutThisSite } from '../../data/AboutThisSite';
+import { ComingSoon } from '../../data/ComingSoon';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -43,12 +43,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MenuAppBar(props) {
-  const { breakpointMd, setPrimaryColor } = props;
+  const { breakpointMd, breakpointSm, setPrimaryColor } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [openContactDialog, setOpenContactDialog] = React.useState(false);
   const [openSettingsDialog, setOpenSettingsDialog] = React.useState(false);
-  const [openFullDialog, setOpenFullDialog] = useState(false);
+  const [openRetroDialog, setOpenRetroDialog] = useState(false);
+  const [openDashboardDialog, setOpenDashboardDialog] = useState(false);
+  const [openV1Dialog, setOpenV1Dialog] = useState(false);
   const [openAboutDialog, setOpenAboutDialog] = useState(false);
   const [openComingSoonDialog, setOpenComingSoonDialog] = useState(false);
   const [openAlert, setOpenAlert] = React.useState(false);
@@ -73,13 +75,31 @@ export default function MenuAppBar(props) {
     setOpenComingSoonDialog(false);
   };
 
-  const handleClickOpenFullDialog = () => {
+  const handleClickOpenRetroDialog = () => {
     handleCloseMenu();
-    setOpenFullDialog(true);
+    setOpenRetroDialog(true);
   };
 
-  const handleCloseFullDialog = () => {
-    setOpenFullDialog(false);
+  const handleCloseRetroDialog = () => {
+    setOpenRetroDialog(false);
+  };
+
+  const handleClickOpenDashboardDialog = () => {
+    handleCloseMenu();
+    setOpenDashboardDialog(true);
+  };
+
+  const handleCloseDashboardDialog = () => {
+    setOpenDashboardDialog(false);
+  };
+
+  const handleClickOpenV1Dialog = () => {
+    handleCloseMenu();
+    setOpenV1Dialog(true);
+  };
+
+  const handleCloseV1Dialog = () => {
+    setOpenV1Dialog(false);
   };
 
   const handleOpenContactDialog = () => {
@@ -143,10 +163,9 @@ export default function MenuAppBar(props) {
               <MenuItem onClick={handleClickOpenAboutDialog}>About This Site</MenuItem>
               <MenuItem onClick={handleClickOpenComingSoonDialog}>Coming Soon</MenuItem>
               <Divider />
-              <MenuItem onClick={handleClickOpenFullDialog}>Scrum Retro Tool</MenuItem>
-              <MenuItem onClick={handleCloseMenu}>Dashboard POC</MenuItem>
-              <MenuItem onClick={handleCloseMenu}>Jagged Paper Design</MenuItem>
-              <MenuItem onClick={handleCloseMenu}>NateRohwederDotCom v1</MenuItem>
+              <MenuItem onClick={handleClickOpenRetroDialog}>Scrum Retro Tool</MenuItem>
+              <MenuItem onClick={handleClickOpenDashboardDialog}>Dashboard POC</MenuItem>
+              <MenuItem onClick={handleClickOpenV1Dialog}>NateRohwederDotCom v1</MenuItem>
               <Divider />
               <MenuItem onClick={handleOpenContactDialog}>Contact</MenuItem>
               <MenuItem onClick={handleOpenSettingsDialog}>Settings</MenuItem>
@@ -158,12 +177,17 @@ export default function MenuAppBar(props) {
         open={openAboutDialog}
         handleClose={handleCloseAboutDialog}
         content={<AboutThisSite />}
+        breakpointMd={breakpointMd}
+        breakpointSm={breakpointSm}
+
       />
       <TextDialog
         open={openComingSoonDialog}
         handleClose={handleCloseComingSoonDialog}
         dialogTitle='Features and Content on the Horizon'
         content={<ComingSoon />}
+        breakpointMd={breakpointMd}
+        breakpointSm={breakpointSm}
       />
       <SuccessAlert
         msg='Success!'
@@ -175,6 +199,7 @@ export default function MenuAppBar(props) {
         handleClose={handleCloseContactDialog}
         setOpenAlert={setOpenAlert}
         breakpointMd={breakpointMd}
+        breakpointSm={breakpointSm}
       />
       <SettingsDialog
         open={openSettingsDialog}
@@ -182,14 +207,29 @@ export default function MenuAppBar(props) {
         setOpenAlert={setOpenAlert}
         setPrimaryColor={setPrimaryColor}
         breakpointMd={breakpointMd}
+        breakpointSm={breakpointSm}
       />
       <FullAppDialog 
-        open={openFullDialog}
-        handleClose={handleCloseFullDialog}
+        open={openRetroDialog}
+        handleClose={handleCloseRetroDialog}
         title='Retrospective Tool'
         description='This is a from-scratch tool used for managing custom retrospective formats for scrum teams.'
         comingSoon
-    />
+      />
+      <FullAppDialog 
+        open={openDashboardDialog}
+        handleClose={handleCloseDashboardDialog}
+        title='Dashboard POC'
+        description='This is a from-scratch tool used for managing custom retrospective formats for scrum teams.'
+        comingSoon
+      />
+      <FullAppDialog 
+        open={openV1Dialog}
+        handleClose={handleCloseV1Dialog}
+        title='NateRohwederDotCom v1'
+        description='This is a from-scratch tool used for managing custom retrospective formats for scrum teams.'
+        comingSoon
+      />
     </div>
   );
 }

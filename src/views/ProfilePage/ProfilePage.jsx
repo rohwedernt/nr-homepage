@@ -101,6 +101,7 @@ export default function ProfilePage(props) {
         <Fragment>
             <MenuAppBar 
               breakpointMd={breakpointMd} 
+              breakpointSm={breakpointSm} 
               setPrimaryColor={props.setPrimaryColor}
             />
                 <div className={classes.root}>

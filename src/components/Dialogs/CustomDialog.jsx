@@ -11,14 +11,18 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(() => ({
     dialogContent: {
-        minWidth: '600px'
+        wordWrap: 'break-word'
     }
 }));
 
 export default function CustomDialog(props) {
     const classes = useStyles();
-    const { dialogTitle, confirmText, confirmFunc, content, breakpointMd, open, handleClose, removeClose } = props;
-    const getDialogStyles = () => breakpointMd ? { minWidth: '300px' } : {};
+    const { dialogTitle, confirmText, confirmFunc, content, breakpointMd, breakpointSm, open, handleClose, removeClose } = props;
+    const getDialogStyles = () => {
+        if (breakpointSm) return { minWidth: '250px' };
+        else if (breakpointMd) return { minWidth: '300px' };
+        else { return { minWidth: '600px'}};
+    }
 
     return (
         <Dialog 
