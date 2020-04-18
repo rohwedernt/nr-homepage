@@ -17,7 +17,7 @@ import LaunchIcon from '@material-ui/icons/Launch';
 const useStyles = makeStyles(() => ({
   root: {
     minWidth: 350,
-    maxWidth: 350,
+    maxWidth: 350
   },
   cardMedia: {
     height: 150,
@@ -52,7 +52,15 @@ export default function MediaCard(props) {
   return (
     <Card className={classes.root} elevation={3}>
         <CardActionArea className={classes.cardMedia} onClick={() => setPlaying(!playing)}>
-            <ReactPlayer height='150' width='350' url={url} playing={playing} />
+            <ReactPlayer 
+              height='150px' 
+              width='350px' 
+              url={url} 
+              playing={playing}
+              config={{ youtube: { playerVars: { 'origin': window.location.origin } } }}
+              light
+              controls
+            />
         </CardActionArea>
         <CardContent className={classes.cardContent}>
               <Typography 
