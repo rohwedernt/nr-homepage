@@ -4,20 +4,16 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
-import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
 
-// @material-ui/icons
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 
 const useStyles = makeStyles(() => ({
   root: {
-    minWidth: 600,
+    minWidth: 300,
+    width: 600,
     maxWidth: 600,
   },
   media: {
-      height: '500px'
+      height: '600px'
   }
 }));
 
@@ -30,14 +26,6 @@ export default function ImageCard(props) {
         className={classes.media}
         image={props.img}
       />
-      <CardActions disableSpacing>
-        <IconButton aria-label='add to favorites'>
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label='share'>
-          <ShareIcon />
-        </IconButton>
-      </CardActions>
     </Card>
   );
 }

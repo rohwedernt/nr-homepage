@@ -36,7 +36,7 @@ const useStyles = makeStyles(() => ({
 
 export default function CustomCard(props) {
   const classes = useStyles();
-  const { title, desc, img, onClick, isLoading } = props;
+  const { title, description, img, onClick, isLoading } = props;
 
   return (
     !isLoading ? (
@@ -56,8 +56,8 @@ export default function CustomCard(props) {
               >
                 {title}
             </Typography>
-            <Typography variant='caption' color='textSecondary' component='p' title={desc}>
-                {desc}
+            <Typography variant='caption' color='textSecondary' component='p' title={description}>
+                {description}
             </Typography>
           </CardContent>
         </CardActionArea>

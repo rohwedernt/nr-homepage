@@ -19,8 +19,8 @@ export default function ImageGalleryDialog({ imgs }) {
 
     return (
         <Grid container style={{ justifyContent: 'center' }}>
-            {imgs.map(img => (
-                <Grid item className={classes.gridItem}>
+            {imgs.map((img, idx) => (
+                <Grid item key={idx} className={classes.gridItem}>
                     <ImageCard img={img} />
                 </Grid>
             ))}
