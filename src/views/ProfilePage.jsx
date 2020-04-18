@@ -83,13 +83,10 @@ export default function ProfilePage(props) {
     const breakpointSm = useMediaQuery('(max-width:550px)');
 
     useEffect(() => {
-        setTimeout(toggle, 0);
+        setTimeout(() => setIsOpen(true), 0);
     }, []);
 
-    const toggle = () => setIsOpen(!isOpen);
-
     const getIconStyles = right => breakpointLg ? {} : { position: 'absolute', top: '-50px', right: right };
-
     const setColoredShadowPosition = () => breakpointSm ? { top: '85px', left: '20px' } : undefined;
 
     return (

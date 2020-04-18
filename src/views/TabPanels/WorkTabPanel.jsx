@@ -53,7 +53,6 @@ export default function ProfileSectionTabs(props) {
                           title={item.title}
                           desc={item.desc}
                           img={item.img}
-                          url={item.url}
                           onClick={() => window.open(item.url, '_blank')}
                       />
                   </Grid>
