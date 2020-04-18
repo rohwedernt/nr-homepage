@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
 
 // custom components
-import TabPanel from '../../../components/Navigation/TabPanel';
-import CustomCard from '../../../components/Surface/CustomCard';
-import CustomSwitch from '../../../components/Input/CustomSwitch';
-import NoContentCard from '../../../components/Surface/NoContentCard';
+import TabPanel from '../../components/Navigation/TabPanel';
+import CustomCard from '../../components/Surface/CustomCard';
+import CustomSwitch from '../../components/Input/CustomSwitch';
+import NoContentCard from '../../components/Surface/NoContentCard';
 
 // data
-import { workSection } from '../../../data/work';
+import { workSection } from '../../data/work';
 
 
 const useStyles = makeStyles(() => ({
@@ -39,8 +37,7 @@ export default function ProfileSectionTabs(props) {
   const [myStuff, setMyStuff] = useState(false);
   const { value, idx } = props;
 
-  const myItems = workSection.data.filter(i => i.myStuff !== undefined);
-  const items = myStuff ? myItems : workSection.data;
+  const getItems = () => myStuff ? workSection.data.filter(i => i.myStuff !== undefined) : workSection.data;
 
   return (
       <TabPanel value={value} index={idx}>
@@ -50,7 +47,7 @@ export default function ProfileSectionTabs(props) {
               </Toolbar>
           </AppBar>
           <Grid container className={classes.gridContainer}>
-              {items.length > 0 ? items.map((item, idx) => (
+              {getItems().length > 0 ? getItems().map((item, idx) => (
                   <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
                       <CustomCard 
                           title={item.title}

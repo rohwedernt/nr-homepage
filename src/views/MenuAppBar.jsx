@@ -14,13 +14,13 @@ import { Divider } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
 // custom components
-import CustomDialogFullScreen from '../../components/Dialogs/CustomDialogFullScreen';
-import CustomDialog from '../../components/Dialogs/CustomDialog';
-import SuccessAlert from '../../components/Alerts/SuccessAlert';
-import SettingsDialogContent from '../../components/Dialogs/SettingsDialogContent';
-import EmailDialogContent from '../../components/Dialogs/EmailDialogContent';
-import { AboutThisSite } from '../../data/AboutThisSite';
-import { ComingSoon } from '../../data/ComingSoon';
+import CustomDialogFullScreen from '../components/Dialogs/CustomDialogFullScreen';
+import CustomDialog from '../components/Dialogs/CustomDialog';
+import SuccessAlert from '../components/Alerts/SuccessAlert';
+import SettingsDialogContent from '../components/Dialogs/DialogContent/SettingsDialogContent';
+import EmailDialogContent from '../components/Dialogs/DialogContent/EmailDialogContent';
+import { AboutThisSite } from './Content/AboutThisSite';
+import { ComingSoon } from './Content/ComingSoon';
 
 
 const useStyles = makeStyles((theme) => ({

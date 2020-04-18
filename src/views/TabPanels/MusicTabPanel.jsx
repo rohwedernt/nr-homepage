@@ -7,13 +7,13 @@ import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 
 // custom components
-import TabPanel from '../../../components/Navigation/TabPanel';
-import MediaCard from '../../../components/Surface/MediaCard';
-import NoContentCard from '../../../components/Surface/NoContentCard';
-import CustomSwitch from '../../../components/Input/CustomSwitch';
+import TabPanel from '../../components/Navigation/TabPanel';
+import MediaCard from '../../components/Surface/MediaCard';
+import NoContentCard from '../../components/Surface/NoContentCard';
+import CustomSwitch from '../../components/Input/CustomSwitch';
 
 // data
-import { musicSection } from '../../../data/music';
+import { musicSection } from '../../data/music';
 
 
 const useStyles = makeStyles(() => ({

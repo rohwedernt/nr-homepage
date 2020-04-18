@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 
 // data
-import sysDesign from '../assets/img/sysDesign.png';
+import sysDesign from '../../assets/img/sysDesign.png';
 
 
 const useStyles = makeStyles((theme) => ({

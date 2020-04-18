@@ -5,11 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
 // custom components
-import TabPanel from '../../../components/Navigation/TabPanel';
-import CustomCard from '../../../components/Surface/CustomCard';
+import TabPanel from '../../components/Navigation/TabPanel';
+import CustomCard from '../../components/Surface/CustomCard';
 
 // data
-import { travelSection } from '../../../data/travel';
+import { travelSection } from '../../data/travel';
 
 
 const useStyles = makeStyles(() => ({

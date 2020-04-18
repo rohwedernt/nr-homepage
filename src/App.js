@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ProfilePage from './views/ProfilePage/ProfilePage';
+import ProfilePage from './views/ProfilePage';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import './App.css'

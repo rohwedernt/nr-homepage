@@ -2,20 +2,20 @@ import React, { Fragment, useEffect, useState } from 'react';
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 // custom components
-import ProfileSectionTabs from './ProfileSectionTabs';
-import { SocialIconAnimator } from '../../components/Animators/SocialIconAnimator';
+import { SocialIconAnimator } from '../components/Animators/SocialIconAnimator';
 
 // layouts
+import ProfileSectionTabs from './ProfileSectionTabs';
 import MenuAppBar from './MenuAppBar';
 
 // assets
-import profile from '../../assets/img/profile-full.jpg';
-import { Github, LinkedIn, Twitter, Facebook, Instagram } from '../../assets/icons/icons';
-import { Typography } from '@material-ui/core';
+import { Github, LinkedIn, Twitter, Facebook, Instagram } from '../assets/icons/icons';
+import profile from '../assets/img/profile-full.jpg';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -122,7 +122,7 @@ export default function ProfilePage(props) {
                                 <Typography className={classes.pageParagraph} variant='body1' component='div'>
                                   Equal parts software experiment laboratory, agglomeration of web resources from over the years,
                                   showcase of personal dev projects, blog for my travels, eats, drinks, dogs, and other 
-                                  miscellaneous interests. Visit the menu in the upper right hand corner for a more in depth technical 
+                                  miscellaneous interests. Visit the menu in the top right corner for a more in depth technical 
                                   overview of the site.
                                 </Typography>
                             </div>

@@ -8,7 +8,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 // custom components
-import ImageGalleryDialog from '../../components/Dialogs/ImageGalleryDialog';
+import CustomDialogFullScreen from '../components/Dialogs/CustomDialogFullScreen';
+import ImageGalleryDialogContent from '../components/Dialogs/DialogContent/ImageGalleryDialogContent';
 
 // layouts
 import WorkTabPanel from './TabPanels/WorkTabPanel';
@@ -18,11 +19,11 @@ import FoodAndDrinkTabPanel from './TabPanels/FoodAndDrinkTabPanel';
 import AstronomyTabPanel from './TabPanels/AstronomyTabPanel';
 
 // data
-import { workSection } from '../../data/work';
-import { musicSection } from '../../data/music';
-import { travelSection } from '../../data/travel';
-import { foodAndDrinkSection } from '../../data/foodAndDrink';
-import { astronomySection } from '../../data/astronomy';
+import { workSection } from '../data/work';
+import { musicSection } from '../data/music';
+import { travelSection } from '../data/travel';
+import { foodAndDrinkSection } from '../data/foodAndDrink';
+import { astronomySection } from '../data/astronomy';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -42,13 +43,13 @@ const useStyles = makeStyles((theme) => ({
 export default function ProfileSectionTabs(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
-  const [dialogData, setDialogData] = useState({imgs: [], label: 'Untitled'});
+  const [dialogProps, setDialogProps] = useState({imgs: [], title: ''});
   const [openFullDialog, setOpenFullDialog] = useState(false);
 
   const sections = [workSection, musicSection, travelSection, foodAndDrinkSection, astronomySection];
 
-  const handleClickOpenFullDialog = (imgs, label) => {
-    setDialogData({ imgs: imgs, label: label })
+  const handleClickOpenFullDialog = (imgs, title) => {
+    setDialogProps({ imgs: imgs, title: title })
     setOpenFullDialog(true);
   };
 
@@ -86,10 +87,11 @@ export default function ProfileSectionTabs(props) {
           <AstronomyTabPanel value={value} idx={4} />
         </SwipeableViews>
       </div>
-      <ImageGalleryDialog 
+      <CustomDialogFullScreen 
         open={openFullDialog}
         handleClose={handleCloseFullDialog}
-        data={dialogData}
+        content={() => <ImageGalleryDialogContent imgs={dialogProps.imgs} />}
+        {...dialogProps}
       />
     </Fragment>
   );

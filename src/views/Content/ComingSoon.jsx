@@ -29,11 +29,11 @@ export function ComingSoon() {
             <Typography gutterBottom variant={'subtitle2'}>- Implement email send when submitted from contact dialog</Typography>
             <Typography gutterBottom variant={'subtitle2'}>- Render dashboard POC in full screen dialog (menu item)</Typography>
             <Typography gutterBottom variant={'subtitle2'}>- Implement dark mode</Typography>
-            <Typography gutterBottom variant={'subtitle2'}>- Implement text styling functionality to contact text area</Typography>
-            <Typography gutterBottom variant={'subtitle2'}>- Implement pagination for sections with > n cards</Typography>
-            <Typography gutterBottom variant={'subtitle2'}>- Implement analytics (feed to dashboard POC)</Typography>
+            <Typography gutterBottom variant={'subtitle2'}>- Add text styling functionality to contact text area</Typography>
+            <Typography gutterBottom variant={'subtitle2'}>- Implement pagination for sections with >n cards</Typography>
+            <Typography gutterBottom variant={'subtitle2'}>- Setup analytics via aws kinesis (feed to dashboard POC)</Typography>
             <Typography gutterBottom variant={'subtitle2'}>- Implement auth for user specific settings</Typography>
-            <Typography gutterBottom variant={'subtitle2'}>- Implement internationalization support</Typography>
+            <Typography gutterBottom variant={'subtitle2'}>- Internationalization support</Typography>
         </div>
     );
 }
