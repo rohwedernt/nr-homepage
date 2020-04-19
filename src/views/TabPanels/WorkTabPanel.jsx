@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { API, graphqlOperation } from 'aws-amplify'
+import { listLinkItems } from '../../graphql/queries'
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
@@ -11,9 +13,6 @@ import TabPanel from '../../components/Navigation/TabPanel';
 import CustomCard from '../../components/Surface/CustomCard';
 import CustomSwitch from '../../components/Input/CustomSwitch';
 import NoContentCard from '../../components/Surface/NoContentCard';
-
-// data
-import { workSection } from '../../data/work';
 
 
 const useStyles = makeStyles(() => ({
@@ -35,9 +34,22 @@ const useStyles = makeStyles(() => ({
 export default function ProfileSectionTabs(props) {
   const classes = useStyles();
   const [myStuff, setMyStuff] = useState(false);
+  const [items, setItems] = useState([]);
   const { value, idx } = props;
 
-  const getItems = () => myStuff ? workSection.data.filter(i => i.myStuff !== undefined) : workSection.data;
+  useEffect(() => {
+    fetchItems()
+  }, []);
+
+  async function fetchItems() {
+    try {
+      const itemData = await API.graphql(graphqlOperation(listLinkItems));
+      const items = myStuff ? 
+        itemData.data.listLinkItems({filter: "myContent === true"}).items :
+        itemData.data.listLinkItems.items;
+      setItems(items);
+    } catch (err) { console.log('error fetching items') };
+  }
 
   return (
       <TabPanel value={value} index={idx}>
@@ -47,12 +59,12 @@ export default function ProfileSectionTabs(props) {
               </Toolbar>
           </AppBar>
           <Grid container className={classes.gridContainer}>
-              {getItems().length > 0 ? getItems().map((item, idx) => (
+              {items.length > 0 ? items.map((item, idx) => (
                   <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
                       <CustomCard 
-                          title={item.title}
-                          desc={item.desc}
-                          img={item.img}
+                          title={item.name}
+                          desc={item.description}
+                          img={item.image.url}
                           onClick={() => window.open(item.url, '_blank')}
                       />
                   </Grid>
