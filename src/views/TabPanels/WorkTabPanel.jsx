@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { API, graphqlOperation } from 'aws-amplify'
-import { listLinkItems } from '../../graphql/queries'
+import { API, graphqlOperation } from 'aws-amplify';
+import { listLinkItems } from '../../graphql/queries';
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
@@ -63,7 +63,7 @@ export default function ProfileSectionTabs(props) {
                   <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
                       <CustomCard 
                           title={item.name}
-                          desc={item.description}
+                          description={item.description}
                           img={item.image.url}
                           onClick={() => window.open(item.url, '_blank')}
                       />
