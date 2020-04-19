@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ProfilePage from './views/ProfilePage';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+//import { withAuthenticator } from 'aws-amplify-react'
 import './App.css'
 
 
@@ -33,4 +34,5 @@ function App() {
   );
 }
 
-export default App;
+export default App
+//export default withAuthenticator(App)

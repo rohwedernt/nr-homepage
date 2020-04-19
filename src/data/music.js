@@ -31,8 +31,7 @@ export const musicSection = {
     },
     {
       title: `Summertime`,
-      desc: `Billy Strings &
-       Marcus King | 2019`,
+      desc: `Billy Strings & Marcus King | 2019`,
       url: 'https://www.youtube.com/watch?v=1RNNQYpnukA'
     },
     {

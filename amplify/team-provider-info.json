@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-naterohwederdotcomv2-dev-173348-authRole",
+            "UnauthRoleArn": "arn:aws:iam::776429034599:role/amplify-naterohwederdotcomv2-dev-173348-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::776429034599:role/amplify-naterohwederdotcomv2-dev-173348-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-naterohwederdotcomv2-dev-173348-deployment",
+            "UnauthRoleName": "amplify-naterohwederdotcomv2-dev-173348-unauthRole",
+            "StackName": "amplify-naterohwederdotcomv2-dev-173348",
+            "StackId": "arn:aws:cloudformation:us-east-2:776429034599:stack/amplify-naterohwederdotcomv2-dev-173348/0f417bd0-81cd-11ea-b8e2-065ddb117676",
+            "AmplifyAppId": "d1vqk3l2tojws8"
+        },
+        "categories": {
+            "auth": {
+                "naterohwederdotcomv2cf51c4f5": {}
+            }
+        }
+    }
+}
