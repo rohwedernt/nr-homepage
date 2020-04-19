@@ -1,14 +1,11 @@
 import React from 'react';
-
-// @material-ui/core components
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import Collapse from '@material-ui/core/Collapse';
-import CloseIcon from '@material-ui/icons/Close';
 
-// @material-ui/lab components
-import Alert from '@material-ui/lab/Alert';
-
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,38 +14,18 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
-  alert: {
-      borderRadius: '0px'
-  }
 }));
 
-export default function SuccessAlert(props) {
+export default function CustomizedSnackbars(props) {
   const classes = useStyles();
-  const { openAlert, setOpenAlert, toggleHeightForAlert, msg } = props;
 
-    return (
-        <div className={classes.root}>
-            <Collapse in={openAlert}>
-            <Alert
-                className={classes.alert}
-                variant='filled' 
-                action={
-                    <IconButton
-                        aria-label='close'
-                        color='inherit'
-                        size='small'
-                        onClick={() => {
-                            setOpenAlert(false);
-                            toggleHeightForAlert();
-                        }}
-                    >
-                        <CloseIcon fontSize='inherit' />
-                    </IconButton>
-                }
-            >
-                {msg}
-            </Alert>
-            </Collapse>
-        </div>
-    );
+  return (
+    <div className={classes.root}>
+      <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={props.open} autoHideDuration={3000} onClose={() => props.setOpenAlert(false)}>
+        <Alert onClose={() => props.setOpenAlert(false)} severity="success">
+          {props.msg}
+        </Alert>
+      </Snackbar>
+    </div>
+  );
 }

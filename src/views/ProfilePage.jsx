@@ -2,18 +2,20 @@ import React, { Fragment, useEffect, useState } from 'react';
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 // custom components
-import SectionTabs from '../../components/Navigation/SectionTabs';
-import MenuAppBar from '../../components/Navigation/MenuAppBar';
-import { SocialIconAnimator } from '../../components/Animators/SocialIconAnimator';
+import { SocialIconAnimator } from '../components/Animators/SocialIconAnimator';
+
+// layouts
+import ProfileSectionTabs from './ProfileSectionTabs';
+import MenuAppBar from './MenuAppBar';
 
 // assets
-import profile from '../../assets/img/profile-full.jpg';
-import { Github, LinkedIn, Twitter, Facebook, Instagram } from '../../assets/icons/icons';
-import { Typography } from '@material-ui/core';
+import { Github, LinkedIn, Twitter, Facebook, Instagram } from '../assets/icons/icons';
+import profile from '../assets/img/profile-full.jpg';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -69,46 +71,29 @@ const useStyles = makeStyles((theme) => ({
     left: '110px'
   },
   animator: {
-      // needs to wrap at 1135
-    //borderTop: '2px solid grey',
     display: 'flex',
-    //alignItems: 'center',
-    //flexDirection: 'row',
-    //justifyContent: 'flex-end',
-    //height: 'fit-content',
-    //flex: '1 1 auto',
   }
 }));
 
 export default function ProfilePage(props) {
     const classes = useStyles();
     const [isOpen, setIsOpen] = useState(false);
-    const [adujustForAlert, setAdjustForAlert] = useState(false);
     const breakpointLg = useMediaQuery('(max-width:1100px)');
     const breakpointMd = useMediaQuery('(max-width:990px)');
     const breakpointSm = useMediaQuery('(max-width:550px)');
 
     useEffect(() => {
-        setTimeout(toggle, 0);
+        setTimeout(() => setIsOpen(true), 0);
     }, []);
 
-    const toggle = () => setIsOpen(!isOpen);
-
-    const toggleHeightForAlert = () => setAdjustForAlert(!adujustForAlert);
-
     const getIconStyles = right => breakpointLg ? {} : { position: 'absolute', top: '-50px', right: right };
-
-    const setColoredShadowPosition = () => {
-        if (breakpointSm && adujustForAlert) return { top: '132px', left: '20px' }
-        if (adujustForAlert) return { top: '158px' };
-        if (breakpointSm) return { top: '85px', left: '20px' };
-    }
+    const setColoredShadowPosition = () => breakpointSm ? { top: '85px', left: '20px' } : undefined;
 
     return (
         <Fragment>
             <MenuAppBar 
               breakpointMd={breakpointMd} 
-              toggleHeightForAlert={toggleHeightForAlert}
+              breakpointSm={breakpointSm} 
               setPrimaryColor={props.setPrimaryColor}
             />
                 <div className={classes.root}>
@@ -130,15 +115,16 @@ export default function ProfilePage(props) {
                                     <Facebook style={getIconStyles('55px')} target='https://www.facebook.com/rohwedernt' />
                                     <Instagram style={getIconStyles('5px')} target='https://www.instagram.com/naterohweder/' />
                                 </SocialIconAnimator>
-                                <Typography className={classes.pageSubheader} variant='h6'>Software Engineer</Typography>
+                                <Typography className={classes.pageSubheader} variant='h6'>Software Engineer  |  Denver, CO</Typography>
                                 <Typography className={classes.pageParagraph} variant='body1' component='div'>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                                    laboris nisi ut aliquip ex ea commodo consequat.
+                                  Equal parts software experiment laboratory, agglomeration of web resources from over the years,
+                                  showcase of personal dev projects, blog for my travels, eats, drinks, dogs, and other 
+                                  miscellaneous interests. Visit the menu in the top right corner for a more in depth technical 
+                                  overview of the site.
                                 </Typography>
                             </div>
                         </div>
-                        <SectionTabs breakpointSm={breakpointSm} style={breakpointMd ? { minWidth: '40px' } : undefined}/>
+                        <ProfileSectionTabs breakpointSm={breakpointSm} style={breakpointMd ? { minWidth: '40px' } : undefined}/>
                     </Paper>
                 </div>
         </Fragment>

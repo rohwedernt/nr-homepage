@@ -12,18 +12,12 @@ import MusicIcon from '@material-ui/icons/Audiotrack';
  *  organ freeman
  *  no expectations yonder mountain string band
  *  jon stickley trio
- *  pat metheny
- *  soulive (possibly vapor)
- *  greensky (possibly living over)
  *  bela fleck and the flecktones
- *  supertramp
- *  beatles rooftop
- *  lake street dive
- *  lukas nelson?
  *  the wood brothers
  *  ghost note
- *  guthrie govan
- *  vulfpeck
+ *  rhcp
+ *  natalie merchant carnival 95
+ *  tobe nwigwe npr tiny desk
  */
 
 export const musicSection = {
@@ -37,7 +31,7 @@ export const musicSection = {
     },
     {
       title: `Summertime`,
-      desc: `Billy Strings and Marcus King | 2019`,
+      desc: `Billy Strings & Marcus King | 2019`,
       url: 'https://www.youtube.com/watch?v=1RNNQYpnukA'
     },
     {
@@ -66,14 +60,29 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=Ib9zFkxkgdA'
     },
     {
+      title: `Can't Wait for Perfect`,
+      desc: `Bob Reynolds Guitar Band | 2016`,
+      url: 'https://www.youtube.com/watch?v=0fO6BYuMIeE'
+    },
+    {
       title: `Full Show`,
       desc: `Anderson .Paak | NPR Tiny Desk | 2016`,
       url: 'https://www.youtube.com/watch?v=ferZnZ0_rSM'
     },
     {
+      title: `Living Over`,
+      desc: `Greensky Bluegrass | McDonald Theatre | 2016`,
+      url: 'https://www.youtube.com/watch?v=dd4GXKLJL5w'
+    },
+    {
       title: `Extraspecial`,
       desc: `Mark Lettieri | Peace House Sessions | 2016`,
       url: 'https://www.youtube.com/watch?v=uLeC2xkPXvo'
+    },
+    {
+      title: `Back Pocket`,
+      desc: `Vulfpeck | Madison Square Garden | 2016`,
+      url: 'https://www.youtube.com/watch?v=UZPX9KQbwsg'
     },
     {
       title: `Kick Rox`,
@@ -96,6 +105,31 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=mg2cMqW_hOY'
     },
     {
+      title: `Vapor`,
+      desc: `Soulive | Brooklyn Bowl Bowlive 5 | 2014`,
+      url: 'https://www.youtube.com/watch?v=rxCJx9WhrdQ'
+    },
+    {
+      title: `Gangsta`,
+      desc: `tUnE-yArDs | Pitchfork Music Festival | 2014`,
+      url: 'https://www.youtube.com/watch?v=Yc7QSnrkbFM'
+    },
+    {
+      title: `Rich Girl`,
+      desc: `Lake Street Dive | Pickathon | 2013`,
+      url: 'https://www.youtube.com/watch?v=89Oc1UE7SS4'
+    },
+    {
+      title: `With A Little Help From My Friends`,
+      desc: `Dopapod w/Turkuaz | Brooklyn Bowl | 2012`,
+      url: 'https://www.youtube.com/watch?v=KHms6yC_n6A'
+    },
+    {
+      title: ``,
+      desc: `Nicky Moroch & Mark Bowers | NY Amp Show (3 Monkeys) | 2011`,
+      url: 'https://www.youtube.com/watch?v=ITlhEC3f23g'
+    },
+    {
       title: `Full Show`,
       desc: `Hiromi | Jazz in Marciac | 2010`,
       url: 'https://www.youtube.com/watch?v=Awbv7HzQsA4&t=247s'
@@ -104,6 +138,26 @@ export const musicSection = {
       title: `Midnight in Harlem`,
       desc: `Tedeschi Trucks Band | Crossroads | 2010`,
       url: 'https://www.youtube.com/watch?v=C0hr2HWOohM'
+    },
+    {
+      title: `Extraction`,
+      desc: `Greg Howe | 2004`,
+      url: 'https://www.youtube.com/watch?v=QABB599Abow'
+    },
+    {
+      title: `Full Show`,
+      desc: `John McLaughlin, Joey DeFrancesco, Dennis Chambers | 1994`,
+      url: 'https://www.youtube.com/watch?v=Ox8eYBFszuA&t=127s'
+    },
+    {
+      title: `First Circle`,
+      desc: `Pat Metheny Group | More Travels | 1991`,
+      url: 'https://www.youtube.com/watch?v=PVBoDx_1dTc'
+    },
+    {
+      title: `Subway To Venus`,
+      desc: `RHCP | David Sanborn Night Music | 1989`,
+      url: 'https://www.youtube.com/watch?v=ClivCUC9R_4'
     },
     {
       title: `Don't Let Me Down`,

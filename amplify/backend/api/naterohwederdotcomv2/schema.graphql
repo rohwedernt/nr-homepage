@@ -1,0 +1,31 @@
+type LinkItem @model {
+  id: ID!
+  name: String!
+  description: String
+  image: Image @connection
+  url: String!
+  myContent: Boolean
+}
+
+type MusicItem @model {
+  id: ID!
+  name: String!
+  description: String!
+  url: String!
+}
+
+type ImageItem @model {
+  id: ID!
+  name: String!
+  description: String
+  defaultImage: Image @connection
+  images: [Image] @connection
+}
+
+type Image @model 
+@key(name: "byGallery", fields: ["galleryID", "url"])
+{
+  id: ID!
+  galleryID: ID
+  url: String!
+}

@@ -5,13 +5,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import IconButton from '@material-ui/core/IconButton';
-
-// @material-ui/icons
-import ShareIcon from '@material-ui/icons/Share';
+import Skeleton from '@material-ui/lab/Skeleton';
+import Box from '@material-ui/core/Box';
 
 
 const useStyles = makeStyles(() => ({
@@ -39,35 +36,38 @@ const useStyles = makeStyles(() => ({
 
 export default function CustomCard(props) {
   const classes = useStyles();
-  const { title, desc, img, onClick, url, shareUrl } = props;
+  const { title, description, img, onClick, isLoading } = props;
 
   return (
-    <Card className={classes.root} elevation={3}>
+    !isLoading ? (
+      <Card className={classes.root} elevation={3}>
         <CardActionArea onClick={onClick}>
-            <CardMedia
-                className={classes.cardMedia}
-                image={img}
-                title={title}
-            />
-        </CardActionArea>
-        <CardContent className={classes.cardContent}>
-              <Typography 
-                className={classes.title} 
-                variant='subtitle1'
-                component='h2'
-                title={title}
-                >
-                  {title}
-              </Typography>
-              <Typography variant='caption' color='textSecondary' component='p' title={desc}>
-                  {desc}
-              </Typography>
+          <CardMedia
+            className={classes.cardMedia}
+            image={img}
+            title={title}
+          />
+          <CardContent className={classes.cardContent}>
+            <Typography 
+              className={classes.title} 
+              variant='subtitle1'
+              component='h2'
+              title={title}
+              >
+                {title}
+            </Typography>
+            <Typography variant='caption' color='textSecondary' component='p' title={description}>
+                {description}
+            </Typography>
           </CardContent>
-        <CardActions style={{ backgroundColor: '#f6f6f6', boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 1px, rgba(0, 0, 0, 0.23) 0px 1px 1px inset', justifyContent: 'flex-end' }}>
-            <IconButton aria-label='share' color='primary'>
-                <ShareIcon />
-            </IconButton>
-        </CardActions>
-    </Card>
+        </CardActionArea>
+      </Card>
+    ) : (
+      <Box>
+        <Skeleton variant="rect" width={250} height={180} />
+        <Skeleton />
+        <Skeleton width="60%" />
+      </Box>
+    )
   );
 }

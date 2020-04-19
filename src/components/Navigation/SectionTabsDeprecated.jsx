@@ -7,12 +7,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Grid from '@material-ui/core/Grid';
+import Toolbar from '@material-ui/core/Toolbar';
 
 // custom components
 import TabPanel from './TabPanel';
 import MediaCard from '../Surface/MediaCard';
 import CustomCard from '../Surface/CustomCard';
-import CustomDialogFullScreen from '../Dialogs/CustomDialogFullScreen';
+import ImageGalleryDialog from '../Dialogs/ImageGalleryDialog';
+import CustomSwitch from '../Input/CustomSwitch';
 
 // utilities
 import { scrollTo } from '../../utilities/scrollTo';
@@ -72,6 +74,8 @@ export default function SectionTabs(props) {
   const [value, setValue] = useState(0);
   const [dialogData, setDialogData] = useState({imgs: [], label: 'Untitled'});
   const [openFullDialog, setOpenFullDialog] = useState(false);
+  const [workMyStuff, setWorkMyStuff] = useState(false);
+
   const sections = [workSection, musicSection, travelSection, foodAndDrinkSection, astronomySection]
 
   const handleClickOpenFullDialog = (imgs, label) => {
@@ -92,26 +96,12 @@ export default function SectionTabs(props) {
     setValue(index);
   };
 
-  // const renderSections = () => (
-  //   sections.map((section, idx) => (
-  //     <TabPanel key={`s-${idx}`} value={value} index={idx}>
-  //       <Grid container className={classes.gridContainer}>
-  //         {section.data.map((item, idx) => (
-  //           <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
-  //             <MediaCard 
-  //               title={item.title}
-  //               desc={item.desc}
-  //               //img={item.img}
-  //               url={item.url}
-  //               //shareUrl={item.shareUrl}
-  //               //onClick={getActionFuncForCardType(item.type, item.url, item.imgs, item.title)}
-  //             />
-  //           </Grid>
-  //         ))}
-  //       </Grid>
-  //     </TabPanel>
-  //   ))
-  // );
+
+// pull each section out into its own component
+// capture the 'what items to show' in state (see stack overflow)
+// custom switch is no longer custom so fix that
+// check for other 'generic' comps that are taking specific props
+
 
   return (
     <Fragment>
@@ -129,6 +119,11 @@ export default function SectionTabs(props) {
         </AppBar>
         <SwipeableViews axis={'x'} index={value} onChangeIndex={handleChangeIndex} >
           <TabPanel value={value} index={0}>
+            <AppBar style={{ backgroundColor: '#fff' }} elevation={0} position="static">
+              <Toolbar style={{ display: 'flex', justifyContent: 'center', minHeight: '38px' }} >
+                <CustomSwitch workMyStuff={workMyStuff} setWorkMyStuff={setWorkMyStuff} />
+              </Toolbar>
+            </AppBar>
             <Grid container className={classes.gridContainer}>
               {workSection.data.map((item, idx) => (
                 <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
@@ -165,7 +160,7 @@ export default function SectionTabs(props) {
                     title={item.title}
                     desc={item.desc}
                     img={item.img}
-                    onClick={() => handleClickOpenFullDialog(item.imgs, travelSection.label)}
+                    onClick={() => handleClickOpenFullDialog(item.imgs, item.title)}
                   />
                 </Grid>
               ))}
@@ -203,7 +198,7 @@ export default function SectionTabs(props) {
           </TabPanel>
         </SwipeableViews>
       </div>
-      <CustomDialogFullScreen 
+      <ImageGalleryDialog 
         open={openFullDialog}
         handleClose={handleCloseFullDialog}
         data={dialogData}

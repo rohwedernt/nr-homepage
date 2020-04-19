@@ -11,14 +11,18 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(() => ({
     dialogContent: {
-        minWidth: '600px'
+        wordWrap: 'break-word'
     }
 }));
 
-export default function MenuAppBar(props) {
+export default function CustomDialog(props) {
     const classes = useStyles();
-    const { dialogTitle, confirmText, confirmFunc, content, breakpointMd, open, handleClose } = props;
-    const getDialogStyles = () => breakpointMd ? { minWidth: '300px' } : {};
+    const { title, confirmText, confirmFunc, content, breakpointMd, breakpointSm, open, handleClose, cancel } = props;
+    const getDialogStyles = () => {
+        if (breakpointSm) return { minWidth: '250px' };
+        else if (breakpointMd) return { minWidth: '300px' };
+        else { return { minWidth: '600px'}};
+    }
 
     return (
         <Dialog 
@@ -26,23 +30,26 @@ export default function MenuAppBar(props) {
             onClose={handleClose} 
             aria-labelledby='form-dialog-title'
             maxWidth='md'
+            scroll={'paper'}
         >
-            <DialogTitle id='form-dialog-title'>{dialogTitle}</DialogTitle>
+            {title && <DialogTitle style={{ paddingBottom: '0px' }} id='form-dialog-title'>{title}</DialogTitle>}
             <DialogContent className={classes.dialogContent} style={getDialogStyles()}>
                 {content()}
             </DialogContent>
             <DialogActions>
-                <Button onClick={handleClose} color='primary'>
-                    Cancel
-                </Button>
+                {cancel && (
+                    <Button onClick={handleClose} color='primary'>
+                        Cancel
+                    </Button>
+                )}
                 <Button 
                     onClick={() => {
                         handleClose();
-                        confirmFunc();
+                        confirmFunc && confirmFunc();
                     }} 
                     color='primary'
                 >
-                    {confirmText}
+                    {confirmText ? confirmText : 'Close'}
                 </Button>
             </DialogActions>
         </Dialog>
