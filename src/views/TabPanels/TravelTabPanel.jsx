@@ -32,9 +32,9 @@ export default function ProfileSectionTabs(props) {
                     <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
                         <CustomCard 
                             title={item.title}
-                            desc={item.desc}
+                            description={item.description}
                             img={item.img}
-                            onClick={() => openDialog(item.imgs, item.title)}
+                            onClick={() => openDialog(item.imgs, item.title, item.description)}
                         />
                     </Grid>
                 ))}

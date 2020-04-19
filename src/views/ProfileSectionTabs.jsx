@@ -43,13 +43,13 @@ const useStyles = makeStyles((theme) => ({
 export default function ProfileSectionTabs(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
-  const [dialogProps, setDialogProps] = useState({imgs: [], title: ''});
+  const [dialogProps, setDialogProps] = useState({ imgs: [], title: '', description: '' });
   const [openFullDialog, setOpenFullDialog] = useState(false);
 
   const sections = [workSection, musicSection, travelSection, foodAndDrinkSection, astronomySection];
 
-  const handleClickOpenFullDialog = (imgs, title) => {
-    setDialogProps({ imgs: imgs, title: title })
+  const handleClickOpenFullDialog = (imgs, title, description) => {
+    setDialogProps({ imgs: imgs, title: title, description: description })
     setOpenFullDialog(true);
   };
 

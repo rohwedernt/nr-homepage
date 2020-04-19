@@ -32,7 +32,7 @@ export default function ProfileSectionTabs(props) {
                     <Grid key={`${item.title}-${idx}`} item className={classes.gridItem}>
                         <CustomCard 
                             title={item.title}
-                            desc={item.desc}
+                            description={item.desc}
                             img={item.img}
                             // onClick={} this should open the image larger with a bit more text for a review
                         />

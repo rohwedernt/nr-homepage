@@ -15,6 +15,7 @@ import durham11720 from '../assets/img/durham1-17-20.jpeg';
 import rmnp from '../assets/img/rmnp.jpeg';
 import nederland92119 from '../assets/img/nederland9-21-19.jpeg';
 import moab9219 from '../assets/img/moab9-2-19.jpeg';
+import moab9619 from '../assets/img/moab9-6-19.jpeg';
 import lairothebear82419 from '../assets/img/lairothebear8-24-19.jpeg';
 import fortyeightfortyeightfest from '../assets/img/4848Fest.jpeg';
 import boone62919 from '../assets/img/boone6-29-19.jpeg';
@@ -30,87 +31,100 @@ export const travelSection = {
     {
       type: CardTypes.imgGallery,
       title: `Austin, TX`,
-      desc: `2 | 16-18 | 2020`,
+      description: `2 | 16-18 | 2020`,
       img: austinTx,
-      imgs: [nye19, fdgd19, boone62919, lairothebear82419]
+      imgs: [austinTx]
     },
     {
       type: CardTypes.imgGallery,
       title: `Breckenridge, CO`,
-      desc: `2 | 6-9 | 2020`,
+      description: `2 | 6-9 | 2020`,
       img: breck2620,
+      imgs: [breck2620]
     },
     {
       type: CardTypes.imgGallery,
       title: `Scottsdale, AZ`,
-      desc: `2 | 1-4 | 2020`,
-      img: scottsdaleAZ
+      description: `2 | 1-4 | 2020`,
+      img: scottsdaleAZ,
+      imgs: [scottsdaleAZ]
     },
     {
       type: CardTypes.imgGallery,
       title: `Breckenridge, CO`,
-      desc: `1 | 26-27 | 2020`,
-      img: breck12620
+      description: `1 | 26-27 | 2020`,
+      img: breck12620,
+      imgs: [breck12620]
     },
     {
       type: CardTypes.imgGallery,
       title: `Durham, NC`,
-      desc: `1 | 5-18 | 2020`,
-      img: durham11720
+      description: `1 | 5-18 | 2020`,
+      img: durham11720,
+      imgs: [durham11720]
     },
     {
       type: CardTypes.imgGallery,
       title: `Rocky Mtn Ntl Park, CO`,
-      desc: `10 | 5 | 2019`,
+      description: `10 | 5 | 2019`,
       img: rmnp,
+      imgs: [rmnp]
     },
     {
       type: CardTypes.imgGallery,
       title: `Nederland, CO`,
-      desc: ` 9 | 21 | 2019`,
+      description: ` 9 | 21 | 2019`,
       img: nederland92119,
+      imgs: [nederland92119]
     },
     {
       type: CardTypes.imgGallery,
       title: `Moab, UT`,
-      desc: `9 | 1-7 | 2019`,
+      description: `9 | 1-7 | 2019`,
       img: moab9219,
+      imgs: [moab9219, moab9619]
     },
     {
       type: CardTypes.imgGallery,
       title: `Lair O' The Bear, CO`,
-      desc: `8 | 24 | 2019`,
+      description: `8 | 24 | 2019`,
       img: lairothebear82419,
+      imgs: [lairothebear82419]
     },
     {
       type: CardTypes.imgGallery,
       title: `4848 Fest, WV`,
-      desc: `7 | 11-14 | 2019`,
+      description: `7 | 11-14 | 2019`,
       img: fortyeightfortyeightfest,
+      imgs: [fortyeightfortyeightfest]
     },
     {
       type: CardTypes.imgGallery,
       title: `Western NC`,
-      desc: `6 | 28 - 7 | 2 | 2019`,
+      description: `6 | 28 - 7 | 2 | 2019`,
       img: boone62919,
+      imgs: [boone62919]
     },
     {
       type: CardTypes.imgGallery,
       title: `New Orleans, LA`,
-      desc: `3 | 21 - 24 | 2019`,
+      description: `3 | 21 - 24 | 2019`,
       img: neworleans32319,
+      imgs: [neworleans32319]
     },
     {
       type: CardTypes.imgGallery,
       title: `Frozen Dead Guy Days '19`,
-      desc: `3 | 8 - 10 | 2019`,
+      description: `3 | 8 - 10 | 2019`,
       img: fdgd19,
+      imgs: [fdgd19]
     },
     {
       type: CardTypes.imgGallery,
       title: `Atlanta, GA`,
-      desc: `12 | 30 | 2018 - 1 | 3 | 2019`,
+      description: `12 | 30 | 2018 - 1 | 3 | 2019`,
       img: nye19,
+      imgs: [nye19]
     }
   ]
 }
