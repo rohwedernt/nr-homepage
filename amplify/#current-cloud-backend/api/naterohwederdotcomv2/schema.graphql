@@ -4,6 +4,7 @@ type LinkItem @model {
   description: String
   image: Image @connection
   url: String!
+  type: String!
   myContent: Boolean
 }
 
@@ -20,6 +21,7 @@ type ImageItem @model {
   description: String
   defaultImage: Image @connection
   images: [Image] @connection
+  type: String!
 }
 
 type Image @model 
