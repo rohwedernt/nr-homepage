@@ -13,6 +13,7 @@ export const getLinkItem = /* GraphQL */ `
         url
       }
       url
+      type
       myContent
     }
   }
@@ -34,6 +35,7 @@ export const listLinkItems = /* GraphQL */ `
           url
         }
         url
+        type
         myContent
       }
       nextToken
@@ -86,6 +88,7 @@ export const getImageItem = /* GraphQL */ `
         }
         nextToken
       }
+      type
     }
   }
 `;
@@ -108,6 +111,7 @@ export const listImageItems = /* GraphQL */ `
         images {
           nextToken
         }
+        type
       }
       nextToken
     }

@@ -1,0 +1,65 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-naterohwederdotcomv2-dev-173348-authRole",
+			"UnauthRoleArn": "arn:aws:iam::776429034599:role/amplify-naterohwederdotcomv2-dev-173348-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::776429034599:role/amplify-naterohwederdotcomv2-dev-173348-authRole",
+			"Region": "us-east-2",
+			"DeploymentBucketName": "amplify-naterohwederdotcomv2-dev-173348-deployment",
+			"UnauthRoleName": "amplify-naterohwederdotcomv2-dev-173348-unauthRole",
+			"StackName": "amplify-naterohwederdotcomv2-dev-173348",
+			"StackId": "arn:aws:cloudformation:us-east-2:776429034599:stack/amplify-naterohwederdotcomv2-dev-173348/0f417bd0-81cd-11ea-b8e2-065ddb117676",
+			"AmplifyAppId": "d1vqk3l2tojws8"
+		}
+	},
+	"api": {
+		"naterohwederdotcomv2": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"additionalAuthenticationProviders": [],
+					"defaultAuthentication": {
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"description": "naterohwederdotcomv2apikeydesc",
+							"apiKeyExpirationDays": "7"
+						}
+					}
+				},
+				"GraphQLAPIIdOutput": "owh3pdky2ncx7f2cqxdsxjtb7m",
+				"GraphQLAPIEndpointOutput": "https://rwlimck4lnf67gl5fckyqvheem.appsync-api.us-east-2.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-ujerbv3quzgxbdl6xbvmhfy4f4"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-naterohwederdotcomv2-dev-173348-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apinaterohwederdotcomv2"
+			},
+			"lastPushTimeStamp": "2020-04-23T03:43:01.403Z",
+			"lastPushDirHash": "gcBC4quI++TywAJ6L8dW6xATkAg="
+		}
+	},
+	"auth": {
+		"naterohwederdotcomv2cf51c4f5": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false,
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-naterohwederdotcomv2-dev-173348-deployment/amplify-cfn-templates/auth/naterohwederdotcomv2cf51c4f5-cloudformation-template.yml",
+				"logicalId": "authnaterohwederdotcomv2cf51c4f5"
+			},
+			"lastPushTimeStamp": "2020-04-23T03:42:59.475Z",
+			"output": {
+				"AppClientSecret": "2dutqcsfo9l29q80f63jm86nb3bqu5kdmuq42daurqk1hj4b8qu",
+				"UserPoolId": "us-east-2_rDSoxcOFd",
+				"AppClientIDWeb": "2mr8ig7j7d5kp1arfsm5gugkff",
+				"AppClientID": "5frh51edvh5g0oktilrl3lfuf3",
+				"IdentityPoolId": "us-east-2:86aaccb7-56b1-4506-a9f8-19805dd38690",
+				"IdentityPoolName": "naterohwederdotcomv2cf51c4f5_identitypool_cf51c4f5__dev",
+				"UserPoolName": "naterohwederdotcomv2cf51c4f5_userpool_cf51c4f5"
+			},
+			"lastPushDirHash": "VoLagXlKG7My2shT1yvdnKmndtg="
+		}
+	}
+}

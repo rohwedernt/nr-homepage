@@ -7,8 +7,6 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Skeleton from '@material-ui/lab/Skeleton';
-import Box from '@material-ui/core/Box';
 
 
 const useStyles = makeStyles(() => ({
@@ -36,38 +34,30 @@ const useStyles = makeStyles(() => ({
 
 export default function CustomCard(props) {
   const classes = useStyles();
-  const { title, description, img, onClick, isLoading } = props;
+  const { title, description, img, onClick } = props;
 
   return (
-    !isLoading ? (
-      <Card className={classes.root} elevation={3}>
-        <CardActionArea onClick={onClick}>
-          <CardMedia
-            className={classes.cardMedia}
-            image={img}
+    <Card className={classes.root} elevation={3}>
+      <CardActionArea onClick={onClick}>
+        <CardMedia
+          className={classes.cardMedia}
+          image={img}
+          title={title}
+        />
+        <CardContent className={classes.cardContent}>
+          <Typography 
+            className={classes.title} 
+            variant='subtitle1'
+            component='h2'
             title={title}
-          />
-          <CardContent className={classes.cardContent}>
-            <Typography 
-              className={classes.title} 
-              variant='subtitle1'
-              component='h2'
-              title={title}
-              >
-                {title}
-            </Typography>
-            <Typography variant='caption' color='textSecondary' component='p' title={description}>
-                {description}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-    ) : (
-      <Box>
-        <Skeleton variant="rect" width={250} height={180} />
-        <Skeleton />
-        <Skeleton width="60%" />
-      </Box>
-    )
+            >
+              {title}
+          </Typography>
+          <Typography variant='caption' color='textSecondary' component='p' title={description}>
+              {description}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   );
 }

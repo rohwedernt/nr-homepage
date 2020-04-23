@@ -7,23 +7,25 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
+// @material-ui/icons
+import CodeIcon from '@material-ui/icons/Code';
+import MusicIcon from '@material-ui/icons/Audiotrack';
+import FlightIcon from '@material-ui/icons/Flight';
+import FoodIcon from '@material-ui/icons/LocalDining';
+import AstronomyIcon from '@material-ui/icons/Public';
+
 // custom components
 import CustomDialogFullScreen from '../components/Dialogs/CustomDialogFullScreen';
 import ImageGalleryDialogContent from '../components/Dialogs/DialogContent/ImageGalleryDialogContent';
 
-// layouts
-import WorkTabPanel from './TabPanels/WorkTabPanel';
-import MusicTabPanel from './TabPanels/MusicTabPanel';
-import TravelTabPanel from './TabPanels/TravelTabPanel';
-import FoodAndDrinkTabPanel from './TabPanels/FoodAndDrinkTabPanel';
-import AstronomyTabPanel from './TabPanels/AstronomyTabPanel';
+// containers
+import WorkContainer from './Containers/WorkContainer'
+import AstronomyContainer from './Containers/AstronomyContainer'
+import TravelContainer from './Containers/TravelContainer'
+import FoodAndDrinkContainer from './Containers/FoodAndDrinkContainer'
 
-// data
-import { workSection } from '../data/work';
-import { musicSection } from '../data/music';
-import { travelSection } from '../data/travel';
-import { foodAndDrinkSection } from '../data/foodAndDrink';
-import { astronomySection } from '../data/astronomy';
+// layouts
+import MusicTabPanel from './TabPanels/MusicTabPanel';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -46,7 +48,7 @@ export default function ProfileSectionTabs(props) {
   const [dialogProps, setDialogProps] = useState({ imgs: [], title: '', description: '' });
   const [openFullDialog, setOpenFullDialog] = useState(false);
 
-  const sections = [workSection, musicSection, travelSection, foodAndDrinkSection, astronomySection];
+  const { breakpointMd } = props;
 
   const handleClickOpenFullDialog = (imgs, title, description) => {
     setDialogProps({ imgs: imgs, title: title, description: description })
@@ -65,6 +67,8 @@ export default function ProfileSectionTabs(props) {
     setValue(index);
   };
 
+  let tabStyle = breakpointMd ? { minWidth: '40px' } : undefined;
+
   return (
     <Fragment>
       <div className={classes.root}>
@@ -76,15 +80,19 @@ export default function ProfileSectionTabs(props) {
             textColor='primary'
             variant='fullWidth'
           >
-            {sections.map((section, idx) => <Tab key={idx} style={props.style} icon={section.icon} label={props.style ? '': section.label} />)}
+            <Tab style={tabStyle} icon={<CodeIcon />} label='Work' />
+            <Tab style={tabStyle} icon={<MusicIcon />} label='Music' />
+            <Tab style={tabStyle} icon={<FlightIcon />} label='Travel' />
+            <Tab style={tabStyle} icon={<FoodIcon />} label='Food & Drink' />
+            <Tab style={tabStyle} icon={<AstronomyIcon />} label='Astronomy' />
           </Tabs>
         </AppBar>
         <SwipeableViews axis={'x'} index={value} onChangeIndex={handleChangeIndex} >
-          <WorkTabPanel value={value} idx={0} />
+          <WorkContainer value={value} idx={0} />
           <MusicTabPanel value={value} idx={1} />
-          <TravelTabPanel value={value} idx={2} openDialog={handleClickOpenFullDialog} />
-          <FoodAndDrinkTabPanel value={value} idx={3} />
-          <AstronomyTabPanel value={value} idx={4} />
+          <TravelContainer value={value} idx={2} openDialog={handleClickOpenFullDialog} />
+          <FoodAndDrinkContainer value={value} idx={3} openDialog={handleClickOpenFullDialog}  />
+          <AstronomyContainer value={value} idx={4}/>
         </SwipeableViews>
       </div>
       <CustomDialogFullScreen 

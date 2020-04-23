@@ -1,0 +1,351 @@
+type LinkItem {
+  id: ID!
+  name: String!
+  description: String
+  image: Image
+  url: String!
+  type: String!
+  myContent: Boolean
+}
+
+type MusicItem {
+  id: ID!
+  name: String!
+  description: String!
+  url: String!
+}
+
+type ImageItem {
+  id: ID!
+  name: String!
+  description: String
+  defaultImage: Image
+  images(filter: ModelImageFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelImageConnection
+  type: String!
+}
+
+type Image {
+  id: ID!
+  galleryID: ID
+  url: String!
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelLinkItemConnection {
+  items: [LinkItem]
+  nextToken: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+input ModelLinkItemFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  description: ModelStringInput
+  url: ModelStringInput
+  type: ModelStringInput
+  myContent: ModelBooleanInput
+  and: [ModelLinkItemFilterInput]
+  or: [ModelLinkItemFilterInput]
+  not: ModelLinkItemFilterInput
+}
+
+type Query {
+  getLinkItem(id: ID!): LinkItem
+  listLinkItems(filter: ModelLinkItemFilterInput, limit: Int, nextToken: String): ModelLinkItemConnection
+  getMusicItem(id: ID!): MusicItem
+  listMusicItems(filter: ModelMusicItemFilterInput, limit: Int, nextToken: String): ModelMusicItemConnection
+  getImageItem(id: ID!): ImageItem
+  listImageItems(filter: ModelImageItemFilterInput, limit: Int, nextToken: String): ModelImageItemConnection
+  getImage(id: ID!): Image
+  listImages(filter: ModelImageFilterInput, limit: Int, nextToken: String): ModelImageConnection
+}
+
+input CreateLinkItemInput {
+  id: ID
+  name: String!
+  description: String
+  url: String!
+  type: String!
+  myContent: Boolean
+  linkItemImageId: ID
+}
+
+input UpdateLinkItemInput {
+  id: ID!
+  name: String
+  description: String
+  url: String
+  type: String
+  myContent: Boolean
+  linkItemImageId: ID
+}
+
+input DeleteLinkItemInput {
+  id: ID
+}
+
+type Mutation {
+  createLinkItem(input: CreateLinkItemInput!, condition: ModelLinkItemConditionInput): LinkItem
+  updateLinkItem(input: UpdateLinkItemInput!, condition: ModelLinkItemConditionInput): LinkItem
+  deleteLinkItem(input: DeleteLinkItemInput!, condition: ModelLinkItemConditionInput): LinkItem
+  createMusicItem(input: CreateMusicItemInput!, condition: ModelMusicItemConditionInput): MusicItem
+  updateMusicItem(input: UpdateMusicItemInput!, condition: ModelMusicItemConditionInput): MusicItem
+  deleteMusicItem(input: DeleteMusicItemInput!, condition: ModelMusicItemConditionInput): MusicItem
+  createImageItem(input: CreateImageItemInput!, condition: ModelImageItemConditionInput): ImageItem
+  updateImageItem(input: UpdateImageItemInput!, condition: ModelImageItemConditionInput): ImageItem
+  deleteImageItem(input: DeleteImageItemInput!, condition: ModelImageItemConditionInput): ImageItem
+  createImage(input: CreateImageInput!, condition: ModelImageConditionInput): Image
+  updateImage(input: UpdateImageInput!, condition: ModelImageConditionInput): Image
+  deleteImage(input: DeleteImageInput!, condition: ModelImageConditionInput): Image
+}
+
+input ModelLinkItemConditionInput {
+  name: ModelStringInput
+  description: ModelStringInput
+  url: ModelStringInput
+  type: ModelStringInput
+  myContent: ModelBooleanInput
+  and: [ModelLinkItemConditionInput]
+  or: [ModelLinkItemConditionInput]
+  not: ModelLinkItemConditionInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+type Subscription {
+  onCreateLinkItem: LinkItem @aws_subscribe(mutations: ["createLinkItem"])
+  onUpdateLinkItem: LinkItem @aws_subscribe(mutations: ["updateLinkItem"])
+  onDeleteLinkItem: LinkItem @aws_subscribe(mutations: ["deleteLinkItem"])
+  onCreateMusicItem: MusicItem @aws_subscribe(mutations: ["createMusicItem"])
+  onUpdateMusicItem: MusicItem @aws_subscribe(mutations: ["updateMusicItem"])
+  onDeleteMusicItem: MusicItem @aws_subscribe(mutations: ["deleteMusicItem"])
+  onCreateImageItem: ImageItem @aws_subscribe(mutations: ["createImageItem"])
+  onUpdateImageItem: ImageItem @aws_subscribe(mutations: ["updateImageItem"])
+  onDeleteImageItem: ImageItem @aws_subscribe(mutations: ["deleteImageItem"])
+  onCreateImage: Image @aws_subscribe(mutations: ["createImage"])
+  onUpdateImage: Image @aws_subscribe(mutations: ["updateImage"])
+  onDeleteImage: Image @aws_subscribe(mutations: ["deleteImage"])
+}
+
+type ModelMusicItemConnection {
+  items: [MusicItem]
+  nextToken: String
+}
+
+input ModelMusicItemFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  description: ModelStringInput
+  url: ModelStringInput
+  and: [ModelMusicItemFilterInput]
+  or: [ModelMusicItemFilterInput]
+  not: ModelMusicItemFilterInput
+}
+
+input CreateMusicItemInput {
+  id: ID
+  name: String!
+  description: String!
+  url: String!
+}
+
+input UpdateMusicItemInput {
+  id: ID!
+  name: String
+  description: String
+  url: String
+}
+
+input DeleteMusicItemInput {
+  id: ID
+}
+
+input ModelMusicItemConditionInput {
+  name: ModelStringInput
+  description: ModelStringInput
+  url: ModelStringInput
+  and: [ModelMusicItemConditionInput]
+  or: [ModelMusicItemConditionInput]
+  not: ModelMusicItemConditionInput
+}
+
+type ModelImageItemConnection {
+  items: [ImageItem]
+  nextToken: String
+}
+
+input ModelImageItemFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  description: ModelStringInput
+  type: ModelStringInput
+  and: [ModelImageItemFilterInput]
+  or: [ModelImageItemFilterInput]
+  not: ModelImageItemFilterInput
+}
+
+input CreateImageItemInput {
+  id: ID
+  name: String!
+  description: String
+  type: String!
+  imageItemDefaultImageId: ID
+}
+
+input UpdateImageItemInput {
+  id: ID!
+  name: String
+  description: String
+  type: String
+  imageItemDefaultImageId: ID
+}
+
+input DeleteImageItemInput {
+  id: ID
+}
+
+input ModelImageItemConditionInput {
+  name: ModelStringInput
+  description: ModelStringInput
+  type: ModelStringInput
+  and: [ModelImageItemConditionInput]
+  or: [ModelImageItemConditionInput]
+  not: ModelImageItemConditionInput
+}
+
+type ModelImageConnection {
+  items: [Image]
+  nextToken: String
+}
+
+input ModelImageFilterInput {
+  id: ModelIDInput
+  galleryID: ModelIDInput
+  url: ModelStringInput
+  and: [ModelImageFilterInput]
+  or: [ModelImageFilterInput]
+  not: ModelImageFilterInput
+}
+
+input CreateImageInput {
+  id: ID
+  galleryID: ID
+  url: String!
+  imageItemImagesId: ID
+}
+
+input UpdateImageInput {
+  id: ID!
+  galleryID: ID
+  url: String
+  imageItemImagesId: ID
+}
+
+input DeleteImageInput {
+  id: ID
+}
+
+input ModelImageConditionInput {
+  galleryID: ModelIDInput
+  url: ModelStringInput
+  and: [ModelImageConditionInput]
+  or: [ModelImageConditionInput]
+  not: ModelImageConditionInput
+}
+
+input ModelStringKeyConditionInput {
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  between: [String]
+  beginsWith: String
+}
