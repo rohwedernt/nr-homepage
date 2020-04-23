@@ -16,6 +16,7 @@ export const createLinkItem = /* GraphQL */ `
         url
       }
       url
+      type
       myContent
     }
   }
@@ -35,6 +36,7 @@ export const updateLinkItem = /* GraphQL */ `
         url
       }
       url
+      type
       myContent
     }
   }
@@ -54,6 +56,7 @@ export const deleteLinkItem = /* GraphQL */ `
         url
       }
       url
+      type
       myContent
     }
   }
@@ -119,6 +122,7 @@ export const createImageItem = /* GraphQL */ `
         }
         nextToken
       }
+      type
     }
   }
 `;
@@ -144,6 +148,7 @@ export const updateImageItem = /* GraphQL */ `
         }
         nextToken
       }
+      type
     }
   }
 `;
@@ -169,6 +174,7 @@ export const deleteImageItem = /* GraphQL */ `
         }
         nextToken
       }
+      type
     }
   }
 `;

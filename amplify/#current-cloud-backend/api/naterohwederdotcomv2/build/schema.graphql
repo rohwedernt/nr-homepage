@@ -4,6 +4,7 @@ type LinkItem {
   description: String
   image: Image
   url: String!
+  type: String!
   myContent: Boolean
 }
 
@@ -20,6 +21,7 @@ type ImageItem {
   description: String
   defaultImage: Image
   images(filter: ModelImageFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelImageConnection
+  type: String!
 }
 
 type Image {
@@ -116,6 +118,7 @@ input ModelLinkItemFilterInput {
   name: ModelStringInput
   description: ModelStringInput
   url: ModelStringInput
+  type: ModelStringInput
   myContent: ModelBooleanInput
   and: [ModelLinkItemFilterInput]
   or: [ModelLinkItemFilterInput]
@@ -138,6 +141,7 @@ input CreateLinkItemInput {
   name: String!
   description: String
   url: String!
+  type: String!
   myContent: Boolean
   linkItemImageId: ID
 }
@@ -147,6 +151,7 @@ input UpdateLinkItemInput {
   name: String
   description: String
   url: String
+  type: String
   myContent: Boolean
   linkItemImageId: ID
 }
@@ -174,6 +179,7 @@ input ModelLinkItemConditionInput {
   name: ModelStringInput
   description: ModelStringInput
   url: ModelStringInput
+  type: ModelStringInput
   myContent: ModelBooleanInput
   and: [ModelLinkItemConditionInput]
   or: [ModelLinkItemConditionInput]
@@ -259,6 +265,7 @@ input ModelImageItemFilterInput {
   id: ModelIDInput
   name: ModelStringInput
   description: ModelStringInput
+  type: ModelStringInput
   and: [ModelImageItemFilterInput]
   or: [ModelImageItemFilterInput]
   not: ModelImageItemFilterInput
@@ -268,6 +275,7 @@ input CreateImageItemInput {
   id: ID
   name: String!
   description: String
+  type: String!
   imageItemDefaultImageId: ID
 }
 
@@ -275,6 +283,7 @@ input UpdateImageItemInput {
   id: ID!
   name: String
   description: String
+  type: String
   imageItemDefaultImageId: ID
 }
 
@@ -285,6 +294,7 @@ input DeleteImageItemInput {
 input ModelImageItemConditionInput {
   name: ModelStringInput
   description: ModelStringInput
+  type: ModelStringInput
   and: [ModelImageItemConditionInput]
   or: [ModelImageItemConditionInput]
   not: ModelImageItemConditionInput

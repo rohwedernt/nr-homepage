@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,11 +14,11 @@ const useStyles = makeStyles(() => ({
     margin: '15px'
   },
   card: {
-    minWidth: 320,
-    maxWidth: 320,
+    minWidth: 285,
+    maxWidth: 285,
   },
   cardMedia: {
-    height: 200,
+    height: 180,
   },
 }));
 

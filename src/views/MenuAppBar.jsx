@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
+import { Link } from "react-router-dom";
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { Divider } from '@material-ui/core';
 
 // @material-ui/icons
+import InfoIcon from '@material-ui/icons/Info';
 import MenuIcon from '@material-ui/icons/Menu';
+import EmailIcon from '@material-ui/icons/Email';
+import SettingsIcon from '@material-ui/icons/Settings';
+import HomeIcon from '@material-ui/icons/Home';
 
 // custom components
 import CustomDialogFullScreen from '../components/Dialogs/CustomDialogFullScreen';
@@ -33,17 +37,18 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  title: {
-    flexGrow: 1,
+  back: {
+    //flexGrow: 1,
+    borderRadius: '8px',
   },
-  hamburger: {
+  menuIcon: {
 	  borderRadius: '8px',
   }
 }));
 
 export default function MenuAppBar(props) {
   const classes = useStyles();
-  const { breakpointMd, breakpointSm, setPrimaryColor } = props;
+  const { breakpointMd, breakpointSm, setPrimaryColor, onAdmin } = props;
 
   // success alert state
   const [openAlert, setOpenAlert] = useState(false);
@@ -118,39 +123,69 @@ export default function MenuAppBar(props) {
   return (
     <div className={classes.root}>
       <AppBar position='static'>
-        <Toolbar>
-          <Typography variant='h6' className={classes.title}></Typography>
+        <Toolbar style={{ justifyContent: 'space-between'}}>
+          {onAdmin ? (
+            <IconButton
+              component={Link}
+              to={'/'}
+              color='inherit'
+              className={classes.back}
+            >
+              <HomeIcon />
+            </IconButton>
+          ) : (
+            <Fragment>
+              <IconButton
+                aria-label='more stuff'
+                aria-controls='menu-appbar'
+                aria-haspopup='true'
+                onClick={handleMenu}
+                color='inherit'
+                className={classes.menuIcon}
+              >
+                {/* <Typography style={{ marginRight: '10px' }} variant='subtitle1'>More Stuff</Typography> */}
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id='menu-appbar'
+                anchorEl={anchorEl}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                keepMounted
+                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                open={openMenu}
+                onClose={handleCloseMenu}
+              >
+                <MenuItem onClick={() => handleOpenDialogFull(scrumRetroToolProps)}>Scrum Retro Tool</MenuItem>
+                <MenuItem onClick={() => handleOpenDialogFull(dashboardProps)}>Dashboard POC</MenuItem>
+                <MenuItem onClick={() => handleOpenDialogFull(nrV1Props)}>NateRohwederDotCom v1</MenuItem>
+                <Divider />
+                <MenuItem onClick={() => handleOpenDialog(comingSoonProps)}>Coming Soon</MenuItem>
+                <MenuItem component={Link} to={'/admin'}>Admin</MenuItem>
+              </Menu>
+            </Fragment>
+          )}
           <div>
             <IconButton
-              aria-label='account of current user'
-              aria-controls='menu-appbar'
-              aria-haspopup='true'
-              onClick={handleMenu}
-			        color='inherit'
-			        className={classes.hamburger}
+              onClick={() => handleOpenDialog(aboutThisSiteProps)}
+              color='inherit'
+              className={classes.menuIcon}
             >
-				<Typography style={{ marginRight: '10px' }} variant='subtitle1'>More Stuff</Typography>
-				<MenuIcon />
+              <InfoIcon />
             </IconButton>
-            <Menu
-              id='menu-appbar'
-              anchorEl={anchorEl}
-              anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-              keepMounted
-              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-              open={openMenu}
-              onClose={handleCloseMenu}
+            <IconButton
+              onClick={() => handleOpenDialog(contactProps)}
+              color='inherit'
+              className={classes.menuIcon}
             >
-              <MenuItem onClick={() => handleOpenDialog(aboutThisSiteProps)}>About This Site</MenuItem>
-              <MenuItem onClick={() => handleOpenDialog(comingSoonProps)}>Coming Soon</MenuItem>
-              <Divider />
-              <MenuItem onClick={() => handleOpenDialogFull(scrumRetroToolProps)}>Scrum Retro Tool</MenuItem>
-              <MenuItem onClick={() => handleOpenDialogFull(dashboardProps)}>Dashboard POC</MenuItem>
-              <MenuItem onClick={() => handleOpenDialogFull(nrV1Props)}>NateRohwederDotCom v1</MenuItem>
-              <Divider />
-              <MenuItem onClick={() => handleOpenDialog(contactProps)}>Contact</MenuItem>
-              <MenuItem onClick={() => handleOpenDialog(settingsProps)}>Settings</MenuItem>
-            </Menu>
+              <EmailIcon />
+            </IconButton>
+            <IconButton
+              onClick={() => handleOpenDialog(settingsProps)}
+              color='inherit'
+              className={classes.menuIcon}
+            >
+              <SettingsIcon />
+            </IconButton>
           </div>
         </Toolbar>
       </AppBar>
