@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
-import { listLinkItems } from '../../graphql/queries';
+import { getLinkItemsByDate } from '../../graphql/queries';
 
 // custom components
 import ItemContent from '../Content/ItemContent';
@@ -16,18 +16,17 @@ export default function WorkContainer(props) {
   }, [myStuff]);
 
   async function fetchItems() {
-    let filters = { filter: { type: { contains: 'work' } } };
-    filters.filter.myContent = myStuff ? { eq: true } : undefined;
+    let sort = myStuff ? 
+      { type: 'work', sortDirection: 'DESC', filter: { myContent: { eq: true } } } : 
+      { type: 'work', sortDirection: 'DESC' };
     setIsLoading(true);
 
     try {
-      const itemData = myStuff ? 
-        await API.graphql(graphqlOperation(listLinkItems, filters)) :
-        await API.graphql(graphqlOperation(listLinkItems))
-      const items = itemData.data.listLinkItems.items;
+      const itemData = await API.graphql(graphqlOperation(getLinkItemsByDate, sort));
+      const items = itemData.data.getLinkItemsByDate.items;
       setItems(items);
       setIsLoading(false);
-    } catch (err) { console.log('error fetching items') };
+    } catch (err) { console.log('error fetching items', err) };
   }
 
   return (

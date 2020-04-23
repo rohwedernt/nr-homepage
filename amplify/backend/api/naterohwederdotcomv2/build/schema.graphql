@@ -5,6 +5,7 @@ type LinkItem {
   image: Image
   url: String!
   type: String!
+  date: AWSDate!
   myContent: Boolean
 }
 
@@ -13,6 +14,7 @@ type MusicItem {
   name: String!
   description: String!
   url: String!
+  date: AWSDate!
 }
 
 type ImageItem {
@@ -22,10 +24,12 @@ type ImageItem {
   defaultImage: Image
   images(filter: ModelImageFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelImageConnection
   type: String!
+  date: AWSDate!
 }
 
 type Image {
   id: ID!
+  name: String!
   galleryID: ID
   url: String!
 }
@@ -119,6 +123,7 @@ input ModelLinkItemFilterInput {
   description: ModelStringInput
   url: ModelStringInput
   type: ModelStringInput
+  date: ModelStringInput
   myContent: ModelBooleanInput
   and: [ModelLinkItemFilterInput]
   or: [ModelLinkItemFilterInput]
@@ -134,6 +139,7 @@ type Query {
   listImageItems(filter: ModelImageItemFilterInput, limit: Int, nextToken: String): ModelImageItemConnection
   getImage(id: ID!): Image
   listImages(filter: ModelImageFilterInput, limit: Int, nextToken: String): ModelImageConnection
+  getLinkItemsByDate(type: String, date: ModelStringKeyConditionInput, sortDirection: ModelSortDirection, filter: ModelLinkItemFilterInput, limit: Int, nextToken: String): ModelLinkItemConnection
 }
 
 input CreateLinkItemInput {
@@ -142,6 +148,7 @@ input CreateLinkItemInput {
   description: String
   url: String!
   type: String!
+  date: AWSDate!
   myContent: Boolean
   linkItemImageId: ID
 }
@@ -152,6 +159,7 @@ input UpdateLinkItemInput {
   description: String
   url: String
   type: String
+  date: AWSDate
   myContent: Boolean
   linkItemImageId: ID
 }
@@ -180,6 +188,7 @@ input ModelLinkItemConditionInput {
   description: ModelStringInput
   url: ModelStringInput
   type: ModelStringInput
+  date: ModelStringInput
   myContent: ModelBooleanInput
   and: [ModelLinkItemConditionInput]
   or: [ModelLinkItemConditionInput]
@@ -224,6 +233,7 @@ input ModelMusicItemFilterInput {
   name: ModelStringInput
   description: ModelStringInput
   url: ModelStringInput
+  date: ModelStringInput
   and: [ModelMusicItemFilterInput]
   or: [ModelMusicItemFilterInput]
   not: ModelMusicItemFilterInput
@@ -234,6 +244,7 @@ input CreateMusicItemInput {
   name: String!
   description: String!
   url: String!
+  date: AWSDate!
 }
 
 input UpdateMusicItemInput {
@@ -241,6 +252,7 @@ input UpdateMusicItemInput {
   name: String
   description: String
   url: String
+  date: AWSDate
 }
 
 input DeleteMusicItemInput {
@@ -251,6 +263,7 @@ input ModelMusicItemConditionInput {
   name: ModelStringInput
   description: ModelStringInput
   url: ModelStringInput
+  date: ModelStringInput
   and: [ModelMusicItemConditionInput]
   or: [ModelMusicItemConditionInput]
   not: ModelMusicItemConditionInput
@@ -266,6 +279,7 @@ input ModelImageItemFilterInput {
   name: ModelStringInput
   description: ModelStringInput
   type: ModelStringInput
+  date: ModelStringInput
   and: [ModelImageItemFilterInput]
   or: [ModelImageItemFilterInput]
   not: ModelImageItemFilterInput
@@ -276,6 +290,7 @@ input CreateImageItemInput {
   name: String!
   description: String
   type: String!
+  date: AWSDate!
   imageItemDefaultImageId: ID
 }
 
@@ -284,6 +299,7 @@ input UpdateImageItemInput {
   name: String
   description: String
   type: String
+  date: AWSDate
   imageItemDefaultImageId: ID
 }
 
@@ -295,6 +311,7 @@ input ModelImageItemConditionInput {
   name: ModelStringInput
   description: ModelStringInput
   type: ModelStringInput
+  date: ModelStringInput
   and: [ModelImageItemConditionInput]
   or: [ModelImageItemConditionInput]
   not: ModelImageItemConditionInput
@@ -307,6 +324,7 @@ type ModelImageConnection {
 
 input ModelImageFilterInput {
   id: ModelIDInput
+  name: ModelStringInput
   galleryID: ModelIDInput
   url: ModelStringInput
   and: [ModelImageFilterInput]
@@ -316,6 +334,7 @@ input ModelImageFilterInput {
 
 input CreateImageInput {
   id: ID
+  name: String!
   galleryID: ID
   url: String!
   imageItemImagesId: ID
@@ -323,6 +342,7 @@ input CreateImageInput {
 
 input UpdateImageInput {
   id: ID!
+  name: String
   galleryID: ID
   url: String
   imageItemImagesId: ID
@@ -333,6 +353,7 @@ input DeleteImageInput {
 }
 
 input ModelImageConditionInput {
+  name: ModelStringInput
   galleryID: ModelIDInput
   url: ModelStringInput
   and: [ModelImageConditionInput]

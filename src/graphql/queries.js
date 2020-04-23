@@ -9,11 +9,13 @@ export const getLinkItem = /* GraphQL */ `
       description
       image {
         id
+        name
         galleryID
         url
       }
       url
       type
+      date
       myContent
     }
   }
@@ -31,11 +33,13 @@ export const listLinkItems = /* GraphQL */ `
         description
         image {
           id
+          name
           galleryID
           url
         }
         url
         type
+        date
         myContent
       }
       nextToken
@@ -49,6 +53,7 @@ export const getMusicItem = /* GraphQL */ `
       name
       description
       url
+      date
     }
   }
 `;
@@ -64,6 +69,7 @@ export const listMusicItems = /* GraphQL */ `
         name
         description
         url
+        date
       }
       nextToken
     }
@@ -77,18 +83,21 @@ export const getImageItem = /* GraphQL */ `
       description
       defaultImage {
         id
+        name
         galleryID
         url
       }
       images {
         items {
           id
+          name
           galleryID
           url
         }
         nextToken
       }
       type
+      date
     }
   }
 `;
@@ -105,6 +114,7 @@ export const listImageItems = /* GraphQL */ `
         description
         defaultImage {
           id
+          name
           galleryID
           url
         }
@@ -112,6 +122,7 @@ export const listImageItems = /* GraphQL */ `
           nextToken
         }
         type
+        date
       }
       nextToken
     }
@@ -121,6 +132,7 @@ export const getImage = /* GraphQL */ `
   query GetImage($id: ID!) {
     getImage(id: $id) {
       id
+      name
       galleryID
       url
     }
@@ -135,8 +147,45 @@ export const listImages = /* GraphQL */ `
     listImages(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        name
         galleryID
         url
+      }
+      nextToken
+    }
+  }
+`;
+export const getLinkItemsByDate = /* GraphQL */ `
+  query GetLinkItemsByDate(
+    $type: String
+    $date: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelLinkItemFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getLinkItemsByDate(
+      type: $type
+      date: $date
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        name
+        description
+        image {
+          id
+          name
+          galleryID
+          url
+        }
+        url
+        type
+        date
+        myContent
       }
       nextToken
     }
