@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
@@ -77,6 +78,7 @@ function AdminPage(props) {
 					<DeleteItemForm classes={classes} onSuccess={() => setOpenAlert(true)} />
 				</Paper>
 			</div>
+			<AmplifySignOut />
 			<SuccessAlert
 				msg='Success!'
 				open={openAlert}
@@ -86,5 +88,4 @@ function AdminPage(props) {
     );
 }
 
-//export default withAuthenticator(AdminPage);
-export default AdminPage;
+export default withAuthenticator(AdminPage);
