@@ -96,37 +96,37 @@ export default function ProfilePage(props) {
               breakpointSm={breakpointSm} 
               setPrimaryColor={props.setPrimaryColor}
             />
-                <div className={classes.root}>
-                    <Paper style={breakpointSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
-                        <div className={classes.headerSection} style={breakpointMd ? { flexWrap: 'wrap' } : undefined}>
-                        <img className={classes.coloredShadow} style={setColoredShadowPosition()} src={profile} />
-                            <img className={classes.profileImg} src={profile} />
-                            <div>
-                                <Typography 
-                                    className={classes.pageHeader} 
-                                    variant='h4'
-                                >
-                                    Nate Rohweder
-                                </Typography>
-                                <SocialIconAnimator className={classes.animator} pose={isOpen ? 'open' : 'closed'}>
-                                    <Github style={getIconStyles('205px')} target='https://github.com/rohwedernt' />
-                                    <LinkedIn style={getIconStyles('155px')} target='https://www.linkedin.com/in/nate-rohweder-8b1026121/' />
-                                    <Twitter style={getIconStyles('105px')} target='https://twitter.com/nrohweder1' />
-                                    <Facebook style={getIconStyles('55px')} target='https://www.facebook.com/rohwedernt' />
-                                    <Instagram style={getIconStyles('5px')} target='https://www.instagram.com/naterohweder/' />
-                                </SocialIconAnimator>
-                                <Typography className={classes.pageSubheader} variant='h6'>Software Engineer  |  Denver, CO</Typography>
-                                <Typography className={classes.pageParagraph} variant='body1' component='div'>
-                                  Equal parts software experiment laboratory, agglomeration of web resources from over the years,
-                                  showcase of personal dev projects, blog for my travels, eats, drinks, dogs, and other 
-                                  miscellaneous interests. Visit the menu in the top right corner for a more in depth technical 
-                                  overview of the site.
-                                </Typography>
-                            </div>
+            <div className={classes.root}>
+                <Paper style={breakpointSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
+                    <div className={classes.headerSection} style={breakpointMd ? { flexWrap: 'wrap' } : undefined}>
+                    <img className={classes.coloredShadow} alt='colored-shadow' style={setColoredShadowPosition()} src={profile} />
+                        <img className={classes.profileImg} alt='' src={profile} />
+                        <div>
+                            <Typography 
+                                className={classes.pageHeader} 
+                                variant='h4'
+                            >
+                                Nate Rohweder
+                            </Typography>
+                            <SocialIconAnimator className={classes.animator} pose={isOpen ? 'open' : 'closed'}>
+                                <Github style={getIconStyles('205px')} target='https://github.com/rohwedernt' />
+                                <LinkedIn style={getIconStyles('155px')} target='https://www.linkedin.com/in/nate-rohweder-8b1026121/' />
+                                <Twitter style={getIconStyles('105px')} target='https://twitter.com/nrohweder1' />
+                                <Facebook style={getIconStyles('55px')} target='https://www.facebook.com/rohwedernt' />
+                                <Instagram style={getIconStyles('5px')} target='https://www.instagram.com/naterohweder/' />
+                            </SocialIconAnimator>
+                            <Typography className={classes.pageSubheader} variant='h6'>Software Engineer  |  Denver, CO</Typography>
+                            <Typography className={classes.pageParagraph} variant='body1' component='div'>
+                              Equal parts software experiment laboratory, agglomeration of web resources from over the years,
+                              showcase of personal dev projects, blog for my travels, eats, drinks, dogs, and other 
+                              miscellaneous interests. Click the info icon on the menu bar for a more in depth techincal
+                              overview of the site.
+                            </Typography>
                         </div>
-                        <ProfileSectionTabs breakpointSm={breakpointSm} style={breakpointMd ? { minWidth: '40px' } : undefined}/>
-                    </Paper>
-                </div>
+                    </div>
+                    <ProfileSectionTabs breakpointMd={breakpointMd} />
+                </Paper>
+            </div>
         </Fragment>
     );
 }
