@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import ProfilePage from './views/ProfilePage';
+
+// @material-ui
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-//import { withAuthenticator } from 'aws-amplify-react'
-import './App.css'
+
+import { Route, Switch } from 'react-router-dom';
+import AdminPage from './views/Admin/AdminPage';
+
+// stylesheets
+import '@aws-amplify/ui/dist/style.css';
 
 
 let defaultTheme = createMuiTheme({
@@ -29,10 +35,12 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <ProfilePage setPrimaryColor={onChangePrimaryColor} />
+      <Switch>
+        <Route exact path='/' render={() => <ProfilePage setPrimaryColor={onChangePrimaryColor} />} />
+        <Route path="/admin" render={() => <AdminPage setPrimaryColor={onChangePrimaryColor} />} />
+      </Switch>
     </ThemeProvider>
   );
 }
 
 export default App
-//export default withAuthenticator(App)
