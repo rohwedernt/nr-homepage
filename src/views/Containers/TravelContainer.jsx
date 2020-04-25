@@ -30,7 +30,7 @@ export default function TravelContainer(props) {
     <ItemContent 
         items={items}
         isLoading={isLoading}
-        actionFunc={(item) => props.openDialog(item.imgs, item.title, item.description)}
+        actionFunc={(item) => props.openDialog(item.images, item.name, item.description)}
         {...props}
     />
   );

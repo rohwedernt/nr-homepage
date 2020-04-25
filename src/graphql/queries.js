@@ -10,7 +10,13 @@ export const getLinkItem = /* GraphQL */ `
       image {
         id
         name
-        galleryID
+        item {
+          id
+          name
+          description
+          type
+          date
+        }
         url
       }
       url
@@ -34,7 +40,6 @@ export const listLinkItems = /* GraphQL */ `
         image {
           id
           name
-          galleryID
           url
         }
         url
@@ -81,17 +86,22 @@ export const getImageItem = /* GraphQL */ `
       id
       name
       description
-      defaultImage {
+      image {
         id
         name
-        galleryID
+        item {
+          id
+          name
+          description
+          type
+          date
+        }
         url
       }
-      images {
+      imageGallery {
         items {
           id
           name
-          galleryID
           url
         }
         nextToken
@@ -112,13 +122,12 @@ export const listImageItems = /* GraphQL */ `
         id
         name
         description
-        defaultImage {
+        image {
           id
           name
-          galleryID
           url
         }
-        images {
+        imageGallery {
           nextToken
         }
         type
@@ -133,7 +142,21 @@ export const getImage = /* GraphQL */ `
     getImage(id: $id) {
       id
       name
-      galleryID
+      item {
+        id
+        name
+        description
+        image {
+          id
+          name
+          url
+        }
+        imageGallery {
+          nextToken
+        }
+        type
+        date
+      }
       url
     }
   }
@@ -148,7 +171,13 @@ export const listImages = /* GraphQL */ `
       items {
         id
         name
-        galleryID
+        item {
+          id
+          name
+          description
+          type
+          date
+        }
         url
       }
       nextToken
@@ -179,7 +208,6 @@ export const getLinkItemsByDate = /* GraphQL */ `
         image {
           id
           name
-          galleryID
           url
         }
         url

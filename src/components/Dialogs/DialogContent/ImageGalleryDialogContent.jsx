@@ -14,12 +14,12 @@ const useStyles = makeStyles(() => ({
     }
   }));
 
-export default function ImageGalleryDialog({ imgs }) {
+export default function ImageGalleryDialogContent({ images }) {
     const classes = useStyles();
 
     return (
         <Grid container style={{ justifyContent: 'center' }}>
-            {imgs.map((img, idx) => (
+            {images.map((img, idx) => (
                 <Grid item key={idx} className={classes.gridItem}>
                     <ImageCard img={img} />
                 </Grid>

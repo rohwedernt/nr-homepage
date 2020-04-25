@@ -80,13 +80,13 @@ function ListItemsForm(props) {
             <Typography variant='h6'>List Items</Typography>
             <FormControl className={classes.formControl}>
                 <InputLabel >Item Type</InputLabel>
-                <Controller as={Select} name="type" control={control} defaultValue='link'>
+                <Controller as={Select} name='type' control={control} defaultValue='link'>
                     <MenuItem value={'link'}>Link</MenuItem>
                     <MenuItem value={'music'}>Music</MenuItem>
                     <MenuItem value={'image'}>Image</MenuItem>
                 </Controller>
             </FormControl>
-            <TextField className={classes.input} label='Filter' name='filter' inputRef={register} helperText="ex. { myContent: { eq: true } }" />
+            <TextField className={classes.input} label='Filter' name='filter' inputRef={register} helperText='ex. { myContent: { eq: true } }' />
             <Button className={classes.button} variant='outlined' color='primary' type='submit'>Submit</Button>
         </form>
     );

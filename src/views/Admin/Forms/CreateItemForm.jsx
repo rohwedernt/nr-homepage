@@ -26,7 +26,9 @@ function CreateItemForm(props) {
             name: data.name,
             description: data.description,
             url: data.url,
+            imageId: data.imageId,
             type: data.type,
+            date: data.date,
             myContent: data.myContent
         }}
 
@@ -57,8 +59,9 @@ function CreateItemForm(props) {
                 </FormControl>
             <TextField className={classes.input} label='Name' name='name' inputRef={register} />
             <TextField className={classes.input} label='Description' name='description' inputRef={register} />
-            <TextField className={classes.input} label='Image' name='image' inputRef={register} />
+            <TextField className={classes.input} label='Image Id' name='imageId' inputRef={register} />
             <TextField className={classes.input} label='Url' name='url' inputRef={register} />
+            <TextField className={classes.input} label='Date' name='date' inputRef={register} helperText='YYYY-MM-DD' />
             <FormControlLabel className={classes.controlLabel}
                 control={<Controller as={<Checkbox color='primary' />} name='myContent' control={control} defaultValue={false} />}
                 label='My Content'

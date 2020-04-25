@@ -121,7 +121,7 @@
                         {
                             "Ref": "APIKeyExpirationEpoch"
                         },
-                        1588283165
+                        1588376430
                     ]
                 }
             },
@@ -519,7 +519,8 @@
             },
             "DependsOn": [
                 "GraphQLSchema",
-                "Image"
+                "Image",
+                "ImageItem"
             ]
         },
         "CustomResourcesjson": {

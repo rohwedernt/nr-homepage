@@ -159,7 +159,7 @@
                 }
             }
         },
-        "ImageItemdefaultImageResolver": {
+        "ImageItemimageResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -180,7 +180,7 @@
                         ]
                     }
                 },
-                "FieldName": "defaultImage",
+                "FieldName": "image",
                 "TypeName": "ImageItem",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -197,7 +197,7 @@
                                     ".",
                                     [
                                         "ImageItem",
-                                        "defaultImage",
+                                        "image",
                                         "req",
                                         "vtl"
                                     ]
@@ -221,7 +221,7 @@
                                     ".",
                                     [
                                         "ImageItem",
-                                        "defaultImage",
+                                        "image",
                                         "res",
                                         "vtl"
                                     ]
@@ -232,7 +232,7 @@
                 }
             }
         },
-        "ImageItemimagesResolver": {
+        "ImageItemimageGalleryResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -253,7 +253,7 @@
                         ]
                     }
                 },
-                "FieldName": "images",
+                "FieldName": "imageGallery",
                 "TypeName": "ImageItem",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -270,7 +270,7 @@
                                     ".",
                                     [
                                         "ImageItem",
-                                        "images",
+                                        "imageGallery",
                                         "req",
                                         "vtl"
                                     ]
@@ -294,7 +294,80 @@
                                     ".",
                                     [
                                         "ImageItem",
-                                        "images",
+                                        "imageGallery",
+                                        "res",
+                                        "vtl"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "ImageitemResolver": {
+            "Type": "AWS::AppSync::Resolver",
+            "Properties": {
+                "ApiId": {
+                    "Ref": "GetAttGraphQLAPIApiId"
+                },
+                "DataSourceName": {
+                    "Fn::ImportValue": {
+                        "Fn::Join": [
+                            ":",
+                            [
+                                {
+                                    "Ref": "AppSyncApiId"
+                                },
+                                "GetAtt",
+                                "ImageItemDataSource",
+                                "Name"
+                            ]
+                        ]
+                    }
+                },
+                "FieldName": "item",
+                "TypeName": "Image",
+                "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": {
+                                "Fn::Join": [
+                                    ".",
+                                    [
+                                        "Image",
+                                        "item",
+                                        "req",
+                                        "vtl"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": {
+                                "Fn::Join": [
+                                    ".",
+                                    [
+                                        "Image",
+                                        "item",
                                         "res",
                                         "vtl"
                                     ]

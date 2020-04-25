@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 
 // custom components
 import MenuAppBar from '../MenuAppBar';
+import ListImagesForm from './Forms/ListImagesForm';
 import ListItemsForm from './Forms/ListItemsForm';
 import CreateItemForm from './Forms/CreateItemForm';
 import UpdateItemForm from './Forms/UpdateItemForm';
@@ -69,6 +70,8 @@ function AdminPage(props) {
 			<div className={classes.root}>
 				<Paper elevation={16}>
 					<Typography variant='h4' className={classes.pageHeader}>Admin</Typography>
+					<ListImagesForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+					<Divider />
 					<ListItemsForm classes={classes} onSuccess={() => setOpenAlert(true)} />
 					<Divider />
 					<CreateItemForm classes={classes} onSuccess={() => setOpenAlert(true)} />
