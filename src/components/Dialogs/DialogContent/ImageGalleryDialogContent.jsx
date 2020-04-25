@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { API, graphqlOperation } from 'aws-amplify';
+import { listImages } from '../../../graphql/queries';
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,14 +16,29 @@ const useStyles = makeStyles(() => ({
     }
   }));
 
-export default function ImageGalleryDialogContent({ images }) {
+export default function ImageGalleryDialogContent({ item }) {
     const classes = useStyles();
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        fetchImages(item.id);
+    }, []);
+
+    async function fetchImages(itemId) {
+        let filters = { limit: 20, filter: { itemID: { eq: itemId } } };
+    
+        try {
+          const imageData = await API.graphql(graphqlOperation(listImages, filters));
+          const itemImages = imageData.data.listImages.items;
+          setImages(itemImages);
+        } catch (err) { console.log('error fetching images', err) };
+    }
 
     return (
         <Grid container style={{ justifyContent: 'center' }}>
-            {images.map((img, idx) => (
+            {images && images.map((image, idx) => (
                 <Grid item key={idx} className={classes.gridItem}>
-                    <ImageCard img={img} />
+                    <ImageCard image={image} />
                 </Grid>
             ))}
         </Grid>

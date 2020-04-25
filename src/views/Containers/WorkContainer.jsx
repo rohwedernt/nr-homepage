@@ -26,7 +26,7 @@ export default function WorkContainer(props) {
       const items = itemData.data.getLinkItemsByDate.items;
       setItems(items);
       setIsLoading(false);
-    } catch (err) { console.log('error fetching items', err) };
+    } catch (err) { console.log('error fetching work items', err) };
   }
 
   return (

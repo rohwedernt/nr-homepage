@@ -23,7 +23,7 @@ export default function FoodAndDrinkContainer(props) {
       const items = itemData.data.listImageItems.items;
       setItems(items);
       setIsLoading(false);
-    } catch (err) { console.log('error fetching items') };
+    } catch (err) { console.log('error fetching food items', err) };
   }
 
   return (

@@ -24,14 +24,16 @@ type ImageItem @model {
   name: String!
   description: String
   image: Image @connection
-  imageGallery: [Image] @connection(name: "GalleryImages")
+  images: [Image] @connection(keyName: "byItem", fields: ["id"])
   type: String!
   date: AWSDate!
 }
 
-type Image @model {
+type Image @model
+@key(name: "byItem", fields: ["itemID", "id"])
+{
   id: ID!
   name: String!
-  item: ImageItem @connection(name: "GalleryImages")
+  itemID: ID
   url: String!
 }

@@ -45,13 +45,13 @@ const useStyles = makeStyles((theme) => ({
 export default function ProfileSectionTabs(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
-  const [dialogProps, setDialogProps] = useState({ imgs: [], title: '', description: '' });
+  const [dialogItem, setDialogItem] = useState({});
   const [openFullDialog, setOpenFullDialog] = useState(false);
 
   const { breakpointMd } = props;
 
-  const handleClickOpenFullDialog = (imgs, title, description) => {
-    setDialogProps({ imgs: imgs, title: title, description: description })
+  const handleClickOpenFullDialog = (item) => {
+    setDialogItem(item)
     setOpenFullDialog(true);
   };
 
@@ -98,8 +98,8 @@ export default function ProfileSectionTabs(props) {
       <CustomDialogFullScreen 
         open={openFullDialog}
         handleClose={handleCloseFullDialog}
-        content={() => <ImageGalleryDialogContent imgs={dialogProps.imgs} />}
-        {...dialogProps}
+        content={() => <ImageGalleryDialogContent item={dialogItem} />}
+        item={dialogItem}
       />
     </Fragment>
   );

@@ -22,7 +22,7 @@ type ImageItem {
   name: String!
   description: String
   image: Image
-  imageGallery(filter: ModelImageFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelImageConnection
+  images(id: ModelIDKeyConditionInput, filter: ModelImageFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelImageConnection
   type: String!
   date: AWSDate!
 }
@@ -30,7 +30,7 @@ type ImageItem {
 type Image {
   id: ID!
   name: String!
-  item: ImageItem
+  itemID: ID
   url: String!
 }
 
@@ -325,6 +325,7 @@ type ModelImageConnection {
 input ModelImageFilterInput {
   id: ModelIDInput
   name: ModelStringInput
+  itemID: ModelIDInput
   url: ModelStringInput
   and: [ModelImageFilterInput]
   or: [ModelImageFilterInput]
@@ -334,15 +335,15 @@ input ModelImageFilterInput {
 input CreateImageInput {
   id: ID
   name: String!
+  itemID: ID
   url: String!
-  imageItemId: ID
 }
 
 input UpdateImageInput {
   id: ID!
   name: String
+  itemID: ID
   url: String
-  imageItemId: ID
 }
 
 input DeleteImageInput {
@@ -351,6 +352,7 @@ input DeleteImageInput {
 
 input ModelImageConditionInput {
   name: ModelStringInput
+  itemID: ModelIDInput
   url: ModelStringInput
   and: [ModelImageConditionInput]
   or: [ModelImageConditionInput]
@@ -365,4 +367,14 @@ input ModelStringKeyConditionInput {
   gt: String
   between: [String]
   beginsWith: String
+}
+
+input ModelIDKeyConditionInput {
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  between: [ID]
+  beginsWith: ID
 }

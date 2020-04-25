@@ -10,13 +10,7 @@ export const onCreateLinkItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
       url
@@ -35,13 +29,7 @@ export const onUpdateLinkItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
       url
@@ -60,13 +48,7 @@ export const onDeleteLinkItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
       url
@@ -118,19 +100,14 @@ export const onCreateImageItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
-      imageGallery {
+      images {
         items {
           id
           name
+          itemID
           url
         }
         nextToken
@@ -149,19 +126,14 @@ export const onUpdateImageItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
-      imageGallery {
+      images {
         items {
           id
           name
+          itemID
           url
         }
         nextToken
@@ -180,19 +152,14 @@ export const onDeleteImageItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
-      imageGallery {
+      images {
         items {
           id
           name
+          itemID
           url
         }
         nextToken
@@ -207,21 +174,7 @@ export const onCreateImage = /* GraphQL */ `
     onCreateImage {
       id
       name
-      item {
-        id
-        name
-        description
-        image {
-          id
-          name
-          url
-        }
-        imageGallery {
-          nextToken
-        }
-        type
-        date
-      }
+      itemID
       url
     }
   }
@@ -231,21 +184,7 @@ export const onUpdateImage = /* GraphQL */ `
     onUpdateImage {
       id
       name
-      item {
-        id
-        name
-        description
-        image {
-          id
-          name
-          url
-        }
-        imageGallery {
-          nextToken
-        }
-        type
-        date
-      }
+      itemID
       url
     }
   }
@@ -255,21 +194,7 @@ export const onDeleteImage = /* GraphQL */ `
     onDeleteImage {
       id
       name
-      item {
-        id
-        name
-        description
-        image {
-          id
-          name
-          url
-        }
-        imageGallery {
-          nextToken
-        }
-        type
-        date
-      }
+      itemID
       url
     }
   }

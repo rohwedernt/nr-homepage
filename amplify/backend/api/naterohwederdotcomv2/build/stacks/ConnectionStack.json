@@ -232,7 +232,7 @@
                 }
             }
         },
-        "ImageItemimageGalleryResolver": {
+        "ImageItemimagesResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -253,7 +253,7 @@
                         ]
                     }
                 },
-                "FieldName": "imageGallery",
+                "FieldName": "images",
                 "TypeName": "ImageItem",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -270,7 +270,7 @@
                                     ".",
                                     [
                                         "ImageItem",
-                                        "imageGallery",
+                                        "images",
                                         "req",
                                         "vtl"
                                     ]
@@ -294,80 +294,7 @@
                                     ".",
                                     [
                                         "ImageItem",
-                                        "imageGallery",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "ImageitemResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "GetAttGraphQLAPIApiId"
-                },
-                "DataSourceName": {
-                    "Fn::ImportValue": {
-                        "Fn::Join": [
-                            ":",
-                            [
-                                {
-                                    "Ref": "AppSyncApiId"
-                                },
-                                "GetAtt",
-                                "ImageItemDataSource",
-                                "Name"
-                            ]
-                        ]
-                    }
-                },
-                "FieldName": "item",
-                "TypeName": "Image",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Image",
-                                        "item",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Image",
-                                        "item",
+                                        "images",
                                         "res",
                                         "vtl"
                                     ]

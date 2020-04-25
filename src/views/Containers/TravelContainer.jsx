@@ -23,14 +23,14 @@ export default function TravelContainer(props) {
       const items = itemData.data.listImageItems.items;
       setItems(items);
       setIsLoading(false);
-    } catch (err) { console.log('error fetching items') };
+    } catch (err) { console.log('error fetching travel items', err) };
   }
 
   return (
     <ItemContent 
         items={items}
         isLoading={isLoading}
-        actionFunc={(item) => props.openDialog(item.images, item.name, item.description)}
+        actionFunc={(item) => props.openDialog(item)}
         {...props}
     />
   );

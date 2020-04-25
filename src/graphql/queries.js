@@ -10,13 +10,7 @@ export const getLinkItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
       url
@@ -40,6 +34,7 @@ export const listLinkItems = /* GraphQL */ `
         image {
           id
           name
+          itemID
           url
         }
         url
@@ -89,19 +84,14 @@ export const getImageItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
-      imageGallery {
+      images {
         items {
           id
           name
+          itemID
           url
         }
         nextToken
@@ -125,9 +115,10 @@ export const listImageItems = /* GraphQL */ `
         image {
           id
           name
+          itemID
           url
         }
-        imageGallery {
+        images {
           nextToken
         }
         type
@@ -142,21 +133,7 @@ export const getImage = /* GraphQL */ `
     getImage(id: $id) {
       id
       name
-      item {
-        id
-        name
-        description
-        image {
-          id
-          name
-          url
-        }
-        imageGallery {
-          nextToken
-        }
-        type
-        date
-      }
+      itemID
       url
     }
   }
@@ -171,13 +148,7 @@ export const listImages = /* GraphQL */ `
       items {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
       nextToken
@@ -208,6 +179,7 @@ export const getLinkItemsByDate = /* GraphQL */ `
         image {
           id
           name
+          itemID
           url
         }
         url

@@ -35,8 +35,8 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-naterohwederdotcomv2-dev-173348-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apinaterohwederdotcomv2"
 			},
-			"lastPushTimeStamp": "2020-04-24T23:47:02.255Z",
-			"lastPushDirHash": "Wv51131g/ds3gvtC89Z3iIIxxVY="
+			"lastPushTimeStamp": "2020-04-25T19:33:46.010Z",
+			"lastPushDirHash": "K3t/LHNVRVDMUB0ykqqLXC0YYnE="
 		}
 	},
 	"auth": {
@@ -49,7 +49,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-naterohwederdotcomv2-dev-173348-deployment/amplify-cfn-templates/auth/naterohwederdotcomv2cf51c4f5-cloudformation-template.yml",
 				"logicalId": "authnaterohwederdotcomv2cf51c4f5"
 			},
-			"lastPushTimeStamp": "2020-04-24T23:47:01.114Z",
+			"lastPushTimeStamp": "2020-04-25T19:33:44.023Z",
 			"output": {
 				"AppClientSecret": "2dutqcsfo9l29q80f63jm86nb3bqu5kdmuq42daurqk1hj4b8qu",
 				"UserPoolId": "us-east-2_rDSoxcOFd",

@@ -12,6 +12,7 @@ import MenuAppBar from '../MenuAppBar';
 import ListImagesForm from './Forms/ListImagesForm';
 import ListItemsForm from './Forms/ListItemsForm';
 import CreateItemForm from './Forms/CreateItemForm';
+import CreateImageForm from './Forms/CreateImageForm';
 import UpdateItemForm from './Forms/UpdateItemForm';
 import DeleteItemForm from './Forms/DeleteItemForm';
 import SuccessAlert from '../../components/Alerts/SuccessAlert';
@@ -73,6 +74,8 @@ function AdminPage(props) {
 					<ListImagesForm classes={classes} onSuccess={() => setOpenAlert(true)} />
 					<Divider />
 					<ListItemsForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+					<Divider />
+					<CreateImageForm classes={classes} onSuccess={() => setOpenAlert(true)} />
 					<Divider />
 					<CreateItemForm classes={classes} onSuccess={() => setOpenAlert(true)} />
 					<Divider />

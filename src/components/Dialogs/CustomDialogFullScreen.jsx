@@ -37,7 +37,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CustomDialogFullScreen(props) {
   const classes = useStyles();
-  const { open, handleClose, title, description, content, comingSoon } = props;
+  const { open, handleClose, item, content, comingSoon } = props;
+  let title = item && item.name;
+  let description = item && item.description;
 
   return (
     <div>

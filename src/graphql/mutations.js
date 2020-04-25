@@ -13,13 +13,7 @@ export const createLinkItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
       url
@@ -41,13 +35,7 @@ export const updateLinkItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
       url
@@ -69,13 +57,7 @@ export const deleteLinkItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
       url
@@ -139,19 +121,14 @@ export const createImageItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
-      imageGallery {
+      images {
         items {
           id
           name
+          itemID
           url
         }
         nextToken
@@ -173,19 +150,14 @@ export const updateImageItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
-      imageGallery {
+      images {
         items {
           id
           name
+          itemID
           url
         }
         nextToken
@@ -207,19 +179,14 @@ export const deleteImageItem = /* GraphQL */ `
       image {
         id
         name
-        item {
-          id
-          name
-          description
-          type
-          date
-        }
+        itemID
         url
       }
-      imageGallery {
+      images {
         items {
           id
           name
+          itemID
           url
         }
         nextToken
@@ -237,21 +204,7 @@ export const createImage = /* GraphQL */ `
     createImage(input: $input, condition: $condition) {
       id
       name
-      item {
-        id
-        name
-        description
-        image {
-          id
-          name
-          url
-        }
-        imageGallery {
-          nextToken
-        }
-        type
-        date
-      }
+      itemID
       url
     }
   }
@@ -264,21 +217,7 @@ export const updateImage = /* GraphQL */ `
     updateImage(input: $input, condition: $condition) {
       id
       name
-      item {
-        id
-        name
-        description
-        image {
-          id
-          name
-          url
-        }
-        imageGallery {
-          nextToken
-        }
-        type
-        date
-      }
+      itemID
       url
     }
   }
@@ -291,21 +230,7 @@ export const deleteImage = /* GraphQL */ `
     deleteImage(input: $input, condition: $condition) {
       id
       name
-      item {
-        id
-        name
-        description
-        image {
-          id
-          name
-          url
-        }
-        imageGallery {
-          nextToken
-        }
-        type
-        date
-      }
+      itemID
       url
     }
   }

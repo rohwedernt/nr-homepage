@@ -55,7 +55,7 @@ export default function ItemContent(props) {
               <CustomCard 
                   title={item.name}
                   description={item.description}
-                  img={item.image ? item.image.url : placeholder}
+                  image={item.image ? item.image.url : placeholder}
                   onClick={() => actionFunc(item)}
                   isLoading={isLoading}
               />

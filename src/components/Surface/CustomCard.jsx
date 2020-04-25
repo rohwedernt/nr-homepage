@@ -26,22 +26,22 @@ const useStyles = makeStyles(() => ({
   },
   cardContent: {
     padding: '5px 10px 5px 10px',
-    minHeight: '85px',
-    maxHeight: '85px',
+    minHeight: '75px',
+    maxHeight: '75px',
     overflow: 'hidden'
   }
 }));
 
 export default function CustomCard(props) {
   const classes = useStyles();
-  const { title, description, img, onClick } = props;
+  const { title, description, image, onClick } = props;
 
   return (
     <Card className={classes.root} elevation={3}>
       <CardActionArea onClick={onClick}>
         <CardMedia
           className={classes.cardMedia}
-          image={img}
+          image={image}
           title={title}
         />
         <CardContent className={classes.cardContent}>
@@ -53,7 +53,11 @@ export default function CustomCard(props) {
             >
               {title}
           </Typography>
-          <Typography variant='caption' color='textSecondary' component='p' title={description}>
+          <Typography 
+            variant='caption' 
+            color='textSecondary' 
+            component='p' 
+            title={description}>
               {description}
           </Typography>
         </CardContent>
