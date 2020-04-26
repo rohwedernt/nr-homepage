@@ -80,11 +80,11 @@ export default function ProfileSectionTabs(props) {
             textColor='primary'
             variant='fullWidth'
           >
-            <Tab style={tabStyle} icon={<CodeIcon />} label='Work' />
-            <Tab style={tabStyle} icon={<MusicIcon />} label='Music' />
-            <Tab style={tabStyle} icon={<FlightIcon />} label='Travel' />
-            <Tab style={tabStyle} icon={<FoodIcon />} label='Food & Drink' />
-            <Tab style={tabStyle} icon={<AstronomyIcon />} label='Astronomy' />
+            <Tab style={tabStyle} icon={<CodeIcon />} label={breakpointMd ? '' : 'Work'} />
+            <Tab style={tabStyle} icon={<MusicIcon />} label={breakpointMd ? '' : 'Music'} />
+            <Tab style={tabStyle} icon={<FlightIcon />} label={breakpointMd ? '' : 'Travel'} />
+            <Tab style={tabStyle} icon={<FoodIcon />} label={breakpointMd ? '' : 'Food & Drink'} />
+            <Tab style={tabStyle} icon={<AstronomyIcon />} label={breakpointMd ? '' : 'Astronomy'} />
           </Tabs>
         </AppBar>
         <SwipeableViews axis={'x'} index={value} onChangeIndex={handleChangeIndex} >
