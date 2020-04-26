@@ -140,6 +140,7 @@ type Query {
   getImage(id: ID!): Image
   listImages(filter: ModelImageFilterInput, limit: Int, nextToken: String): ModelImageConnection
   getLinkItemsByDate(type: String, date: ModelStringKeyConditionInput, sortDirection: ModelSortDirection, filter: ModelLinkItemFilterInput, limit: Int, nextToken: String): ModelLinkItemConnection
+  getImageItemsByDate(type: String, date: ModelStringKeyConditionInput, sortDirection: ModelSortDirection, filter: ModelImageItemFilterInput, limit: Int, nextToken: String): ModelImageItemConnection
 }
 
 input CreateLinkItemInput {

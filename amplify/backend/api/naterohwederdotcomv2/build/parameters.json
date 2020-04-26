@@ -4,5 +4,5 @@
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
     "DynamoDBEnableServerSideEncryption": "false",
     "S3DeploymentBucket": "amplify-naterohwederdotcomv2-dev-173348-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/c1cd72bc4c9bc2ddb91df30db4ebbcea4b7d7f44"
+    "S3DeploymentRootKey": "amplify-appsync-files/9a6fafdf0d1ffaa7a7166c9630419a842c9fd690"
 }

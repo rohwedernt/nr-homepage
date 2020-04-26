@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
-import { listImageItems } from '../../graphql/queries';
+import { getImageItemsByDate } from '../../graphql/queries';
 
 // custom components
 import ItemContent from '../Content/ItemContent';
@@ -15,12 +15,12 @@ export default function TravelContainer(props) {
   }, []);
 
   async function fetchItems() {
-    let filters = { filter: { type: { contains: 'travel' } } };
+    let sort = { limit: 20, type: 'travel', sortDirection: 'DESC' };
     setIsLoading(true);
 
     try {
-      const itemData = await API.graphql(graphqlOperation(listImageItems, filters))
-      const items = itemData.data.listImageItems.items;
+      const itemData = await API.graphql(graphqlOperation(getImageItemsByDate, sort))
+      const items = itemData.data.getImageItemsByDate.items;
       setItems(items);
       setIsLoading(false);
     } catch (err) { console.log('error fetching travel items', err) };

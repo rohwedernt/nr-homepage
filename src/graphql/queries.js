@@ -191,3 +191,40 @@ export const getLinkItemsByDate = /* GraphQL */ `
     }
   }
 `;
+export const getImageItemsByDate = /* GraphQL */ `
+  query GetImageItemsByDate(
+    $type: String
+    $date: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelImageItemFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getImageItemsByDate(
+      type: $type
+      date: $date
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        name
+        description
+        image {
+          id
+          name
+          itemID
+          url
+        }
+        images {
+          nextToken
+        }
+        type
+        date
+      }
+      nextToken
+    }
+  }
+`;

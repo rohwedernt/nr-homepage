@@ -19,7 +19,9 @@ type MusicItem @model {
   date: AWSDate!
 }
 
-type ImageItem @model {
+type ImageItem @model
+@key(name: "ByDate", fields: [ "type", "date" ], queryField: "getImageItemsByDate")
+{
   id: ID!
   name: String!
   description: String
