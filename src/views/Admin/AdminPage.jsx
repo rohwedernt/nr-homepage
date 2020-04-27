@@ -13,6 +13,7 @@ import ListImagesForm from './Forms/ListImagesForm';
 import ListItemsForm from './Forms/ListItemsForm';
 import CreateItemForm from './Forms/CreateItemForm';
 import CreateImageForm from './Forms/CreateImageForm';
+import AddImageToGalleryForm from './Forms/AddImageToGalleryForm';
 import UpdateItemForm from './Forms/UpdateItemForm';
 import DeleteItemForm from './Forms/DeleteItemForm';
 import SuccessAlert from '../../components/Alerts/SuccessAlert';
@@ -76,6 +77,8 @@ function AdminPage(props) {
 					<ListItemsForm classes={classes} onSuccess={() => setOpenAlert(true)} />
 					<Divider />
 					<CreateImageForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+					<Divider />
+					<AddImageToGalleryForm classes={classes} onSuccess={() => setOpenAlert(true)} />
 					<Divider />
 					<CreateItemForm classes={classes} onSuccess={() => setOpenAlert(true)} />
 					<Divider />

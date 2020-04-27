@@ -36,10 +36,9 @@ function CreateImageForm(props) {
             autoComplete='off'
             noValidate 
         >
-            <Typography variant='h6'>Create Item</Typography>
+            <Typography variant='h6'>Create Image</Typography>
             <TextField className={classes.input} label='Name' name='name' inputRef={register} />
             <TextField className={classes.input} label='Url' name='url' inputRef={register} />
-            <TextField className={classes.input} label='Item Id' name='itemId' inputRef={register} />
             <Button className={classes.button} variant='outlined' color='primary' type='submit'>Submit</Button>
         </form>
     );

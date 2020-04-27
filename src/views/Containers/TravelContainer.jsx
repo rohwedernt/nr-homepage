@@ -15,7 +15,7 @@ export default function TravelContainer(props) {
   }, []);
 
   async function fetchItems() {
-    let sort = { limit: 20, type: 'travel', sortDirection: 'DESC' };
+    let sort = { limit: 100, type: 'travel', sortDirection: 'DESC' };
     setIsLoading(true);
 
     try {

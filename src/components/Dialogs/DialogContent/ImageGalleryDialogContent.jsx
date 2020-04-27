@@ -25,7 +25,7 @@ export default function ImageGalleryDialogContent({ item }) {
     }, []);
 
     async function fetchImages(itemId) {
-        let filters = { limit: 20, filter: { itemID: { eq: itemId } } };
+        let filters = { limit: 100, filter: { itemID: { eq: itemId } } };
     
         try {
           const imageData = await API.graphql(graphqlOperation(listImages, filters));

@@ -59,12 +59,12 @@ function UpdateItemForm(props) {
             <TextField className={classes.input} label='ID' name='id' inputRef={register} />
             <TextField className={classes.input} label='Name' name='name' inputRef={register} />
             <TextField className={classes.input} label='Description' name='description' inputRef={register} />
-            <TextField className={classes.input} label='Image Id' name='imageId' inputRef={register} />
+            <TextField className={classes.input} label='Image Id' name='imageId' inputRef={register} helperText='N/A for image or song type' />
             <TextField className={classes.input} label='Url' name='url' inputRef={register} />
             <TextField className={classes.input} label='Date' name='date' inputRef={register} helperText='YYYY-MM-DD' />
             <FormControlLabel 
                 className={classes.controlLabel}
-                control={<Controller as={<Checkbox color='primary' />} name='myContent' control={control} defaultValue={false} />}
+                control={<Controller as={<Checkbox color='primary' />} name='myContent' control={control} defaultValue={false} helperText='N/A for image or song type' />}
                 label='My Content'
             />
             <Button className={classes.button} variant='outlined' color='primary' type='submit'>Submit</Button>
