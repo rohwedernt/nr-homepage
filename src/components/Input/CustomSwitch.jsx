@@ -39,7 +39,7 @@ export default function SwitchLabels(props) {
             color="primary"
           />
         }
-        label="Created by me"
+        label="My Stuff"
       />
     </FormGroup>
   );

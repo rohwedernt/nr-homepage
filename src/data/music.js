@@ -85,11 +85,6 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=UZPX9KQbwsg'
     },
     {
-      title: `Kick Rox`,
-      desc: `Supatight | 2016`,
-      url: 'https://www.youtube.com/watch?time_continue=1&v=6zVW3Sr8YBY&feature=emb_logo'
-    },
-    {
       title: `Shine On You Crazy Diamond`,
       desc: `Umphrey's Mcgee | Red Rocks Ampitheater | 2015`,
       url: 'https://www.youtube.com/watch?v=998TzVK7pQ4'

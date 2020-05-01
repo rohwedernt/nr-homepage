@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,8 +9,11 @@ import Paper from '@material-ui/core/Paper';
 
 // custom components
 import MenuAppBar from '../MenuAppBar';
+import ListImagesForm from './Forms/ListImagesForm';
 import ListItemsForm from './Forms/ListItemsForm';
 import CreateItemForm from './Forms/CreateItemForm';
+import CreateImageForm from './Forms/CreateImageForm';
+import AddImageToGalleryForm from './Forms/AddImageToGalleryForm';
 import UpdateItemForm from './Forms/UpdateItemForm';
 import DeleteItemForm from './Forms/DeleteItemForm';
 import SuccessAlert from '../../components/Alerts/SuccessAlert';
@@ -68,7 +72,13 @@ function AdminPage(props) {
 			<div className={classes.root}>
 				<Paper elevation={16}>
 					<Typography variant='h4' className={classes.pageHeader}>Admin</Typography>
+					<ListImagesForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+					<Divider />
 					<ListItemsForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+					<Divider />
+					<CreateImageForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+					<Divider />
+					<AddImageToGalleryForm classes={classes} onSuccess={() => setOpenAlert(true)} />
 					<Divider />
 					<CreateItemForm classes={classes} onSuccess={() => setOpenAlert(true)} />
 					<Divider />
@@ -77,6 +87,7 @@ function AdminPage(props) {
 					<DeleteItemForm classes={classes} onSuccess={() => setOpenAlert(true)} />
 				</Paper>
 			</div>
+			<AmplifySignOut />
 			<SuccessAlert
 				msg='Success!'
 				open={openAlert}
@@ -86,5 +97,4 @@ function AdminPage(props) {
     );
 }
 
-//export default withAuthenticator(AdminPage);
-export default AdminPage;
+export default withAuthenticator(AdminPage);

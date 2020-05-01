@@ -41,9 +41,9 @@ export default function ItemContent(props) {
     if(isLoading) {
       return (
         <Grid item className={classes.gridItem}>
-          <Skeleton animation='wave' variant="rect" width={250} height={180} />
-          <Skeleton animation='wave' />
-          <Skeleton animation='wave' width="60%" />
+          <Skeleton variant='rect' width={250} height={180} />
+          <Skeleton />
+          <Skeleton width='60%' />
       </Grid>
       );
     } else if (!items || items.length < 1) {
@@ -55,7 +55,7 @@ export default function ItemContent(props) {
               <CustomCard 
                   title={item.name}
                   description={item.description}
-                  img={item.image ? item.image.url : placeholder}
+                  image={item.image ? item.image.url : placeholder}
                   onClick={() => actionFunc(item)}
                   isLoading={isLoading}
               />

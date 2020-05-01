@@ -9,11 +9,13 @@ export const getLinkItem = /* GraphQL */ `
       description
       image {
         id
-        galleryID
+        name
+        itemID
         url
       }
       url
       type
+      date
       myContent
     }
   }
@@ -31,11 +33,13 @@ export const listLinkItems = /* GraphQL */ `
         description
         image {
           id
-          galleryID
+          name
+          itemID
           url
         }
         url
         type
+        date
         myContent
       }
       nextToken
@@ -49,6 +53,7 @@ export const getMusicItem = /* GraphQL */ `
       name
       description
       url
+      date
     }
   }
 `;
@@ -64,6 +69,7 @@ export const listMusicItems = /* GraphQL */ `
         name
         description
         url
+        date
       }
       nextToken
     }
@@ -75,20 +81,23 @@ export const getImageItem = /* GraphQL */ `
       id
       name
       description
-      defaultImage {
+      image {
         id
-        galleryID
+        name
+        itemID
         url
       }
       images {
         items {
           id
-          galleryID
+          name
+          itemID
           url
         }
         nextToken
       }
       type
+      date
     }
   }
 `;
@@ -103,15 +112,17 @@ export const listImageItems = /* GraphQL */ `
         id
         name
         description
-        defaultImage {
+        image {
           id
-          galleryID
+          name
+          itemID
           url
         }
         images {
           nextToken
         }
         type
+        date
       }
       nextToken
     }
@@ -121,7 +132,8 @@ export const getImage = /* GraphQL */ `
   query GetImage($id: ID!) {
     getImage(id: $id) {
       id
-      galleryID
+      name
+      itemID
       url
     }
   }
@@ -135,8 +147,82 @@ export const listImages = /* GraphQL */ `
     listImages(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        galleryID
+        name
+        itemID
         url
+      }
+      nextToken
+    }
+  }
+`;
+export const getLinkItemsByDate = /* GraphQL */ `
+  query GetLinkItemsByDate(
+    $type: String
+    $date: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelLinkItemFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getLinkItemsByDate(
+      type: $type
+      date: $date
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        name
+        description
+        image {
+          id
+          name
+          itemID
+          url
+        }
+        url
+        type
+        date
+        myContent
+      }
+      nextToken
+    }
+  }
+`;
+export const getImageItemsByDate = /* GraphQL */ `
+  query GetImageItemsByDate(
+    $type: String
+    $date: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelImageItemFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getImageItemsByDate(
+      type: $type
+      date: $date
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        name
+        description
+        image {
+          id
+          name
+          itemID
+          url
+        }
+        images {
+          nextToken
+        }
+        type
+        date
       }
       nextToken
     }

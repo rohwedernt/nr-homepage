@@ -23,7 +23,7 @@ export default function SettingsDialog({ setPrimaryColor }) {
                 <Typography gutterBottom variant='subtitle1' component='div'>Set Theme Color</Typography>
                 <TwitterPicker 
                     triangle='hide'
-                    colors={['#3f51b5', '#aa2e25', '#a31545', '#6d1b7b', '#482880', '#1769aa','#0276aa', '#008394', '#00695f', '#357a38', '#618833', '#b26a00', '#b23c17', '#05386b', '#5d5c61', '#501b1d', '#1f2833']}
+                    colors={['#3f51b5', '#aa2e25', '#a31545', '#6d1b7b', '#482880', '#1769aa','#0276aa', '#008394', '#00695f', '#357a38', '#324a16', '#255c40', '#963111', '#05386b', '#302f35', '#501b1d', '#1f2833']}
                     color={background} 
                     onChangeComplete={handleChangeComplete} 
                 />

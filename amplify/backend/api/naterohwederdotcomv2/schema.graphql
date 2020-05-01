@@ -1,10 +1,13 @@
-type LinkItem @model {
+type LinkItem @model 
+@key(name: "ByDate", fields: [ "type", "date" ], queryField: "getLinkItemsByDate")
+{
   id: ID!
   name: String!
   description: String
   image: Image @connection
   url: String!
   type: String!
+  date: AWSDate!
   myContent: Boolean
 }
 
@@ -13,21 +16,26 @@ type MusicItem @model {
   name: String!
   description: String!
   url: String!
+  date: AWSDate!
 }
 
-type ImageItem @model {
+type ImageItem @model
+@key(name: "ByDate", fields: [ "type", "date" ], queryField: "getImageItemsByDate")
+{
   id: ID!
   name: String!
   description: String
-  defaultImage: Image @connection
-  images: [Image] @connection
+  image: Image @connection
+  images: [Image] @connection(keyName: "byItem", fields: ["id"])
   type: String!
+  date: AWSDate!
 }
 
-type Image @model 
-@key(name: "byGallery", fields: ["galleryID", "url"])
+type Image @model
+@key(name: "byItem", fields: ["itemID", "id"])
 {
   id: ID!
-  galleryID: ID
+  name: String!
+  itemID: ID
   url: String!
 }

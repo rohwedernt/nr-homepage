@@ -12,11 +12,13 @@ export const createLinkItem = /* GraphQL */ `
       description
       image {
         id
-        galleryID
+        name
+        itemID
         url
       }
       url
       type
+      date
       myContent
     }
   }
@@ -32,11 +34,13 @@ export const updateLinkItem = /* GraphQL */ `
       description
       image {
         id
-        galleryID
+        name
+        itemID
         url
       }
       url
       type
+      date
       myContent
     }
   }
@@ -52,11 +56,13 @@ export const deleteLinkItem = /* GraphQL */ `
       description
       image {
         id
-        galleryID
+        name
+        itemID
         url
       }
       url
       type
+      date
       myContent
     }
   }
@@ -71,6 +77,7 @@ export const createMusicItem = /* GraphQL */ `
       name
       description
       url
+      date
     }
   }
 `;
@@ -84,6 +91,7 @@ export const updateMusicItem = /* GraphQL */ `
       name
       description
       url
+      date
     }
   }
 `;
@@ -97,6 +105,7 @@ export const deleteMusicItem = /* GraphQL */ `
       name
       description
       url
+      date
     }
   }
 `;
@@ -109,20 +118,23 @@ export const createImageItem = /* GraphQL */ `
       id
       name
       description
-      defaultImage {
+      image {
         id
-        galleryID
+        name
+        itemID
         url
       }
       images {
         items {
           id
-          galleryID
+          name
+          itemID
           url
         }
         nextToken
       }
       type
+      date
     }
   }
 `;
@@ -135,20 +147,23 @@ export const updateImageItem = /* GraphQL */ `
       id
       name
       description
-      defaultImage {
+      image {
         id
-        galleryID
+        name
+        itemID
         url
       }
       images {
         items {
           id
-          galleryID
+          name
+          itemID
           url
         }
         nextToken
       }
       type
+      date
     }
   }
 `;
@@ -161,20 +176,23 @@ export const deleteImageItem = /* GraphQL */ `
       id
       name
       description
-      defaultImage {
+      image {
         id
-        galleryID
+        name
+        itemID
         url
       }
       images {
         items {
           id
-          galleryID
+          name
+          itemID
           url
         }
         nextToken
       }
       type
+      date
     }
   }
 `;
@@ -185,7 +203,8 @@ export const createImage = /* GraphQL */ `
   ) {
     createImage(input: $input, condition: $condition) {
       id
-      galleryID
+      name
+      itemID
       url
     }
   }
@@ -197,7 +216,8 @@ export const updateImage = /* GraphQL */ `
   ) {
     updateImage(input: $input, condition: $condition) {
       id
-      galleryID
+      name
+      itemID
       url
     }
   }
@@ -209,7 +229,8 @@ export const deleteImage = /* GraphQL */ `
   ) {
     deleteImage(input: $input, condition: $condition) {
       id
-      galleryID
+      name
+      itemID
       url
     }
   }

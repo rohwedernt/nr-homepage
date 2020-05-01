@@ -45,13 +45,13 @@ const useStyles = makeStyles((theme) => ({
 export default function ProfileSectionTabs(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
-  const [dialogProps, setDialogProps] = useState({ imgs: [], title: '', description: '' });
+  const [dialogItem, setDialogItem] = useState({});
   const [openFullDialog, setOpenFullDialog] = useState(false);
 
   const { breakpointMd } = props;
 
-  const handleClickOpenFullDialog = (imgs, title, description) => {
-    setDialogProps({ imgs: imgs, title: title, description: description })
+  const handleClickOpenFullDialog = (item) => {
+    setDialogItem(item)
     setOpenFullDialog(true);
   };
 
@@ -80,11 +80,11 @@ export default function ProfileSectionTabs(props) {
             textColor='primary'
             variant='fullWidth'
           >
-            <Tab style={tabStyle} icon={<CodeIcon />} label='Work' />
-            <Tab style={tabStyle} icon={<MusicIcon />} label='Music' />
-            <Tab style={tabStyle} icon={<FlightIcon />} label='Travel' />
-            <Tab style={tabStyle} icon={<FoodIcon />} label='Food & Drink' />
-            <Tab style={tabStyle} icon={<AstronomyIcon />} label='Astronomy' />
+            <Tab style={tabStyle} icon={<CodeIcon />} label={breakpointMd ? '' : 'Work'} />
+            <Tab style={tabStyle} icon={<MusicIcon />} label={breakpointMd ? '' : 'Music'} />
+            <Tab style={tabStyle} icon={<FlightIcon />} label={breakpointMd ? '' : 'Travel'} />
+            <Tab style={tabStyle} icon={<FoodIcon />} label={breakpointMd ? '' : 'Food & Drink'} />
+            <Tab style={tabStyle} icon={<AstronomyIcon />} label={breakpointMd ? '' : 'Astronomy'} />
           </Tabs>
         </AppBar>
         <SwipeableViews axis={'x'} index={value} onChangeIndex={handleChangeIndex} >
@@ -98,8 +98,8 @@ export default function ProfileSectionTabs(props) {
       <CustomDialogFullScreen 
         open={openFullDialog}
         handleClose={handleCloseFullDialog}
-        content={() => <ImageGalleryDialogContent imgs={dialogProps.imgs} />}
-        {...dialogProps}
+        content={() => <ImageGalleryDialogContent item={dialogItem} />}
+        item={dialogItem}
       />
     </Fragment>
   );

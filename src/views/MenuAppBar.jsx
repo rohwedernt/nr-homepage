@@ -9,6 +9,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { Divider } from '@material-ui/core';
+import Slide from '@material-ui/core/Slide';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 
 // @material-ui/icons
 import InfoIcon from '@material-ui/icons/Info';
@@ -45,6 +47,16 @@ const useStyles = makeStyles((theme) => ({
 	  borderRadius: '8px',
   }
 }));
+
+function HideOnScroll(props) {
+  const trigger = useScrollTrigger();
+
+  return (
+    <Slide appear={false} in={!trigger}>
+      {props.children}
+    </Slide>
+  );
+}
 
 export default function MenuAppBar(props) {
   const classes = useStyles();
@@ -122,73 +134,76 @@ export default function MenuAppBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position='static'>
-        <Toolbar style={{ justifyContent: 'space-between'}}>
-          {onAdmin ? (
-            <IconButton
-              component={Link}
-              to={'/'}
-              color='inherit'
-              className={classes.back}
-            >
-              <HomeIcon />
-            </IconButton>
-          ) : (
-            <Fragment>
+      <HideOnScroll {...props}>
+        <AppBar>
+          <Toolbar style={{ justifyContent: 'space-between'}}>
+            {onAdmin ? (
               <IconButton
-                aria-label='more stuff'
-                aria-controls='menu-appbar'
-                aria-haspopup='true'
-                onClick={handleMenu}
+                component={Link}
+                to={'/'}
+                color='inherit'
+                className={classes.back}
+              >
+                <HomeIcon />
+              </IconButton>
+            ) : (
+              <Fragment>
+                <IconButton
+                  aria-label='more stuff'
+                  aria-controls='menu-appbar'
+                  aria-haspopup='true'
+                  onClick={handleMenu}
+                  color='inherit'
+                  className={classes.menuIcon}
+                >
+                  {/* <Typography style={{ marginRight: '10px' }} variant='subtitle1'>More Stuff</Typography> */}
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id='menu-appbar'
+                  anchorEl={anchorEl}
+                  anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                  keepMounted
+                  transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                  open={openMenu}
+                  onClose={handleCloseMenu}
+                >
+                  <MenuItem onClick={() => handleOpenDialogFull(scrumRetroToolProps)}>Scrum Retro Tool</MenuItem>
+                  <MenuItem onClick={() => handleOpenDialogFull(dashboardProps)}>Dashboard POC</MenuItem>
+                  <MenuItem onClick={() => handleOpenDialogFull(nrV1Props)}>NateRohwederDotCom v1</MenuItem>
+                  <Divider />
+                  <MenuItem onClick={() => handleOpenDialog(comingSoonProps)}>Coming Soon</MenuItem>
+                  <MenuItem component={Link} to={'/admin'}>Admin</MenuItem>
+                </Menu>
+              </Fragment>
+            )}
+            <div>
+              <IconButton
+                onClick={() => handleOpenDialog(aboutThisSiteProps)}
                 color='inherit'
                 className={classes.menuIcon}
               >
-                {/* <Typography style={{ marginRight: '10px' }} variant='subtitle1'>More Stuff</Typography> */}
-                <MenuIcon />
+                <InfoIcon />
               </IconButton>
-              <Menu
-                id='menu-appbar'
-                anchorEl={anchorEl}
-                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                keepMounted
-                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-                open={openMenu}
-                onClose={handleCloseMenu}
+              <IconButton
+                onClick={() => handleOpenDialog(contactProps)}
+                color='inherit'
+                className={classes.menuIcon}
               >
-                <MenuItem onClick={() => handleOpenDialogFull(scrumRetroToolProps)}>Scrum Retro Tool</MenuItem>
-                <MenuItem onClick={() => handleOpenDialogFull(dashboardProps)}>Dashboard POC</MenuItem>
-                <MenuItem onClick={() => handleOpenDialogFull(nrV1Props)}>NateRohwederDotCom v1</MenuItem>
-                <Divider />
-                <MenuItem onClick={() => handleOpenDialog(comingSoonProps)}>Coming Soon</MenuItem>
-                <MenuItem component={Link} to={'/admin'}>Admin</MenuItem>
-              </Menu>
-            </Fragment>
-          )}
-          <div>
-            <IconButton
-              onClick={() => handleOpenDialog(aboutThisSiteProps)}
-              color='inherit'
-              className={classes.menuIcon}
-            >
-              <InfoIcon />
-            </IconButton>
-            <IconButton
-              onClick={() => handleOpenDialog(contactProps)}
-              color='inherit'
-              className={classes.menuIcon}
-            >
-              <EmailIcon />
-            </IconButton>
-            <IconButton
-              onClick={() => handleOpenDialog(settingsProps)}
-              color='inherit'
-              className={classes.menuIcon}
-            >
-              <SettingsIcon />
-            </IconButton>
-          </div>
-        </Toolbar>
-      </AppBar>
+                <EmailIcon />
+              </IconButton>
+              <IconButton
+                onClick={() => handleOpenDialog(settingsProps)}
+                color='inherit'
+                className={classes.menuIcon}
+              >
+                <SettingsIcon />
+              </IconButton>
+            </div>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+      <Toolbar />
       <SuccessAlert
         msg='Success!'
         open={openAlert}

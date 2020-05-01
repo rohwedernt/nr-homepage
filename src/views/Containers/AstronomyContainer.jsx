@@ -23,7 +23,7 @@ export default function AstronomyContainer(props) {
       const items = itemData.data.listLinkItems.items;
       setItems(items);
       setIsLoading(false);
-    } catch (err) { console.log('error fetching items') };
+    } catch (err) { console.log('error fetching astronomy items', err) };
   }
 
   return (

@@ -131,15 +131,7 @@
                         "AttributeType": "S"
                     },
                     {
-                        "AttributeName": "galleryID",
-                        "AttributeType": "S"
-                    },
-                    {
-                        "AttributeName": "url",
-                        "AttributeType": "S"
-                    },
-                    {
-                        "AttributeName": "imageItemImagesId",
+                        "AttributeName": "itemID",
                         "AttributeType": "S"
                     }
                 ],
@@ -193,43 +185,15 @@
                 },
                 "GlobalSecondaryIndexes": [
                     {
-                        "IndexName": "byGallery",
+                        "IndexName": "byItem",
                         "KeySchema": [
                             {
-                                "AttributeName": "galleryID",
+                                "AttributeName": "itemID",
                                 "KeyType": "HASH"
                             },
                             {
-                                "AttributeName": "url",
+                                "AttributeName": "id",
                                 "KeyType": "RANGE"
-                            }
-                        ],
-                        "Projection": {
-                            "ProjectionType": "ALL"
-                        },
-                        "ProvisionedThroughput": {
-                            "Fn::If": [
-                                "ShouldUsePayPerRequestBilling",
-                                {
-                                    "Ref": "AWS::NoValue"
-                                },
-                                {
-                                    "ReadCapacityUnits": {
-                                        "Ref": "DynamoDBModelTableReadIOPS"
-                                    },
-                                    "WriteCapacityUnits": {
-                                        "Ref": "DynamoDBModelTableWriteIOPS"
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "IndexName": "gsi-ImageItem.images",
-                        "KeySchema": [
-                            {
-                                "AttributeName": "imageItemImagesId",
-                                "KeyType": "HASH"
                             }
                         ],
                         "Projection": {

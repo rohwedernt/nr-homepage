@@ -24,7 +24,7 @@ export default function ImageCard(props) {
     <Card className={classes.root}>
       <CardMedia
         className={classes.media}
-        image={props.img}
+        image={props.image.url}
       />
     </Card>
   );

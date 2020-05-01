@@ -159,7 +159,7 @@
                 }
             }
         },
-        "ImageItemdefaultImageResolver": {
+        "ImageItemimageResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -180,7 +180,7 @@
                         ]
                     }
                 },
-                "FieldName": "defaultImage",
+                "FieldName": "image",
                 "TypeName": "ImageItem",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
@@ -197,7 +197,7 @@
                                     ".",
                                     [
                                         "ImageItem",
-                                        "defaultImage",
+                                        "image",
                                         "req",
                                         "vtl"
                                     ]
@@ -221,7 +221,7 @@
                                     ".",
                                     [
                                         "ImageItem",
-                                        "defaultImage",
+                                        "image",
                                         "res",
                                         "vtl"
                                     ]
