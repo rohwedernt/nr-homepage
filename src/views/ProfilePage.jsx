@@ -119,7 +119,7 @@ export default function ProfilePage(props) {
                             <Typography className={classes.pageParagraph} variant='body1' component='div'>
                               Equal parts software experiment laboratory, agglomeration of web resources from over the years,
                               showcase of personal dev projects, blog for my travels, eats, drinks, dogs, and other 
-                              miscellaneous interests. Click the info icon on the menu bar for a more in depth techincal
+                              miscellaneous interests. Click the info icon on the menu bar for a more in-depth techincal
                               overview of the site.
                             </Typography>
                         </div>

@@ -41,7 +41,7 @@ export function AboutThisSite() {
         most comprehensive showcase of my work available at the moment. I doubt
         I'll ever get to a place where I consider this project finished. There
         is a long and ever growing list of todos on the trello board and even if
-        I'm able to widdle that down to near completion I will continue to use
+        I'm able to whittle that down to near completion I will continue to use
         this app as the testing ground for new frameworks, libraries, languages,
         technologies, etc.
       </Typography>
