@@ -56,7 +56,6 @@ function AddImageToGalleryForm(props) {
             autoComplete='off'
             noValidate 
         >
-            <Typography variant='h6'>Create Image & Add To Gallery</Typography>
             <TextField className={classes.input} label='Name' name='name' inputRef={register} />
             <TextField className={classes.input} label='Url' name='url' inputRef={register} />
             <FormControl className={classes.formControl}>

@@ -1,28 +1,28 @@
 {
-	"api": {
-		"naterohwederdotcomv2": {
-			"service": "AppSync",
-			"providerPlugin": "awscloudformation",
-			"output": {
-				"authConfig": {
-					"additionalAuthenticationProviders": [],
-					"defaultAuthentication": {
-						"authenticationType": "API_KEY",
-						"apiKeyConfig": {
-							"description": "naterohwederdotcomv2apikeydesc",
-							"apiKeyExpirationDays": "7"
-						}
-					}
-				}
-			}
-		}
-	},
-	"auth": {
-		"naterohwederdotcomv2cf51c4f5": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [],
-			"customAuth": false
-		}
-	}
+    "api": {
+        "naterohwederdotcomv2": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "authConfig": {
+                    "additionalAuthenticationProviders": [],
+                    "defaultAuthentication": {
+                        "authenticationType": "API_KEY",
+                        "apiKeyConfig": {
+                            "description": "naterohwederdotcomv2-dev",
+                            "apiKeyExpirationDays": "90"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "auth": {
+        "naterohwederdotcomv2cf51c4f5": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [],
+            "customAuth": false
+        }
+    }
 }

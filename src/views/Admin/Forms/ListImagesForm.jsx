@@ -33,7 +33,6 @@ function ListImagesForm(props) {
             autoComplete='off'
             noValidate 
         >
-            <Typography variant='h6'>List Images</Typography>
             <TextField className={classes.input} label='Filter' name='filter' inputRef={register} helperText='ex. { myContent: { eq: true } }' />
             <Button className={classes.button} variant='outlined' color='primary' type='submit'>Submit</Button>
         </form>
