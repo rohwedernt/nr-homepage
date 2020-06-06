@@ -214,18 +214,9 @@ export function AboutThisSite() {
         Eventually, I hope to expand the users ability to tailor the page to
         their liking.
       </Typography>
-      <Typography gutterBottom variant={"subtitle2"}>
-        Backend
-      </Typography>
-      <Typography gutterBottom variant={"body1"}>
-        Coming Soon
-      </Typography>
       <div style={{ height: "20px" }} />
-      <Typography gutterBottom variant={"h5"}>
-        Challenges
-      </Typography>
-      <Typography gutterBottom variant={"body1"}>
-        Coming Soon
+      <Typography variant={"body1"}>
+        <b>More Coming Soon!</b>
       </Typography>
     </div>
   );
