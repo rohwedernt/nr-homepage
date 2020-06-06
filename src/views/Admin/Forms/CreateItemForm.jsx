@@ -48,7 +48,6 @@ function CreateItemForm(props) {
             autoComplete='off'
             noValidate 
         >
-            <Typography variant='h6'>Create Item</Typography>
                 <FormControl className={classes.formControl}>
                     <InputLabel >Item Type</InputLabel>
                     <Controller as={Select} name='type' control={control} defaultValue='link'>

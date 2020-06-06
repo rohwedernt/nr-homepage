@@ -6,6 +6,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+
+// @material-ui/icons
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 // custom components
 import MenuAppBar from '../MenuAppBar';
@@ -17,6 +23,7 @@ import AddImageToGalleryForm from './Forms/AddImageToGalleryForm';
 import UpdateItemForm from './Forms/UpdateItemForm';
 import DeleteItemForm from './Forms/DeleteItemForm';
 import SuccessAlert from '../../components/Alerts/SuccessAlert';
+import { Container } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -70,21 +77,73 @@ function AdminPage(props) {
 			  onAdmin
             />
 			<div className={classes.root}>
-				<Paper elevation={16}>
+				<Paper elevation={16} style={{ paddingBottom: '20px' }}>
 					<Typography variant='h4' className={classes.pageHeader}>Admin</Typography>
-					<ListImagesForm classes={classes} onSuccess={() => setOpenAlert(true)} />
-					<Divider />
-					<ListItemsForm classes={classes} onSuccess={() => setOpenAlert(true)} />
-					<Divider />
-					<CreateImageForm classes={classes} onSuccess={() => setOpenAlert(true)} />
-					<Divider />
-					<AddImageToGalleryForm classes={classes} onSuccess={() => setOpenAlert(true)} />
-					<Divider />
-					<CreateItemForm classes={classes} onSuccess={() => setOpenAlert(true)} />
-					<Divider />
-					<UpdateItemForm classes={classes} onSuccess={() => setOpenAlert(true)} />
-					<Divider />
-					<DeleteItemForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+					<Container>
+						<ExpansionPanel>
+							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+								<Typography variant='subheader1'>List Images</Typography>
+							</ExpansionPanelSummary>
+							<ExpansionPanelDetails>
+								<ListImagesForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+							</ExpansionPanelDetails>
+						</ExpansionPanel>
+						{/* <Divider /> */}
+						<ExpansionPanel>
+							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+								<Typography variant='subheader1'>List Items</Typography>
+							</ExpansionPanelSummary>
+							<ExpansionPanelDetails>
+								<ListItemsForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+							</ExpansionPanelDetails>
+						</ExpansionPanel>
+						{/* <Divider /> */}
+						<ExpansionPanel>
+							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+								<Typography variant='subheader1'>Create Image</Typography>
+							</ExpansionPanelSummary>
+							<ExpansionPanelDetails>
+								<CreateImageForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+							</ExpansionPanelDetails>
+						</ExpansionPanel>
+						{/* <Divider /> */}
+						<ExpansionPanel>
+							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+								<Typography variant='subheader1'>Add Image to Gallery</Typography>
+							</ExpansionPanelSummary>
+							<ExpansionPanelDetails>
+								<AddImageToGalleryForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+							</ExpansionPanelDetails>
+						</ExpansionPanel>
+						{/* <Divider /> */}
+						<ExpansionPanel>
+							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+								<Typography variant='subheader1'>Create Item</Typography>
+							</ExpansionPanelSummary>
+							<ExpansionPanelDetails>
+								<CreateItemForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+							</ExpansionPanelDetails>
+						</ExpansionPanel>
+						{/* <Divider /> */}
+						<ExpansionPanel>
+							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+								<Typography variant='subheader1'>Update Item</Typography>
+							</ExpansionPanelSummary>
+							<ExpansionPanelDetails>
+								<UpdateItemForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+							</ExpansionPanelDetails>
+						</ExpansionPanel>
+						{/* <Divider /> */}
+						<ExpansionPanel>
+							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+								<Typography variant='subheader1'>Delete Item</Typography>
+							</ExpansionPanelSummary>
+							<ExpansionPanelDetails>
+								<DeleteItemForm classes={classes} onSuccess={() => setOpenAlert(true)} />
+							</ExpansionPanelDetails>
+						</ExpansionPanel>
+					</Container>
+					
 				</Paper>
 			</div>
 			<AmplifySignOut />

@@ -77,7 +77,6 @@ function ListItemsForm(props) {
             autoComplete='off'
             noValidate 
         >
-            <Typography variant='h6'>List Items</Typography>
             <FormControl className={classes.formControl}>
                 <InputLabel >Item Type</InputLabel>
                 <Controller as={Select} name='type' control={control} defaultValue='link'>

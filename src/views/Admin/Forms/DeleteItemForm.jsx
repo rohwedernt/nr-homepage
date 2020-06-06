@@ -38,7 +38,6 @@ function DeleteItemForm(props) {
             autoComplete='off'
             noValidate
         >
-            <Typography variant='h6'>Delete Item</Typography>
                 <FormControl className={classes.formControl}>
                     <InputLabel >Item Type</InputLabel>
                     <Controller as={Select} name='type' control={control} defaultValue='link'>

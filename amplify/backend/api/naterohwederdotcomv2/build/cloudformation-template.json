@@ -114,14 +114,14 @@
                         "ApiId"
                     ]
                 },
-                "Description": "naterohwederdotcomv2apikeydesc",
+                "Description": "naterohwederdotcomv2-dev",
                 "Expires": {
                     "Fn::If": [
                         "APIKeyExpirationEpochIsPositive",
                         {
                             "Ref": "APIKeyExpirationEpoch"
                         },
-                        1588471217
+                        1597198373
                     ]
                 }
             },

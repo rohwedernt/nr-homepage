@@ -4,7 +4,6 @@ import { API, graphqlOperation } from 'aws-amplify';
 
 // @material-ui/core components
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -12,7 +11,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
-
 import { getUpdateQueryForType } from '../Utilities/getQueryForType';
 
 
@@ -47,15 +45,14 @@ function UpdateItemForm(props) {
             noValidate 
             autoComplete='off'
         >
-            <Typography variant='h6'>Update Item</Typography>
-                <FormControl className={classes.formControl}>
-                    <InputLabel >Item Type</InputLabel>
-                    <Controller as={Select} name='type' control={control} defaultValue='link'>
-                        <MenuItem value={'link'}>Link</MenuItem>
-                        <MenuItem value={'music'}>Music</MenuItem>
-                        <MenuItem value={'image'}>Image</MenuItem>
-                    </Controller>
-                </FormControl>
+            <FormControl className={classes.formControl}>
+                <InputLabel >Item Type</InputLabel>
+                <Controller as={Select} name='type' control={control} defaultValue='link'>
+                    <MenuItem value={'link'}>Link</MenuItem>
+                    <MenuItem value={'music'}>Music</MenuItem>
+                    <MenuItem value={'image'}>Image</MenuItem>
+                </Controller>
+            </FormControl>
             <TextField className={classes.input} label='ID' name='id' inputRef={register} />
             <TextField className={classes.input} label='Name' name='name' inputRef={register} />
             <TextField className={classes.input} label='Description' name='description' inputRef={register} />
