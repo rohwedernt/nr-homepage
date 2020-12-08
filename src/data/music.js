@@ -25,6 +25,11 @@ export const musicSection = {
   icon: <MusicIcon />,
   data: [
     {
+      title: `Full Show`,
+      desc: `Alicia Keys | NPR Tiny Desk | 2020`,
+      url: 'https://www.youtube.com/watch?v=uwUt1fVLb3E'
+    },
+    {
       title: `Pteranodon`,
       desc: `Matt Greiner | Zildjian Live | 2020`,
       url: 'https://www.youtube.com/watch?v=KdnuIlN-Vs4'
