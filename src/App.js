@@ -44,3 +44,7 @@ function App() {
 }
 
 export default App
+
+// Go to AWS AppSync -> Settings
+// Create a new API key
+// aws-exports.js and update to new api key
