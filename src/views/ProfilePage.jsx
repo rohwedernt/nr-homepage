@@ -100,7 +100,6 @@ export default function ProfilePage(props) {
               breakpointMd={breakpointMd} 
               breakpointSm={breakpointSm} 
               handleThemeChange={props.handleThemeChange}
-              setTheme={props.setTheme}
             />
             <div className={classes.root}>
                 <Paper className={classes.paperMain} style={breakpointSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>

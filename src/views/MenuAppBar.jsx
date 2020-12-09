@@ -129,7 +129,7 @@ export default function MenuAppBar(props) {
 
   const settingsProps = {
     title: 'Settings',
-    content: () => <SettingsDialogContent handleThemeChange={handleThemeChange} setTheme={setTheme} />
+    content: () => <SettingsDialogContent handleThemeChange={handleThemeChange} />
   };
 
   return (
@@ -177,7 +177,7 @@ export default function MenuAppBar(props) {
                 </Menu>
               </Fragment>
             )}
-            <div>
+            {!onAdmin && <div>
               <IconButton
                 onClick={() => handleOpenDialog(aboutThisSiteProps)}
                 color='inherit'
@@ -199,7 +199,7 @@ export default function MenuAppBar(props) {
               >
                 <SettingsIcon />
               </IconButton>
-            </div>
+            </div>}
           </Toolbar>
         </AppBar>
       </HideOnScroll>

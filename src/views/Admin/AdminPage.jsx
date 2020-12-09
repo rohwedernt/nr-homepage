@@ -70,18 +70,12 @@ function AdminPage(props) {
 
     return (
         <Fragment>
-            <MenuAppBar 
-              //breakpointMd={breakpointMd} 
-              //breakpointSm={breakpointSm} 
-			  handleThemeChange={props.handleThemeChange}
-			  setTheme={props.setTheme}
-			  onAdmin
-            />
+            <MenuAppBar onAdmin />
 			<div className={classes.root}>
 				<Paper elevation={16} style={{ paddingBottom: '20px' }}>
-					<Typography variant='h4' className={classes.pageHeader}>Admin</Typography>
+					<Typography variant='h4' className={classes.pageHeader}>Administration Panel</Typography>
 					<Container>
-						<ExpansionPanel>
+						<ExpansionPanel expanded>
 							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 								<Typography variant='subheader1'>List Images</Typography>
 							</ExpansionPanelSummary>
@@ -90,7 +84,7 @@ function AdminPage(props) {
 							</ExpansionPanelDetails>
 						</ExpansionPanel>
 						{/* <Divider /> */}
-						<ExpansionPanel>
+						<ExpansionPanel expanded>
 							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 								<Typography variant='subheader1'>List Items</Typography>
 							</ExpansionPanelSummary>
@@ -99,7 +93,7 @@ function AdminPage(props) {
 							</ExpansionPanelDetails>
 						</ExpansionPanel>
 						{/* <Divider /> */}
-						<ExpansionPanel>
+						<ExpansionPanel expanded>
 							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 								<Typography variant='subheader1'>Create Image</Typography>
 							</ExpansionPanelSummary>
@@ -108,7 +102,7 @@ function AdminPage(props) {
 							</ExpansionPanelDetails>
 						</ExpansionPanel>
 						{/* <Divider /> */}
-						<ExpansionPanel>
+						<ExpansionPanel expanded>
 							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 								<Typography variant='subheader1'>Add Image to Gallery</Typography>
 							</ExpansionPanelSummary>
@@ -117,7 +111,7 @@ function AdminPage(props) {
 							</ExpansionPanelDetails>
 						</ExpansionPanel>
 						{/* <Divider /> */}
-						<ExpansionPanel>
+						<ExpansionPanel expanded>
 							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 								<Typography variant='subheader1'>Create Item</Typography>
 							</ExpansionPanelSummary>
@@ -126,7 +120,7 @@ function AdminPage(props) {
 							</ExpansionPanelDetails>
 						</ExpansionPanel>
 						{/* <Divider /> */}
-						<ExpansionPanel>
+						<ExpansionPanel expanded>
 							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 								<Typography variant='subheader1'>Update Item</Typography>
 							</ExpansionPanelSummary>
@@ -135,7 +129,7 @@ function AdminPage(props) {
 							</ExpansionPanelDetails>
 						</ExpansionPanel>
 						{/* <Divider /> */}
-						<ExpansionPanel>
+						<ExpansionPanel expanded>
 							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 								<Typography variant='subheader1'>Delete Item</Typography>
 							</ExpansionPanelSummary>

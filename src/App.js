@@ -53,7 +53,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Switch>
         <Route exact path='/' render={() => <ProfilePage handleThemeChange={handleThemeChange} />} />
-        <Route path="/admin" render={() => <AdminPage handleThemeChange={handleThemeChange} />} />
+        <Route path="/admin" render={() => <AdminPage />} />
       </Switch>
     </ThemeProvider>
   );
