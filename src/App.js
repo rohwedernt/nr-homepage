@@ -10,40 +10,23 @@ import AdminPage from './views/Admin/AdminPage';
 
 // stylesheets
 import '@aws-amplify/ui/dist/style.css';
+import { FormatListBulleted } from 'material-ui-icons';
 
 let defaultTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#1f2833'
+    }
+  },
   typography: {
     'fontFamily': `'Montserrat', sans-serif`,
    }
 });
 
-const getThemePalette = (isDark, color) => {
-  if (isDark) {
-    return {
-      primary: {
-        main: color || '#1f2833'
-      },
-      common: {
-        background: '#424242',
-        paper: '#191919'
-      },
-      type: "dark"
-    }
-  } else {
-    return {
-      primary: {
-        main: color || '#1f2833'
-      },
-      common: {
-        background: '#fff',
-        paper: '#fff'
-      }
-    }
-  }
-}
-
 function App() {
   const [theme, setTheme] = useState(defaultTheme);
+  const [themeColor, setThemeColor] = useState('#1f2833');
+  const [themeType, setThemeType] = useState(false); //true = dark
 
   const handleThemeChange = theme => {
     setTheme(theme)
@@ -52,7 +35,16 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Switch>
-        <Route exact path='/' render={() => <ProfilePage handleThemeChange={handleThemeChange} />} />
+        <Route exact path='/' render={
+          () => 
+            <ProfilePage
+              handleThemeChange={handleThemeChange} 
+              themeColor={themeColor}
+              setThemeColor={setThemeColor}
+              themeType={themeType}
+              setThemeType={setThemeType}
+            />
+        } />
         <Route path="/admin" render={() => <AdminPage />} />
       </Switch>
     </ThemeProvider>

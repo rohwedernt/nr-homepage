@@ -60,7 +60,7 @@ function HideOnScroll(props) {
 
 export default function MenuAppBar(props) {
   const classes = useStyles();
-  const { breakpointMd, breakpointSm, handleThemeChange, setTheme, onAdmin } = props;
+  const { breakpointMd, breakpointSm, handleThemeChange, themeColor, setThemeColor, themeType, setThemeType, onAdmin } = props;
 
   // success alert state
   const [openAlert, setOpenAlert] = useState(false);
@@ -129,7 +129,13 @@ export default function MenuAppBar(props) {
 
   const settingsProps = {
     title: 'Settings',
-    content: () => <SettingsDialogContent handleThemeChange={handleThemeChange} />
+    content: () => <SettingsDialogContent 
+      handleThemeChange={handleThemeChange}
+      themeColor={themeColor}
+      setThemeColor={setThemeColor}
+      themeType={themeType}
+      setThemeType={setThemeType}
+    />
   };
 
   return (

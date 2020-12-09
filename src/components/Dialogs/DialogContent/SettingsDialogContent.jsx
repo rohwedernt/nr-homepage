@@ -19,21 +19,23 @@ function lightenColor(colorArr, amt) {
         var newColor = g | (b << 8) | (r << 16);
         return newColor.toString(16);
     })
-  }
+}
 
 // todo: default value being reverted to for dark mode when reopening the settings modal
 // see https://stackoverflow.com/questions/56108962/usestate-always-is-default-value-in-itself
 
-export default function SettingsDialog({ handleThemeChange }) {
-    const [ background, setBackground ] = useState('#3f51b5');
-    const [ darkState, setDarkState ] = useState(false);
+// also it should auto lighten the color selected when you go dark, not just the avail colors
+
+export default function SettingsDialog({ handleThemeChange, themeColor, setThemeColor, themeType, setThemeType }) {
+    //const [ background, setBackground ] = useState('#1f2833');
+    //const [ darkState, setDarkState ] = useState(false);
 
     const colors = ['#3f51b5', '#aa2e25', '#a31545', '#6d1b7b', '#482880', '#1769aa','#0276aa', '#008394', '#00695f', '#357a38', '#324a16', '#255c40', '#963111', '#05386b', '#302f35', '#501b1d', '#1f2833'];
 
     const handleChangeComplete = (isDark, color) => {
         let colVal = typeof color == "string" ? color : color.hex;
-        setDarkState(isDark);
-        setBackground(colVal);
+        setThemeType(isDark);
+        setThemeColor(colVal);
         handleThemeChange(createMuiTheme({
             typography: {
                 'fontFamily': `'Montserrat', sans-serif`,
@@ -72,15 +74,15 @@ export default function SettingsDialog({ handleThemeChange }) {
                 <Typography gutterBottom variant='subtitle1' component='div'>Set Theme Color</Typography>
                 <CirclePicker 
                     triangle='hide'
-                    colors={darkState ? lightenColor(colors, 1) : colors}
-                    color={background} 
-                    onChangeComplete={(col) => handleChangeComplete(darkState, col)} 
+                    colors={themeType ? lightenColor(colors, 1) : colors}
+                    color={themeColor} 
+                    onChangeComplete={(col) => handleChangeComplete(themeType, col)} 
                 />
             </Box>
             <Divider />
             <Box style={{textAlign: 'center' }}>
                 <FormControlLabel control={
-                        <Switch checked={darkState} onChange={() => handleChangeComplete(!darkState, background)} />
+                        <Switch checked={themeType} onChange={() => handleChangeComplete(!themeType, themeColor)} />
                     } label='Dark Mode' style={{ marginRight: '0px' }} />
             </Box>
         </div>
