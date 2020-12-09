@@ -19,7 +19,7 @@ import CustomDialogFullScreen from '../components/Dialogs/CustomDialogFullScreen
 import ImageGalleryDialogContent from '../components/Dialogs/DialogContent/ImageGalleryDialogContent';
 
 // containers
-import WorkContainer from './Containers/WorkContainer'
+import DevContainer from './Containers/DevContainer'
 import AstronomyContainer from './Containers/AstronomyContainer'
 import TravelContainer from './Containers/TravelContainer'
 import FoodAndDrinkContainer from './Containers/FoodAndDrinkContainer'
@@ -80,7 +80,7 @@ export default function ProfileSectionTabs(props) {
             textColor='primary'
             variant='fullWidth'
           >
-            <Tab style={tabStyle} icon={<CodeIcon />} label={breakpointMd ? '' : 'Work'} />
+            <Tab style={tabStyle} icon={<CodeIcon />} label={breakpointMd ? '' : 'Dev'} />
             <Tab style={tabStyle} icon={<MusicIcon />} label={breakpointMd ? '' : 'Music'} />
             <Tab style={tabStyle} icon={<FlightIcon />} label={breakpointMd ? '' : 'Travel'} />
             <Tab style={tabStyle} icon={<FoodIcon />} label={breakpointMd ? '' : 'Food & Drink'} />
@@ -88,7 +88,7 @@ export default function ProfileSectionTabs(props) {
           </Tabs>
         </AppBar>
         <SwipeableViews axis={'x'} index={value} onChangeIndex={handleChangeIndex} >
-          <WorkContainer value={value} idx={0} />
+          <DevContainer value={value} idx={0} />
           <MusicTabPanel value={value} idx={1} />
           <TravelContainer value={value} idx={2} openDialog={handleClickOpenFullDialog} />
           <FoodAndDrinkContainer value={value} idx={3} openDialog={handleClickOpenFullDialog}  />

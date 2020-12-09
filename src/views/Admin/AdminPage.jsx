@@ -73,7 +73,8 @@ function AdminPage(props) {
             <MenuAppBar 
               //breakpointMd={breakpointMd} 
               //breakpointSm={breakpointSm} 
-			  setPrimaryColor={props.setPrimaryColor}
+			  handleThemeChange={props.handleThemeChange}
+			  setTheme={props.setTheme}
 			  onAdmin
             />
 			<div className={classes.root}>

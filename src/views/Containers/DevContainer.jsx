@@ -6,7 +6,7 @@ import { getLinkItemsByDate } from '../../graphql/queries';
 import ItemContent from '../Content/ItemContent';
 
 
-export default function WorkContainer(props) {
+export default function DevContainer(props) {
   const [myStuff, setMyStuff] = useState(false);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -17,8 +17,8 @@ export default function WorkContainer(props) {
 
   async function fetchItems() {
     let sort = myStuff ? 
-      { type: 'work', sortDirection: 'DESC', filter: { myContent: { eq: true } } } : 
-      { type: 'work', sortDirection: 'DESC' };
+      { type: 'dev', sortDirection: 'DESC', filter: { myContent: { eq: true } } } : 
+      { type: 'dev', sortDirection: 'DESC' };
     setIsLoading(true);
 
     try {
@@ -26,7 +26,7 @@ export default function WorkContainer(props) {
       const items = itemData.data.getLinkItemsByDate.items;
       setItems(items);
       setIsLoading(false);
-    } catch (err) { console.log('error fetching work items', err) };
+    } catch (err) { console.log('error fetching dev items', err) };
   }
 
   return (

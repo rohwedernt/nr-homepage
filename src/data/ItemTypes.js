@@ -1,5 +1,5 @@
 export const ContentTypes = Object.freeze({
-    work: 'work', 
+    dev: 'dev', 
     music: 'music', 
     travel: 'travel',
     food: 'food',

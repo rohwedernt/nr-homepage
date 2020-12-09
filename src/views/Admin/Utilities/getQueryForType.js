@@ -8,7 +8,7 @@ export function getCreateQueryForType(type) {
     let query;
 
     switch (type) {
-        case ItemTypes.work || ItemTypes.astronomy:
+        case ItemTypes.dev || ItemTypes.astronomy:
             query = createLinkItem
             break;
         case ItemTypes.travel || ItemTypes.food:
@@ -29,7 +29,7 @@ export function getUpdateQueryForType(type) {
     let query;
 
     switch (type) {
-        case ItemTypes.work || ItemTypes.astronomy:
+        case ItemTypes.dev || ItemTypes.astronomy:
             query = updateLinkItem
             break;
         case ItemTypes.travel || ItemTypes.food:
@@ -50,7 +50,7 @@ export function getDeleteQueryForType(type) {
     let query;
 
     switch (type) {
-        case ItemTypes.work || ItemTypes.astronomy:
+        case ItemTypes.dev || ItemTypes.astronomy:
             query = deleteLinkItem
             break;
         case ItemTypes.travel || ItemTypes.food:
