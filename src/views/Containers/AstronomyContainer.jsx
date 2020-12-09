@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import { listLinkItems } from '../../graphql/queries';
+import NasaGlobe from '../Content/NasaGlobe';
 
 // custom components
 import ItemContent from '../Content/ItemContent';
@@ -27,11 +28,6 @@ export default function AstronomyContainer(props) {
   }
 
   return (
-    <ItemContent 
-        items={items}
-        isLoading={isLoading}
-        actionFunc={(item) => window.open(item.url, '_blank')}
-        {...props}
-    />
+    <NasaGlobe />
   );
 }

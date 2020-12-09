@@ -7,7 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 
 // assets
-import nothingToSeeHere from '../../assets/img/nothingtoseehere.jpg';
+import nothingToSeeHereGif from '../../assets/img/nothingtoseeheregif.gif';
 
 const useStyles = makeStyles(() => ({
   gridItem: {
@@ -28,7 +28,7 @@ export default function ProfileSectionTabs(props) {
   return (
     <Grid item className={classes.gridItem}>
         <Card className={classes.card}>
-            <CardMedia className={classes.cardMedia} image={nothingToSeeHere} />
+            <CardMedia className={classes.cardMedia} image={nothingToSeeHereGif} />
         </Card>
     </Grid>
   );

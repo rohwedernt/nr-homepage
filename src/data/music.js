@@ -25,6 +25,17 @@ export const musicSection = {
   icon: <MusicIcon />,
   data: [
     {
+      title: `Geronimo`,
+      desc: `Nate Rohweder | 2020`,
+      url: 'https://www.youtube.com/watch?v=9oACwXox6ww',
+      myStuff: true
+    },
+    {
+      title: `Fallin`,
+      desc: `Alicia Keys | NPR Tiny Desk | 2020`,
+      url: 'https://youtu.be/uwUt1fVLb3E?t=1238'
+    },
+    {
       title: `Pteranodon`,
       desc: `Matt Greiner | Zildjian Live | 2020`,
       url: 'https://www.youtube.com/watch?v=KdnuIlN-Vs4'
@@ -43,6 +54,11 @@ export const musicSection = {
       title: `Splendor Riot`,
       desc: `Julian Lage | Layman Drug Company | 2018`,
       url: 'https://www.youtube.com/watch?v=5LgoR9A_ygE'
+    },
+    {
+      title: `2009`,
+      desc: `Mac Miller | NPR Tiny Desk | 2018`,
+      url: 'https://youtu.be/QrR_gm6RqCo?t=700'
     },
     {
       title: `Call To Arms`,
@@ -90,6 +106,12 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=998TzVK7pQ4'
     },
     {
+      title: `Trigger`,
+      desc: `Nomadic | 2015`,
+      url: 'https://www.youtube.com/watch?v=PKN9Z8DlCr0',
+      myStuff: true
+    },
+    {
       title: `Lotus`,
       desc: `Shaun Martin | 7 Summers | 2015`,
       url: 'https://www.youtube.com/watch?v=JYq0FGo44w4'
@@ -120,6 +142,11 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=KHms6yC_n6A'
     },
     {
+      title: `Why Is It So Hard`,
+      desc: `Charles Bradley | KEXP Austin, TX | 2011`,
+      url: 'https://www.youtube.com/watch?v=yBdTVmSVq14'
+    },
+    {
       title: ``,
       desc: `Nicky Moroch & Mark Bowers | NY Amp Show (3 Monkeys) | 2011`,
       url: 'https://www.youtube.com/watch?v=ITlhEC3f23g'
@@ -133,6 +160,11 @@ export const musicSection = {
       title: `Midnight in Harlem`,
       desc: `Tedeschi Trucks Band | Crossroads | 2010`,
       url: 'https://www.youtube.com/watch?v=C0hr2HWOohM'
+    },
+    {
+      title: `Bright Lights`,
+      desc: `Gary Clark Jr | Crossroads | 2010`,
+      url: 'https://www.youtube.com/watch?v=x_ZeDn-hHGE'
     },
     {
       title: `Extraction`,

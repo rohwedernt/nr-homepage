@@ -16,10 +16,10 @@ export function ComingSoon() {
 
     return (
         <div className={classes.root}>
-            <Typography gutterBottom variant={'subtitle2'}>- Add my projects to work section (filters to these when 'Created By Me' switch is engaged)</Typography>
+            <Typography gutterBottom variant={'subtitle2'}>- Add my projects to dev section (filters to these when 'Created By Me' switch is engaged)</Typography>
             <Typography gutterBottom variant={'subtitle2'}>- Add my music to music section (filters to these when 'Created By Me' switch is engaged)</Typography>
             <Typography gutterBottom variant={'subtitle2'}>- Finish content on 'About This Site' section</Typography>
-            <Typography gutterBottom variant={'subtitle2'}>- Add additional content to work section</Typography>
+            <Typography gutterBottom variant={'subtitle2'}>- Add additional content to dev section</Typography>
             <Typography gutterBottom variant={'subtitle2'}>- Render additional images for each travel item in image gallery dialog</Typography>
             <Typography gutterBottom variant={'subtitle2'}>- Add additional content to music section</Typography>
             <Typography gutterBottom variant={'subtitle2'}>- Add additional content to food and drink section</Typography>

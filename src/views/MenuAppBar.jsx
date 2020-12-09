@@ -60,7 +60,7 @@ function HideOnScroll(props) {
 
 export default function MenuAppBar(props) {
   const classes = useStyles();
-  const { breakpointMd, breakpointSm, setPrimaryColor, onAdmin } = props;
+  const { breakpointMd, breakpointSm, handleThemeChange, setTheme, onAdmin } = props;
 
   // success alert state
   const [openAlert, setOpenAlert] = useState(false);
@@ -129,7 +129,7 @@ export default function MenuAppBar(props) {
 
   const settingsProps = {
     title: 'Settings',
-    content: () => <SettingsDialogContent setPrimaryColor={setPrimaryColor} />
+    content: () => <SettingsDialogContent handleThemeChange={handleThemeChange} />
   };
 
   return (
@@ -177,7 +177,7 @@ export default function MenuAppBar(props) {
                 </Menu>
               </Fragment>
             )}
-            <div>
+            {!onAdmin && <div>
               <IconButton
                 onClick={() => handleOpenDialog(aboutThisSiteProps)}
                 color='inherit'
@@ -199,7 +199,7 @@ export default function MenuAppBar(props) {
               >
                 <SettingsIcon />
               </IconButton>
-            </div>
+            </div>}
           </Toolbar>
         </AppBar>
       </HideOnScroll>

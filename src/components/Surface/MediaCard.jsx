@@ -14,7 +14,7 @@ import IconButton from '@material-ui/core/IconButton';
 import LaunchIcon from '@material-ui/icons/Launch';
 
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 350,
     maxWidth: 350
@@ -38,7 +38,7 @@ const useStyles = makeStyles(() => ({
   cardActions: {
     height: '35px',
     padding: '0px', 
-    backgroundColor: '#f6f6f6', 
+    backgroundColor: theme.palette.common.footer, 
     boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 1px, rgba(0, 0, 0, 0.23) 0px 1px 1px inset', 
     justifyContent: 'flex-end'
   }

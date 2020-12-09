@@ -16,13 +16,19 @@ import CustomSwitch from '../../components/Input/CustomSwitch';
 import { musicSection } from '../../data/music';
 
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   gridContainer: {
     justifyContent: 'center'
   },
   gridItem: {
     margin: '15px'
-  }
+  },
+  toolbarSwitch: {
+    backgroundColor: theme.palette.common.paper,
+    display: 'flex',
+    justifyContent: 'center',
+    minHeight: '38px'
+  },
 }));
 
 export default function ProfileSectionTabs(props) {
@@ -36,7 +42,7 @@ export default function ProfileSectionTabs(props) {
     return (
         <TabPanel value={value} index={idx}>
             <AppBar style={{ backgroundColor: '#fff' }} elevation={0} position="static">
-                <Toolbar style={{ display: 'flex', justifyContent: 'center', minHeight: '38px' }} >
+                <Toolbar className={classes.toolbarSwitch}>
                     <CustomSwitch on={myStuff} setOn={setMyStuff} />
                 </Toolbar>
             </AppBar>

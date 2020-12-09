@@ -21,10 +21,14 @@ import profile from '../assets/img/profile-full.jpg';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    backgroundColor: theme.palette.common.background,
     '& > *': {
       margin: theme.spacing(8),
       width: '100%'
     }
+  },
+  paperMain: {
+    backgroundColor: theme.palette.common.paper
   },
   headerSection: {
     display: 'flex',
@@ -41,11 +45,12 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
     marginLeft: theme.spacing(3.4),
     marginBottom: theme.spacing(1),
-    color: '#6c757d'
+    color: '#6c757d',
+    display: 'inline-block'
   },
   pageParagraph: {
     fontFamily: `'Montserrat', sans-serif`,
-    color: '#999',
+    color: '#8a8a8a',
     marginLeft: theme.spacing(3.4),
     marginRight: theme.spacing(4),
     marginBottom: theme.spacing(1),
@@ -94,10 +99,10 @@ export default function ProfilePage(props) {
             <MenuAppBar 
               breakpointMd={breakpointMd} 
               breakpointSm={breakpointSm} 
-              setPrimaryColor={props.setPrimaryColor}
+              handleThemeChange={props.handleThemeChange}
             />
             <div className={classes.root}>
-                <Paper style={breakpointSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
+                <Paper className={classes.paperMain} style={breakpointSm ? { margin: '0px', padding: '70px 0px', borderRadius: '6px' } : { padding: '30px', borderRadius: '6px' }} elevation={16}>
                     <div className={classes.headerSection} style={breakpointMd ? { flexWrap: 'wrap' } : undefined}>
                     <img className={classes.coloredShadow} alt='colored-shadow' style={setColoredShadowPosition()} src={profile} />
                         <img className={classes.profileImg} alt='' src={profile} />
@@ -115,7 +120,9 @@ export default function ProfilePage(props) {
                                 <Facebook style={getIconStyles('55px')} target='https://www.facebook.com/rohwedernt' />
                                 <Instagram style={getIconStyles('5px')} target='https://www.instagram.com/naterohweder/' />
                             </SocialIconAnimator>
-                            <Typography className={classes.pageSubheader} variant='h6'>Software Engineer  |  Denver, CO</Typography>
+                            <Typography className={classes.pageSubheader} variant='h6'>Software Engineer</Typography>
+                            <Typography className={classes.pageSubheader} variant='h6' style={{ marginLeft: '10px' }}>|</Typography>
+                            <Typography className={classes.pageSubheader} variant='h6' style={{ marginLeft: '10px' }}>Denver Colorado</Typography>
                             <Typography className={classes.pageParagraph} variant='body1' component='div'>
                               Equal parts software experiment laboratory, agglomeration of web resources from over the years,
                               showcase of personal dev projects, blog for my travels, eats, drinks, dogs, and other 

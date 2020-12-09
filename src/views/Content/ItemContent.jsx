@@ -17,12 +17,18 @@ import NoContentCard from '../../components/Surface/NoContentCard';
 import placeholder from '../../assets/img/placeholder.png';
 
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   gridContainer: {
     justifyContent: 'center'
   },
   gridItem: {
     margin: '15px'
+  },
+  toolbarSwitch: {
+    backgroundColor: theme.palette.common.paper,
+    display: 'flex',
+    justifyContent: 'center',
+    minHeight: '38px'
   },
   card: {
     minWidth: 320,
@@ -68,7 +74,7 @@ export default function ItemContent(props) {
   const renderMyStuffToggle = () => {
     return props.setMyStuff ? (
       <AppBar style={{ backgroundColor: '#fff' }} elevation={0} position='static'>
-        <Toolbar style={{ display: 'flex', justifyContent: 'center', minHeight: '38px' }} >
+        <Toolbar className={classes.toolbarSwitch}>
           <CustomSwitch on={props.myStuff} setOn={props.setMyStuff} />
         </Toolbar>
       </AppBar>
