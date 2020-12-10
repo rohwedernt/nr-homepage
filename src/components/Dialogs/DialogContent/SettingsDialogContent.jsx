@@ -7,7 +7,7 @@ import Switch from '@material-ui/core/Switch';
 import Box from '@material-ui/core/Box';
 
 // custom components
-import { Typography, Divider } from '@material-ui/core';
+//import { Typography, Divider } from '@material-ui/core';
 import { CustomThemeContext } from '../../../themes/CustomThemeProvider';
 
 // function lightenColorArr(colorArr, amt) {

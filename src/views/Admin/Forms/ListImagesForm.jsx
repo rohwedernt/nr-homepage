@@ -5,13 +5,12 @@ import { listImages } from '../../../graphql/queries';
 
 // @material-ui/core components
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
 
 function ListImagesForm(props) {
     const { classes, onSuccess } = props;
-    const { register, control, handleSubmit } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = data => fetchImages(data);
 
     async function fetchImages(data) {

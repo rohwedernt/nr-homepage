@@ -24,7 +24,7 @@ export default function ImageGalleryDialogContent({ item }) {
 
     useEffect(() => {
         fetchImages(item.id);
-    }, []);
+    }, [item.id]);
 
     async function fetchImages(itemId) {
         let filters = { limit: 100, filter: { itemID: { eq: itemId } } };

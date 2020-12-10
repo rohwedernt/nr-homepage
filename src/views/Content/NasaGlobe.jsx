@@ -22,9 +22,7 @@ export default class NasaGlobe extends Component {
     this.setState({globe: this.globeRef.current})
   }
   
-  render() {
-    const globe = this.globeRef.current
-    
+  render() {    
     const layers = [
       {layer: 'blue-marble', options: {category: 'base', enabled: false}},
       {layer: 'blue-marble-landsat', options: {category: 'base', enabled: false}},
