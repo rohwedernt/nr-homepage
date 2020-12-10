@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     padding: '5px 10px 5px 10px',
     minHeight: '50px',
-    maxHeight: '50px',
+    maxHeight: '60px',
     overflow: 'hidden'
   },
   cardActions: {
