@@ -60,7 +60,7 @@ function HideOnScroll(props) {
 
 export default function MenuAppBar(props) {
   const classes = useStyles();
-  const { breakpointMd, breakpointSm, handleThemeChange, themeColor, setThemeColor, themeType, setThemeType, onAdmin } = props;
+  const { breakpointMd, breakpointSm, handleThemeChange, theme, themeColor, setThemeColor, themeType, setThemeType, onAdmin } = props;
 
   // success alert state
   const [openAlert, setOpenAlert] = useState(false);
@@ -131,6 +131,7 @@ export default function MenuAppBar(props) {
     title: 'Settings',
     content: () => <SettingsDialogContent 
       handleThemeChange={handleThemeChange}
+      theme={theme}
       themeColor={themeColor}
       setThemeColor={setThemeColor}
       themeType={themeType}
@@ -159,7 +160,7 @@ export default function MenuAppBar(props) {
                   aria-controls='menu-appbar'
                   aria-haspopup='true'
                   onClick={handleMenu}
-                  color='inherit'
+                  color='secondary'
                   className={classes.menuIcon}
                 >
                   {/* <Typography style={{ marginRight: '10px' }} variant='subtitle1'>More Stuff</Typography> */}
@@ -186,21 +187,21 @@ export default function MenuAppBar(props) {
             {!onAdmin && <div>
               <IconButton
                 onClick={() => handleOpenDialog(aboutThisSiteProps)}
-                color='inherit'
+                color='secondary'
                 className={classes.menuIcon}
               >
                 <InfoIcon />
               </IconButton>
               <IconButton
                 onClick={() => handleOpenDialog(contactProps)}
-                color='inherit'
+                color='secondary'
                 className={classes.menuIcon}
               >
                 <EmailIcon />
               </IconButton>
               <IconButton
                 onClick={() => handleOpenDialog(settingsProps)}
-                color='inherit'
+                color='secondary'
                 className={classes.menuIcon}
               >
                 <SettingsIcon />

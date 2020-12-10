@@ -100,6 +100,7 @@ export default function ProfilePage(props) {
               breakpointMd={breakpointMd} 
               breakpointSm={breakpointSm} 
               handleThemeChange={props.handleThemeChange}
+              theme={props.theme}
               themeColor={props.themeColor}
               setThemeColor={props.setThemeColor}
               themeType={props.themeType}

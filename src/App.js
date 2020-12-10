@@ -1,53 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ProfilePage from './views/ProfilePage';
 
 // @material-ui
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
+import CssBaseline from '@material-ui/core/CssBaseline'
+//import { createMuiTheme } from '@material-ui/core/styles';
+//import { ThemeProvider } from '@material-ui/styles';
 
 import { Route, Switch } from 'react-router-dom';
 import AdminPage from './views/Admin/AdminPage';
+import CustomThemeProvider from './themes/CustomThemeProvider'
 
 // stylesheets
 import '@aws-amplify/ui/dist/style.css';
-import { FormatListBulleted } from 'material-ui-icons';
-
-let defaultTheme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#1f2833'
-    }
-  },
-  typography: {
-    'fontFamily': `'Montserrat', sans-serif`,
-   }
-});
 
 function App() {
-  const [theme, setTheme] = useState(defaultTheme);
-  const [themeColor, setThemeColor] = useState('#1f2833');
-  const [themeType, setThemeType] = useState(false); //true = dark
-
-  const handleThemeChange = theme => {
-    setTheme(theme)
-  };
-
   return (
-    <ThemeProvider theme={theme}>
+    <CustomThemeProvider>
+      <CssBaseline />
       <Switch>
-        <Route exact path='/' render={
-          () => 
-            <ProfilePage
-              handleThemeChange={handleThemeChange} 
-              themeColor={themeColor}
-              setThemeColor={setThemeColor}
-              themeType={themeType}
-              setThemeType={setThemeType}
-            />
-        } />
+        <Route exact path='/' render={() =>  <ProfilePage />} />
         <Route path="/admin" render={() => <AdminPage />} />
       </Switch>
-    </ThemeProvider>
+    </CustomThemeProvider>
   );
 }
 
