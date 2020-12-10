@@ -10,13 +10,14 @@ export default function EmailDialog(props) {
     return (
         <TextField
             id='outlined-multiline-static'
-            label='Email me'
+            label='Coming Soon!'
             onChange={handleChange}
             value={value}
             multiline
             rows={8}
             variant='outlined'
             fullWidth
+            disabled
         />
   );
 }
