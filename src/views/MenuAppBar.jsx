@@ -122,7 +122,7 @@ export default function MenuAppBar(props) {
   const contactProps = {
     title: 'Contact',
     confirmText: undefined, // set this to 'Send' when email is ready
-    confirmFunc: () => setOpenAlert(true),
+    confirmFunc: () => {}, // set this to () => setOpenAlert(true)
     content: () => <EmailDialogContent />,
     cancel: false // and set this back to true
   };
