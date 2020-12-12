@@ -36,6 +36,11 @@ export const musicSection = {
       url: 'https://youtu.be/uwUt1fVLb3E?t=1238'
     },
     {
+      title: `Think About Things`,
+      desc: `Daði Freyr | 2020`,
+      url: 'https://www.youtube.com/watch?v=VFZNvj-HfBU'
+    },
+    {
       title: `Pteranodon`,
       desc: `Matt Greiner | Zildjian Live | 2020`,
       url: 'https://www.youtube.com/watch?v=KdnuIlN-Vs4'
@@ -117,9 +122,9 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=JYq0FGo44w4'
     },
     {
-      title: `Jambone`,
+      title: `Lingus`,
       desc: `Snarky Puppy | We Like It Here | 2014`,
-      url: 'https://www.youtube.com/watch?v=mg2cMqW_hOY'
+      url: 'https://www.youtube.com/watch?v=L_XJ_s5IsQc'
     },
     {
       title: `Vapor`,
@@ -147,6 +152,11 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=yBdTVmSVq14'
     },
     {
+      title: `Surgeon`,
+      desc: `St Vincent | 4AD Session | 2011`,
+      url: 'https://www.youtube.com/watch?v=XjZgiv2F1QY&feature=emb_logo'
+    },
+    {
       title: ``,
       desc: `Nicky Moroch & Mark Bowers | NY Amp Show (3 Monkeys) | 2011`,
       url: 'https://www.youtube.com/watch?v=ITlhEC3f23g'
@@ -159,7 +169,7 @@ export const musicSection = {
     {
       title: `Midnight in Harlem`,
       desc: `Tedeschi Trucks Band | Crossroads | 2010`,
-      url: 'https://www.youtube.com/watch?v=C0hr2HWOohM'
+      url: 'https://www.youtube.com/watch?v=xbOlgESKbIc'
     },
     {
       title: `Bright Lights`,
@@ -172,9 +182,19 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=QABB599Abow'
     },
     {
+      title: `When I Come Around`,
+      desc: `Green Day | Woodstock | 1994`,
+      url: 'https://www.youtube.com/watch?v=GuveDnjJQJM&feature=emb_logo'
+    },
+    {
       title: `Full Show`,
-      desc: `John McLaughlin, Joey DeFrancesco, Dennis Chambers | 1994`,
+      desc: `McLaughlin, DeFrancesco, Chambers | 1994`,
       url: 'https://www.youtube.com/watch?v=Ox8eYBFszuA&t=127s'
+    },
+    {
+      title: `Where Did You Sleep Last Night`,
+      desc: `Nirvana | MTV Unplugged | 1993`,
+      url: 'https://www.youtube.com/watch?v=hEMm7gxBYSc&list=PLWxGix9YIPj0oyigoC6J56LkNXulezgBW&index=14'
     },
     {
       title: `First Circle`,
@@ -185,6 +205,36 @@ export const musicSection = {
       title: `Subway To Venus`,
       desc: `RHCP | David Sanborn Night Music | 1989`,
       url: 'https://www.youtube.com/watch?v=ClivCUC9R_4'
+    },
+    {
+      title: `Bohemian Rhapsody`,
+      desc: `Queen | Live Aid | 1985`,
+      url: 'https://www.youtube.com/watch?v=vbvyNnw8Qjg'
+    },
+    {
+      title: `Full Show`,
+      desc: `Talking Heads | Stop Making Sense | 1984`,
+      url: 'https://www.youtube.com/watch?v=h-1PXYM135I'
+    },
+    {
+      title: `The Chain`,
+      desc: `Fleetwood Mac | Tusk | 1979`,
+      url: 'https://www.youtube.com/watch?v=O6P2_i0Y6ms'
+    },
+    {
+      title: `New York State of Mind`,
+      desc: `Billy Joel | Old Grey Whistle Test | 1978`,
+      url: 'https://www.youtube.com/watch?v=iM4LzEcaTK0'
+    },
+    {
+      title: `Thunder Road`,
+      desc: `Bruce Springsteen | Hammersmith Odeon | 1975`,
+      url: 'https://www.youtube.com/watch?v=6O3MO2y30fU'
+    },
+    {
+      title: `Living For The City`,
+      desc: `Stevie Wonder | Beat-Workshop | 1974`,
+      url: 'https://www.youtube.com/watch?v=7_RgaYueeh4'
     },
     {
       title: `Don't Let Me Down`,
