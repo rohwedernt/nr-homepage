@@ -15,9 +15,20 @@ import MusicIcon from '@material-ui/icons/Audiotrack';
  *  bela fleck and the flecktones
  *  the wood brothers
  *  ghost note
- *  rhcp
  *  natalie merchant carnival 95
  *  tobe nwigwe npr tiny desk
+ * 
+ * https://www.youtube.com/watch?v=sWqDIZxO-nU radiohead in rainbows live
+ * https://www.youtube.com/watch?v=4sAoHCiTqUc radiohead live at glastonbury
+ * led zeppelin
+ * https://www.youtube.com/watch?v=YoDh_gHDvkk queen and bowie under pressue
+ * https://www.youtube.com/watch?v=VbD_kBJc_gI bowie lets dance
+ * https://www.youtube.com/watch?v=bn5TNqjuHiU janis summertime
+ * frank zappa
+ * the who
+ * https://www.youtube.com/watch?v=NEjkftp7J7I the rolling stones satisfaction
+ * racontuers (you dont understand me)
+ * https://www.youtube.com/watch?v=NYQBjaeVnRs arctic monkeys?
  */
 
 export const musicSection = {
@@ -54,6 +65,11 @@ export const musicSection = {
       title: `Life in the City`,
       desc: `Turkuaz | Sugarshack Sessions | 2019`,
       url: 'https://www.youtube.com/watch?v=DyHKjQsqk2E'
+    },
+    {
+      title: `Don't Stop 'Til You Get Enough`,
+      desc: `Jacob Collier | YouTube Space NY | 2018`,
+      url: 'https://www.youtube.com/watch?v=KC3GrzoQG9U'
     },
     {
       title: `Splendor Riot`,
@@ -157,6 +173,11 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=XjZgiv2F1QY&feature=emb_logo'
     },
     {
+      title: `Classical Gas`,
+      desc: `Tommy Emmanuel | Songs | 2011`,
+      url: 'https://www.youtube.com/watch?v=S33tWZqXhnk'
+    },
+    {
       title: ``,
       desc: `Nicky Moroch & Mark Bowers | NY Amp Show (3 Monkeys) | 2011`,
       url: 'https://www.youtube.com/watch?v=ITlhEC3f23g'
@@ -177,9 +198,34 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=x_ZeDn-hHGE'
     },
     {
+      title: `I Shot The Sheriff`,
+      desc: `Eric Clapton | Crossroads | 2010`,
+      url: 'https://www.youtube.com/watch?v=APWhx97QvxE'
+    },
+    {
+      title: `I Don't Need No Doctor`,
+      desc: `John Mayer | Nokia Theatre | 2009`,
+      url: 'https://www.youtube.com/watch?v=p4R-RrSbQ-Y&list=PLuut9BIO57Agl_Y9GOcbJ93PNWqy46ee_&index=16'
+    },
+    {
+      title: `Knights of Cydonia`,
+      desc: `Muse | Wembley Stadium | 2007`,
+      url: 'https://www.youtube.com/watch?v=j8WP7aOD_9Q'
+    },
+    {
       title: `Extraction`,
       desc: `Greg Howe | 2004`,
       url: 'https://www.youtube.com/watch?v=QABB599Abow'
+    },
+    {
+      title: `Jimi Thing`,
+      desc: `DMB ft. Warren Haynes | Central Park | 2003`,
+      url: 'https://www.youtube.com/watch?v=PRAYYxr9oOk'
+    },
+    {
+      title: `Whole Lotta Love`,
+      desc: `Prince | Live at the Aladdin | 2004`,
+      url: 'https://youtu.be/mG1RERNw5hs?t=2946'
     },
     {
       title: `When I Come Around`,
@@ -207,6 +253,11 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=ClivCUC9R_4'
     },
     {
+      title: `Full Show`,
+      desc: `Stevie Ray Vaughan | Live at Montreux | 1985`,
+      url: 'https://www.youtube.com/watch?v=b4qZ4r37g6I'
+    },
+    {
       title: `Bohemian Rhapsody`,
       desc: `Queen | Live Aid | 1985`,
       url: 'https://www.youtube.com/watch?v=vbvyNnw8Qjg'
@@ -215,6 +266,11 @@ export const musicSection = {
       title: `Full Show`,
       desc: `Talking Heads | Stop Making Sense | 1984`,
       url: 'https://www.youtube.com/watch?v=h-1PXYM135I'
+    },
+    {
+      title: `Bloody Well Right`,
+      desc: `Supertramp | Live in Paris | 1979`,
+      url: 'https://youtu.be/a4ys6YSfJDA'
     },
     {
       title: `The Chain`,
@@ -235,6 +291,16 @@ export const musicSection = {
       title: `Living For The City`,
       desc: `Stevie Wonder | Beat-Workshop | 1974`,
       url: 'https://www.youtube.com/watch?v=7_RgaYueeh4'
+    },
+    {
+      title: `Bridge Over Troubled Water`,
+      desc: `Aretha Franklin | Casino de Montreux | 1971`,
+      url: 'https://youtu.be/DHqKSXMzmBE?t=1760'
+    },
+    {
+      title: `Soul Sacrifice`,
+      desc: `Santana | Woodstock | 1969`,
+      url: 'https://www.youtube.com/watch?v=JaaT_HRb4GU'
     },
     {
       title: `Don't Let Me Down`,
