@@ -27,6 +27,7 @@ import SettingsDialogContent from '../components/Dialogs/DialogContent/SettingsD
 import EmailDialogContent from '../components/Dialogs/DialogContent/EmailDialogContent';
 import { AboutThisSite } from './Content/AboutThisSite';
 import { ComingSoon } from './Content/ComingSoon';
+import NovelistNewsletterWidget from './Content/NovelistNewsletterWidget';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -104,19 +105,28 @@ export default function MenuAppBar(props) {
   const scrumRetroToolProps = {
     title: 'Scrum Retro Tool',
     description: 'This is a from-scratch tool used for managing custom retrospective formats for scrum teams.',
-    content: () => {}
+    content: () => {},
+    comingSoon: true
   };
 
   const dashboardProps = {
     title: 'Dashboard POC',
     description: 'This is a simple test app for showcasing some dashboard components I was interested in. Eventually I hope to hook this up to real data collected by AWS Kinesis.',
-    content: () => {}
+    content: () => {},
+    comingSoon: true
   };
 
   const nrV1Props = {
     title: 'NateRohwederDotCom v1',
     description: 'Over time as the site evolves I want to be able to showcase past versions of the site. This was the first iteration, enjoy.',
-    content: () => {}
+    content: () => {},
+    comingSoon: true
+  };
+
+  const newsletterWidgetProps = {
+    title: 'NoveList Newsletter Widgets',
+    description: '',
+    content: () => <NovelistNewsletterWidget />
   };
 
   const contactProps = {
@@ -178,6 +188,7 @@ export default function MenuAppBar(props) {
                   <MenuItem onClick={() => handleOpenDialogFull(scrumRetroToolProps)}>Scrum Retro Tool</MenuItem>
                   <MenuItem onClick={() => handleOpenDialogFull(dashboardProps)}>Dashboard POC</MenuItem>
                   <MenuItem onClick={() => handleOpenDialogFull(nrV1Props)}>NateRohwederDotCom v1</MenuItem>
+                  <MenuItem onClick={() => handleOpenDialogFull(newsletterWidgetProps)}>NoveList Newsletter Widgets</MenuItem>
                   <Divider />
                   <MenuItem onClick={() => handleOpenDialog(comingSoonProps)}>Coming Soon</MenuItem>
                   <MenuItem component={Link} to={'/admin'}>Admin</MenuItem>
@@ -220,7 +231,6 @@ export default function MenuAppBar(props) {
         open={openDialogFull}
         handleClose={handleCloseDialogFull}
         {...dialogFullProps}
-        comingSoon
       />
       <CustomDialog
         open={openDialog}
