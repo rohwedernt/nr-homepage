@@ -27,7 +27,6 @@ import SettingsDialogContent from '../components/Dialogs/DialogContent/SettingsD
 import EmailDialogContent from '../components/Dialogs/DialogContent/EmailDialogContent';
 import { AboutThisSite } from './Content/AboutThisSite';
 import { ComingSoon } from './Content/ComingSoon';
-import NovelistNewsletterWidget from './Content/NovelistNewsletterWidget';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -123,12 +122,6 @@ export default function MenuAppBar(props) {
     comingSoon: true
   };
 
-  const newsletterWidgetProps = {
-    title: 'NoveList Newsletter Widgets',
-    description: '',
-    content: () => <NovelistNewsletterWidget />
-  };
-
   const contactProps = {
     title: 'Contact',
     confirmText: undefined, // set this to 'Send' when email is ready
@@ -188,7 +181,6 @@ export default function MenuAppBar(props) {
                   <MenuItem onClick={() => handleOpenDialogFull(scrumRetroToolProps)}>Scrum Retro Tool</MenuItem>
                   <MenuItem onClick={() => handleOpenDialogFull(dashboardProps)}>Dashboard POC</MenuItem>
                   <MenuItem onClick={() => handleOpenDialogFull(nrV1Props)}>NateRohwederDotCom v1</MenuItem>
-                  <MenuItem onClick={() => handleOpenDialogFull(newsletterWidgetProps)}>NoveList Newsletter Widgets</MenuItem>
                   <Divider />
                   <MenuItem onClick={() => handleOpenDialog(comingSoonProps)}>Coming Soon</MenuItem>
                   <MenuItem component={Link} to={'/admin'}>Admin</MenuItem>
