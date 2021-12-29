@@ -77,9 +77,9 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=VFZNvj-HfBU'
     },
     {
-      title: `It's Not All About About You`,
+      title: `And Many More/More`,
       desc: `Lawrence | 2020`,
-      url: 'https://www.youtube.com/watch?v=rklI7xIB_No'
+      url: 'https://www.youtube.com/watch?v=6mMwOtAXzdk'
     },
     {
       title: `Pteranodon`,
