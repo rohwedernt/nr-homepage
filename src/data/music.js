@@ -36,10 +36,30 @@ export const musicSection = {
   icon: <MusicIcon />,
   data: [
     {
+      title: `Hypotheticals`,
+      desc: `Lake Street Dive | 2021`,
+      url: 'https://www.youtube.com/watch?v=BGQWnWgr8Nk'
+    },
+    {
+      title: `Dont Lose Sight`,
+      desc: `Lawrence | 2021`,
+      url: 'https://www.youtube.com/watch?v=VMs-l9Hru-I'
+    },
+    {
+      title: `Don't Lose Sight`,
+      desc: `Adele | NRJ Awards | 2021`,
+      url: 'https://www.youtube.com/watch?v=ffcitRgiNDs'
+    },
+    {
       title: `Geronimo`,
       desc: `Nate Rohweder | 2020`,
       url: 'https://www.youtube.com/watch?v=9oACwXox6ww',
       myStuff: true
+    },
+    {
+      title: `Talk It Up`,
+      desc: `Sammy Rae and the Friends | The Sinclair | 2020`,
+      url: 'https://www.youtube.com/watch?v=BwA51m5f9LQ'
     },
     {
       title: `Fallin`,
@@ -57,14 +77,34 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=KdnuIlN-Vs4'
     },
     {
-      title: `Summertime`,
-      desc: `Billy Strings & Marcus King | 2019`,
-      url: 'https://www.youtube.com/watch?v=1RNNQYpnukA'
+      title: `Arcadia`,
+      desc: `Goose | Nietzsche's | 2019`,
+      url: 'https://www.youtube.com/watch?v=nT1tLqzfQO0'
+    },  
+    {
+      title: `Beverly Blues`,
+      desc: `Opia | 2019`,
+      url: 'https://www.youtube.com/watch?v=lvvFTC-LT1g'
     },
     {
       title: `Life in the City`,
       desc: `Turkuaz | Sugarshack Sessions | 2019`,
       url: 'https://www.youtube.com/watch?v=DyHKjQsqk2E'
+    },
+    {
+      title: `Juice`,
+      desc: `Lizzo | 2019`,
+      url: 'https://www.youtube.com/watch?v=XaCrQL_8eMY'
+    },
+    {
+      title: `Limited World`,
+      desc: `Cory Wong ft Caleb Hawley | 2019`,
+      url: 'https://www.youtube.com/watch?v=9mCw36PZZeE'
+    },
+    {
+      title: `Sticking To My Guns`,
+      desc: `PJ Morton | Brooklyn Bowl | 2019`,
+      url: 'https://www.youtube.com/watch?v=ySIdB7VMvpo'
     },
     {
       title: `Don't Stop 'Til You Get Enough`,
@@ -82,9 +122,19 @@ export const musicSection = {
       url: 'https://youtu.be/QrR_gm6RqCo?t=700'
     },
     {
+      title: `I Swear (to God)`,
+      desc: `Tyler Childers | LR Baggs Soundcheck | 2018`,
+      url: 'https://www.youtube.com/watch?v=nGLjDIDxjGM'
+    },
+    {
       title: `Call To Arms`,
       desc: `Sturgill Simpson | SNL | 2017`,
       url: 'https://www.youtube.com/watch?v=qsrsrOB0zNQ'
+    },
+    {
+      title: `Tennessee Stud`,
+      desc: `Billy Strings | Fretboard Journal | 2017`,
+      url: 'https://www.youtube.com/watch?v=ypS96LGN6WY'
     },
     {
       title: `Living for the City | Controversy | Quartermaster`,
@@ -100,6 +150,11 @@ export const musicSection = {
       title: `Can't Wait for Perfect`,
       desc: `Bob Reynolds Guitar Band | 2016`,
       url: 'https://www.youtube.com/watch?v=0fO6BYuMIeE'
+    },
+    {
+      title: `Dust in a Baggie`,
+      desc: `Billy Strings | Logging Road at Pickathon | 2016`,
+      url: 'https://www.youtube.com/watch?v=wkUGDYjYgMs'
     },
     {
       title: `Full Show`,
@@ -153,6 +208,11 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=Yc7QSnrkbFM'
     },
     {
+      title: `Roses`,
+      desc: `Outkast | 2013`,
+      url: 'https://www.youtube.com/watch?v=gWju37TZfo0'
+    },
+    {
       title: `Rich Girl`,
       desc: `Lake Street Dive | Pickathon | 2013`,
       url: 'https://www.youtube.com/watch?v=89Oc1UE7SS4'
@@ -161,6 +221,11 @@ export const musicSection = {
       title: `With A Little Help From My Friends`,
       desc: `Dopapod w/Turkuaz | Brooklyn Bowl | 2012`,
       url: 'https://www.youtube.com/watch?v=KHms6yC_n6A'
+    },
+    {
+      title: `The Hustler`,
+      desc: `Mabon (Jamie Smith) | Horo Gheallaidh, BBC Alba | 2011`,
+      url: 'https://www.youtube.com/watch?v=-rZEdkK31oY'
     },
     {
       title: `Why Is It So Hard`,
@@ -188,6 +253,11 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=Awbv7HzQsA4&t=247s'
     },
     {
+      title: `Suikinkutsi`,
+      desc: `Tokyo Ska Paradise | 2010`,
+      url: 'https://www.youtube.com/watch?v=55XfGNP_gew'
+    },
+    {
       title: `Midnight in Harlem`,
       desc: `Tedeschi Trucks Band | Crossroads | 2010`,
       url: 'https://www.youtube.com/watch?v=xbOlgESKbIc'
@@ -201,6 +271,11 @@ export const musicSection = {
       title: `I Shot The Sheriff`,
       desc: `Eric Clapton | Crossroads | 2010`,
       url: 'https://www.youtube.com/watch?v=APWhx97QvxE'
+    },
+    {
+      title: `Jolene`,
+      desc: `Ray LaMontagne | BBC 4 Sessions | 2010`,
+      url: 'https://www.youtube.com/watch?v=PMQkszQVJo4'
     },
     {
       title: `I Don't Need No Doctor`,
@@ -265,7 +340,7 @@ export const musicSection = {
     {
       title: `Full Show`,
       desc: `Talking Heads | Stop Making Sense | 1984`,
-      url: 'https://www.youtube.com/watch?v=h-1PXYM135I'
+      url: 'https://www.youtube.com/watch?v=53dikqNZLgA'
     },
     {
       title: `Bloody Well Right`,
@@ -306,6 +381,11 @@ export const musicSection = {
       title: `Don't Let Me Down`,
       desc: `The Beatles | The Rooftop Concert | 1969`,
       url: 'https://www.youtube.com/watch?v=NCtzkaL2t_Y'
+    },
+    {
+      title: `I've Got A Feeling`,
+      desc: `The Beatles | The Rooftop Concert | 1969`,
+      url: 'https://www.youtube.com/watch?v=9VrYIQMDgtc'
     },
   ]
 }
