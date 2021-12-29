@@ -239,7 +239,7 @@ export const musicSection = {
     },
     {
       title: `The Hustler`,
-      desc: `Mabon (Jamie Smith) | Horo Gheallaidh, BBC Alba | 2011`,
+      desc: `Mabon | Horo Gheallaidh, BBC Alba | 2011`,
       url: 'https://www.youtube.com/watch?v=-rZEdkK31oY'
     },
     {
