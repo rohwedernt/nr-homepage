@@ -51,11 +51,6 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=VMs-l9Hru-I'
     },
     {
-      title: `Easy On Me`,
-      desc: `Adele | NRJ Awards | 2021`,
-      url: 'https://www.youtube.com/watch?v=ffcitRgiNDs'
-    },
-    {
       title: `The Lakes of Pontchartrain`,
       desc: `Aoife O'Donovan and Chris Thile | 2021`,
       url: 'https://www.youtube.com/watch?v=BbrCOYQyd2g'
@@ -231,6 +226,11 @@ export const musicSection = {
       title: `Rich Girl`,
       desc: `Lake Street Dive | Pickathon | 2013`,
       url: 'https://www.youtube.com/watch?v=89Oc1UE7SS4'
+    },
+    {
+      title: `Someone Like You`,
+      desc: `Adele | Royal Albert Hall | 2012`,
+      url: 'https://www.youtube.com/watch?v=Mi2cURoOAYY'
     },
     {
       title: `With A Little Help From My Friends`,
