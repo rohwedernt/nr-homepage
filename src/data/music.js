@@ -77,6 +77,11 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=VFZNvj-HfBU'
     },
     {
+      title: `It's Not All About About You`,
+      desc: `Lawrence | 2020`,
+      url: 'https://www.youtube.com/watch?v=rklI7xIB_No'
+    },
+    {
       title: `Pteranodon`,
       desc: `Matt Greiner | Zildjian Live | 2020`,
       url: 'https://www.youtube.com/watch?v=KdnuIlN-Vs4'
