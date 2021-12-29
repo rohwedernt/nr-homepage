@@ -27,6 +27,8 @@ import SettingsDialogContent from '../components/Dialogs/DialogContent/SettingsD
 import EmailDialogContent from '../components/Dialogs/DialogContent/EmailDialogContent';
 import { AboutThisSite } from './Content/AboutThisSite';
 import { ComingSoon } from './Content/ComingSoon';
+import AstronomyContainer from './Containers/AstronomyContainer';
+//import Nrdcv1 from 'nrdcv1/src/App';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -99,6 +101,13 @@ export default function MenuAppBar(props) {
   const comingSoonProps = {
     title: 'Features and Content on the Horizon',
     content: () => <ComingSoon />
+  };
+
+  const nasaApiProps = {
+    title: 'NASA Globe API Example',
+    description: 'A simple rendering of the interactive globe available from the NASA API',
+    content: () => <AstronomyContainer />,
+    comingSoon: false
   };
 
   const scrumRetroToolProps = {
@@ -178,6 +187,7 @@ export default function MenuAppBar(props) {
                   open={openMenu}
                   onClose={handleCloseMenu}
                 >
+                  <MenuItem onClick={() => handleOpenDialogFull(nasaApiProps)}>NASA Interactive Globe</MenuItem>
                   <MenuItem onClick={() => handleOpenDialogFull(scrumRetroToolProps)}>Scrum Retro Tool</MenuItem>
                   <MenuItem onClick={() => handleOpenDialogFull(dashboardProps)}>Dashboard POC</MenuItem>
                   <MenuItem onClick={() => handleOpenDialogFull(nrV1Props)}>NateRohwederDotCom v1</MenuItem>

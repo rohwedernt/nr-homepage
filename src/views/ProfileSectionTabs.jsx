@@ -12,7 +12,7 @@ import CodeIcon from '@material-ui/icons/Code';
 import MusicIcon from '@material-ui/icons/Audiotrack';
 import FlightIcon from '@material-ui/icons/Flight';
 import FoodIcon from '@material-ui/icons/LocalDining';
-import AstronomyIcon from '@material-ui/icons/Public';
+// import AstronomyIcon from '@material-ui/icons/Public';
 
 // custom components
 import CustomDialogFullScreen from '../components/Dialogs/CustomDialogFullScreen';
@@ -20,7 +20,7 @@ import ImageGalleryDialogContent from '../components/Dialogs/DialogContent/Image
 
 // containers
 import DevContainer from './Containers/DevContainer'
-import AstronomyContainer from './Containers/AstronomyContainer'
+// import AstronomyContainer from './Containers/AstronomyContainer'
 import TravelContainer from './Containers/TravelContainer'
 import FoodAndDrinkContainer from './Containers/FoodAndDrinkContainer'
 
@@ -84,7 +84,7 @@ export default function ProfileSectionTabs(props) {
             <Tab style={tabStyle} icon={<MusicIcon />} label={breakpointMd ? '' : 'Music'} />
             <Tab style={tabStyle} icon={<FlightIcon />} label={breakpointMd ? '' : 'Travel'} />
             <Tab style={tabStyle} icon={<FoodIcon />} label={breakpointMd ? '' : 'Food & Drink'} />
-            <Tab style={tabStyle} icon={<AstronomyIcon />} label={breakpointMd ? '' : 'Astronomy'} />
+            {/* <Tab style={tabStyle} icon={<AstronomyIcon />} label={breakpointMd ? '' : 'Astronomy'} /> */}
           </Tabs>
         </AppBar>
         <SwipeableViews axis={'x'} index={value} onChangeIndex={handleChangeIndex} >
@@ -92,7 +92,7 @@ export default function ProfileSectionTabs(props) {
           <MusicTabPanel value={value} idx={1} />
           <TravelContainer value={value} idx={2} openDialog={handleClickOpenFullDialog} />
           <FoodAndDrinkContainer value={value} idx={3} openDialog={handleClickOpenFullDialog}  />
-          <AstronomyContainer value={value} idx={4}/>
+          {/* <AstronomyContainer value={value} idx={4}/> */}
         </SwipeableViews>
       </div>
       <CustomDialogFullScreen 
