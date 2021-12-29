@@ -46,11 +46,6 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=BGQWnWgr8Nk'
     },
     {
-      title: `Dont Lose Sight`,
-      desc: `Lawrence | 2021`,
-      url: 'https://www.youtube.com/watch?v=VMs-l9Hru-I'
-    },
-    {
       title: `The Lakes of Pontchartrain`,
       desc: `Aoife O'Donovan and Chris Thile | 2021`,
       url: 'https://www.youtube.com/watch?v=BbrCOYQyd2g'
