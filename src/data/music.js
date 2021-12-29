@@ -36,6 +36,11 @@ export const musicSection = {
   icon: <MusicIcon />,
   data: [
     {
+      title: `Cattle in the Cane`,
+      desc: `Punch Brothers | 2021`,
+      url: 'https://www.youtube.com/watch?v=3o4m2OdxH_w'
+    },
+    {
       title: `Hypotheticals`,
       desc: `Lake Street Dive | 2021`,
       url: 'https://www.youtube.com/watch?v=BGQWnWgr8Nk'
@@ -49,6 +54,11 @@ export const musicSection = {
       title: `Don't Lose Sight`,
       desc: `Adele | NRJ Awards | 2021`,
       url: 'https://www.youtube.com/watch?v=ffcitRgiNDs'
+    },
+    {
+      title: `The Lakes of Pontchartrain`,
+      desc: `Aoife O'Donovan and Chris Thile | 2021`,
+      url: 'https://www.youtube.com/watch?v=BbrCOYQyd2g'
     },
     {
       title: `Geronimo`,
@@ -145,6 +155,11 @@ export const musicSection = {
       title: `Please Haalp`,
       desc: `Dopapod | Megagem | 2017`,
       url: 'https://www.youtube.com/watch?v=Ib9zFkxkgdA'
+    },
+    {
+      title: `Don't Think Twice It's Alright`,
+      desc: `Chris Thile & Brad Mehldau | Live From Here | 2017`,
+      url: 'https://www.youtube.com/watch?v=wrDDJ0U0Dfk'
     },
     {
       title: `Can't Wait for Perfect`,
