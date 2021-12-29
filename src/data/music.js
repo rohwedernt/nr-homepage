@@ -51,7 +51,7 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=VMs-l9Hru-I'
     },
     {
-      title: `Don't Lose Sight`,
+      title: `Easy On Me`,
       desc: `Adele | NRJ Awards | 2021`,
       url: 'https://www.youtube.com/watch?v=ffcitRgiNDs'
     },
