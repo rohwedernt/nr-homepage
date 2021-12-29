@@ -182,6 +182,11 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=uLeC2xkPXvo'
     },
     {
+      title: `24K Magic`,
+      desc: `Bruno Mars | SNL | 2016`,
+      url: 'https://www.youtube.com/watch?v=_8cK15Iv5qM'
+    },
+    {
       title: `Back Pocket`,
       desc: `Vulfpeck | Madison Square Garden | 2016`,
       url: 'https://www.youtube.com/watch?v=UZPX9KQbwsg'
