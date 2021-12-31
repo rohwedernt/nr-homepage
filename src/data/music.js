@@ -330,7 +330,7 @@ export const musicSection = {
     {
       title: `Full Show`,
       desc: `McLaughlin, DeFrancesco, Chambers | 1994`,
-      url: 'https://www.youtube.com/watch?v=Ox8eYBFszuA&t=127s'
+      url: 'https://www.youtube.com/watch?v=Ox8eYBFszuA'
     },
     {
       title: `Where Did You Sleep Last Night`,
