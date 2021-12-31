@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useRef } from 'react';
 import SwipeableViews from 'react-swipeable-views';
 
 // @material-ui/core components
@@ -48,6 +48,8 @@ export default function ProfileSectionTabs(props) {
   const [dialogItem, setDialogItem] = useState({});
   const [openFullDialog, setOpenFullDialog] = useState(false);
 
+  const tabRef = useRef(null)
+
   const { breakpointMd } = props;
 
   const handleClickOpenFullDialog = (item) => {
@@ -60,6 +62,7 @@ export default function ProfileSectionTabs(props) {
   };
 
   const handleChange = (event, newValue) => {
+    tabRef.current.scrollIntoView();
     setValue(newValue);
   };
 
@@ -76,6 +79,7 @@ export default function ProfileSectionTabs(props) {
           <Tabs
             value={value}
             onChange={handleChange}
+            ref={tabRef}
             indicatorColor='primary'
             textColor='primary'
             variant='fullWidth'

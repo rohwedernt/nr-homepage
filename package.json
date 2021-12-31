@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^7.2.1",
     "aws-amplify": "^3.3.11",
     "aws-amplify-react": "^4.2.15",
+    "emailjs": "^3.7.0",
     "material-design-icons": "^3.0.1",
     "material-ui-icons": "^1.0.0-beta.36",
     "mobx": "^6.0.4",

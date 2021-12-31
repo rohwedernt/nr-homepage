@@ -233,7 +233,7 @@ export const musicSection = {
       url: 'https://www.youtube.com/watch?v=89Oc1UE7SS4'
     },
     {
-      title: `Someone Like You`,
+      title: `Someone Like You / Rolling in the Deep`,
       desc: `Adele | Royal Albert Hall | 2012`,
       url: 'https://www.youtube.com/watch?v=Mi2cURoOAYY'
     },

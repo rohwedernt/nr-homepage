@@ -1,5 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { Link } from "react-router-dom";
+import emailjs from 'emailjs';
+import apiKey from '../emailkey';
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
@@ -28,7 +30,7 @@ import EmailDialogContent from '../components/Dialogs/DialogContent/EmailDialogC
 import { AboutThisSite } from './Content/AboutThisSite';
 import { ComingSoon } from './Content/ComingSoon';
 import AstronomyContainer from './Containers/AstronomyContainer';
-//import Nrdcv1 from 'nrdcv1/src/App';
+//import { Nrdcv1 } from 'nrdcv1';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -82,6 +84,18 @@ export default function MenuAppBar(props) {
     setOpenDialog(true);
   };
   const handleCloseDialog = () => setOpenDialog(false);
+  const handleSubmitDialog = (e) => {
+      e.preventDefault();
+      emailjs.sendForm(`gmail`, apiKey.TEMPLATE_ID, e.target, apiKey.USER_ID)
+        .then((result) => {
+            alert("Message Sent, We will get back to you shortly", result.text);
+          },
+          (error) => {
+            alert("An error occurred, Please try again", error.text);
+        });
+    setOpenDialog(false);
+  }
+
 
   // full screen dialog
   const [openDialogFull, setOpenDialogFull] = useState(false);
@@ -99,7 +113,7 @@ export default function MenuAppBar(props) {
   };
 
   const comingSoonProps = {
-    title: 'Features and Content on the Horizon',
+    title: 'Features and Content Coming Soon',
     content: () => <ComingSoon />
   };
 
@@ -133,10 +147,9 @@ export default function MenuAppBar(props) {
 
   const contactProps = {
     title: 'Contact',
-    confirmText: undefined, // set this to 'Send' when email is ready
-    confirmFunc: () => {}, // set this to () => setOpenAlert(true)
-    content: () => <EmailDialogContent />,
-    cancel: false // and set this back to true
+    confirmText: 'Send',
+    confirmFunc: () => handleSubmitDialog(),
+    content: () => <EmailDialogContent />
   };
 
   const settingsProps = {
