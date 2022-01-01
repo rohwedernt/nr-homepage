@@ -210,7 +210,7 @@ export function AboutThisSite() {
       <Typography gutterBottom variant={"body1"}>
         Another design tenet that is yet to be fully implemented is allowing the
         user to customize elements of the page. My current POC for this idea is
-        the ability to set the theme color for the site from the settings menu.
+        the ability to set dark mode for the site from the settings menu.
         Eventually, I hope to expand the users ability to tailor the page to
         their liking.
       </Typography>
