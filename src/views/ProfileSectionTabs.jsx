@@ -1,5 +1,7 @@
 import React, { Fragment, useState, useRef } from 'react';
-import SwipeableViews from 'react-swipeable-views';
+import { createBrowserHistory } from 'history';
+import SwipeableRoutes from "react-swipeable-routes";
+import { BrowserRouter as Route, Router } from "react-router-dom";
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
@@ -20,9 +22,9 @@ import ImageGalleryDialogContent from '../components/Dialogs/DialogContent/Image
 
 // containers
 import DevContainer from './Containers/DevContainer'
-// import AstronomyContainer from './Containers/AstronomyContainer'
 import TravelContainer from './Containers/TravelContainer'
 import FoodAndDrinkContainer from './Containers/FoodAndDrinkContainer'
+// import AstronomyContainer from './Containers/AstronomyContainer'
 
 // layouts
 import MusicTabPanel from './TabPanels/MusicTabPanel';
@@ -72,8 +74,10 @@ export default function ProfileSectionTabs(props) {
 
   let tabStyle = breakpointMd ? { minWidth: '40px' } : undefined;
 
+  var hist = createBrowserHistory();
+
   return (
-    <Fragment>
+    <Router history={hist}>
       <div className={classes.root}>
         <AppBar position='static' color={'transparent'} elevation={0}>
           <Tabs
@@ -84,20 +88,26 @@ export default function ProfileSectionTabs(props) {
             textColor='primary'
             variant='fullWidth'
           >
-            <Tab style={tabStyle} icon={<CodeIcon />} label={breakpointMd ? '' : 'Dev'} />
-            <Tab style={tabStyle} icon={<MusicIcon />} label={breakpointMd ? '' : 'Music'} />
-            <Tab style={tabStyle} icon={<FlightIcon />} label={breakpointMd ? '' : 'Travel'} />
-            <Tab style={tabStyle} icon={<FoodIcon />} label={breakpointMd ? '' : 'Food & Drink'} />
+            <Tab style={tabStyle} to={'/dev'} icon={<CodeIcon />} label={breakpointMd ? '' : 'Dev'} />
+            <Tab style={tabStyle} to={'/music'} icon={<MusicIcon />} label={breakpointMd ? '' : 'Music'} />
+            <Tab style={tabStyle} to={'/travel'} icon={<FlightIcon />} label={breakpointMd ? '' : 'Travel'} />
+            <Tab style={tabStyle} to={'/foodanddrink'} icon={<FoodIcon />} label={breakpointMd ? '' : 'Food & Drink'} />
             {/* <Tab style={tabStyle} icon={<AstronomyIcon />} label={breakpointMd ? '' : 'Astronomy'} /> */}
           </Tabs>
         </AppBar>
-        <SwipeableViews axis={'x'} index={value} onChangeIndex={handleChangeIndex} >
-          <DevContainer value={value} idx={0} />
+        <SwipeableRoutes replace axis={'x'} index={value} onChangeIndex={handleChangeIndex} >
+          <Route path={`/dev`} component={() => <DevContainer value={value} idx={0} />}/>
+          <Route path={`/music`} component={() => <MusicTabPanel value={value} idx={1} />}/>
+          <Route path={`/travel`} component={() => <TravelContainer value={value} idx={2} openDialog={handleClickOpenFullDialog} />}/>
+          <Route path={`/foodanddrink`} component={() => <FoodAndDrinkContainer value={value} idx={3} openDialog={handleClickOpenFullDialog} />}/>
+
+
+          {/* <DevContainer value={value} idx={0} />
           <MusicTabPanel value={value} idx={1} />
           <TravelContainer value={value} idx={2} openDialog={handleClickOpenFullDialog} />
-          <FoodAndDrinkContainer value={value} idx={3} openDialog={handleClickOpenFullDialog}  />
+          <FoodAndDrinkContainer value={value} idx={3} openDialog={handleClickOpenFullDialog} /> */}
           {/* <AstronomyContainer value={value} idx={4}/> */}
-        </SwipeableViews>
+        </SwipeableRoutes>
       </div>
       <CustomDialogFullScreen 
         open={openFullDialog}
@@ -105,6 +115,6 @@ export default function ProfileSectionTabs(props) {
         content={() => <ImageGalleryDialogContent item={dialogItem} />}
         item={dialogItem}
       />
-    </Fragment>
+    </Router>
   );
 }

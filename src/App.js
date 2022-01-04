@@ -8,7 +8,8 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 
 import { Route, Switch } from 'react-router-dom';
 import AdminPage from './views/Admin/AdminPage';
-import CustomThemeProvider from './themes/CustomThemeProvider'
+import DevContainer from './views/Containers/DevContainer';
+import CustomThemeProvider from './themes/CustomThemeProvider';
 
 // stylesheets
 import '@aws-amplify/ui/dist/style.css';
@@ -17,10 +18,11 @@ function App() {
   return (
     <CustomThemeProvider>
       <CssBaseline />
-      <Switch>
+      <ProfilePage />
+      {/* <Switch>
         <Route exact path='/' render={() =>  <ProfilePage />} />
         <Route path="/admin" render={() => <AdminPage />} />
-      </Switch>
+      </Switch> */}
     </CustomThemeProvider>
   );
 }

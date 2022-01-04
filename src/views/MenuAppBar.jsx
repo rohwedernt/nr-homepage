@@ -171,7 +171,7 @@ export default function MenuAppBar(props) {
           <Toolbar style={{ justifyContent: 'space-between'}}>
             {onAdmin ? (
               <IconButton
-                component={Link}
+                //component={Link}
                 to={'/'}
                 color='inherit'
                 className={classes.back}
@@ -206,7 +206,7 @@ export default function MenuAppBar(props) {
                   <MenuItem onClick={() => handleOpenDialogFull(nrV1Props)}>NateRohwederDotCom v1</MenuItem>
                   <Divider />
                   <MenuItem onClick={() => handleOpenDialog(comingSoonProps)}>Coming Soon</MenuItem>
-                  <MenuItem component={Link} to={'/admin'}>Admin</MenuItem>
+                  {/* <MenuItem component={Link} to={'/admin'}>Admin</MenuItem> */}
                 </Menu>
               </Fragment>
             )}
