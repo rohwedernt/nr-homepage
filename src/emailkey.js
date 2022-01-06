@@ -1,4 +1,4 @@
 export default {
-    USER_ID: `rohwedernt_emailjs`, //userID
-    TEMPLATE_ID: `template_1fe4fhq`, //templateID
+    USER_ID: process.env.EMAILJS_USER_ID,
+    TEMPLATE_ID: process.env.EMAILJS_TEMPLATE_ID,
 }

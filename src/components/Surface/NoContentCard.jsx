@@ -11,7 +11,8 @@ import nothingToSeeHereGif from '../../assets/img/nothingtoseeheregif.gif';
 
 const useStyles = makeStyles(() => ({
   gridItem: {
-    margin: '15px'
+    margin: '15px',
+    paddingBottom: '200px'
   },
   card: {
     minWidth: 285,

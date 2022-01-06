@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export function ComingSoon() {
+export default function ComingSoon() {
     const classes = useStyles();
 
     return (

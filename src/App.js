@@ -6,9 +6,9 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 //import { createMuiTheme } from '@material-ui/core/styles';
 //import { ThemeProvider } from '@material-ui/styles';
 
-import { Route, Switch } from 'react-router-dom';
-import AdminPage from './views/Admin/AdminPage';
-import DevContainer from './views/Containers/DevContainer';
+//import { Route, Switch } from 'react-router-dom';
+//import AdminPage from './views/Admin/AdminPage';
+//import DevContainer from './views/Containers/DevContainer';
 import CustomThemeProvider from './themes/CustomThemeProvider';
 
 // stylesheets

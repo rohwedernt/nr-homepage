@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { createBrowserHistory } from 'history';
 import SwipeableRoutes from "react-swipeable-routes";
 import { BrowserRouter as Route, Router } from "react-router-dom";

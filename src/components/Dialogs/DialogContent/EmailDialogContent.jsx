@@ -1,23 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // @material-ui/core components
 import TextField from '@material-ui/core/TextField';
 
-export default function EmailDialog(props) {
+const EmailDialog = React.memo((props) => {
+    const { setEmailContent } = props;
     const [value, setValue] = useState('');
-    const handleChange = (event) => setValue(event.target.value);
+
+    // useEffect(() => {
+    //     setEmailContent(value);
+    //   }, [setEmailContent, value]);
+
+    const handleChange = (event) => {
+        const val = event.target.value;
+        setValue(val);
+        setEmailContent(val);
+    };
 
     return (
         <TextField
             id='outlined-multiline-static'
-            label='Coming Soon!'
+            label='Send me an email'
             onChange={handleChange}
             value={value}
             multiline
             rows={8}
             variant='outlined'
             fullWidth
-            disabled
         />
   );
-}
+});
+
+export default EmailDialog;
