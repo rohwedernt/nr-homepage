@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
   comingSoon: {
     marginLeft: theme.spacing(5),
     paddingTop: theme.spacing(2),
-
   }
 }));
 

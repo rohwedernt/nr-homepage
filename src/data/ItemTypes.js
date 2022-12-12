@@ -2,8 +2,7 @@ export const ContentTypes = Object.freeze({
     dev: 'dev', 
     music: 'music', 
     travel: 'travel',
-    food: 'food',
-    astronomy: 'astronomy'
+    food: 'food'
 })
 
 export const ItemTypes = Object.freeze({

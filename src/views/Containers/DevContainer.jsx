@@ -13,6 +13,7 @@ export default function DevContainer(props) {
 
   useEffect(() => {
     fetchItems();
+    // eslint-disable-next-line
   }, [myStuff]);
 
   async function fetchItems() {

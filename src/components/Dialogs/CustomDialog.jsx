@@ -44,8 +44,8 @@ export default function CustomDialog(props) {
                 )}
                 <Button 
                     onClick={() => {
-                        handleClose();
                         confirmFunc && confirmFunc();
+                        handleClose();
                     }} 
                     color='primary'
                 >

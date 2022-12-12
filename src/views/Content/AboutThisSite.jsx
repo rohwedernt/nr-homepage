@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function AboutThisSite() {
+export default function AboutThisSite() {
   const classes = useStyles();
 
   return (
@@ -29,7 +29,7 @@ export function AboutThisSite() {
       <Typography gutterBottom variant={"body1"}>
         This space attempts to be the hub of my development world. In that
         effort, I'll try to continue to get as much content up as possible over
-        the course of 2020. Ideally, that will include a healthy mix of stuff
+        the course of 2021. Ideally, that will include a healthy mix of stuff
         I've created (development side projects, music I've recorded, places
         I've gone, meals I've cooked, etc.) and links to resources from all
         areas of my interests that I've held on to for one reason or another.
@@ -210,7 +210,7 @@ export function AboutThisSite() {
       <Typography gutterBottom variant={"body1"}>
         Another design tenet that is yet to be fully implemented is allowing the
         user to customize elements of the page. My current POC for this idea is
-        the ability to set the theme color for the site from the settings menu.
+        the ability to set dark mode for the site from the settings menu.
         Eventually, I hope to expand the users ability to tailor the page to
         their liking.
       </Typography>

@@ -4,7 +4,6 @@ import { API, graphqlOperation } from 'aws-amplify';
 
 // @material-ui/core components
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { createImage } from '../../../graphql/mutations';
 

@@ -6,7 +6,6 @@ import { getImageItemsByDate } from '../../../graphql/queries';
 
 // @material-ui/core components
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';

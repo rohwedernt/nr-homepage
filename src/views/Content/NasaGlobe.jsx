@@ -23,6 +23,7 @@ export default class NasaGlobe extends Component {
   }
   
   render() {
+    // eslint-disable-next-line
     const globe = this.globeRef.current
     
     const layers = [
@@ -41,7 +42,6 @@ export default class NasaGlobe extends Component {
     
     return (
       <div>
-        <h4 style={{ padding:'10px', textAlign:'center', fontStyle:'italic', fontFamily:`'Montserrat', sans-serif` }}>For now this is just the interactive worldwind globe from the NASA API :)</h4>
         <Container fluid className='p-0'>
           <div className='globe'>
               <Globe 
